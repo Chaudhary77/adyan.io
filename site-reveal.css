@@ -1,0 +1,48 @@
+/* ============================================================
+   Global scroll-reveal, sections ease in as they enter view.
+   Resilient by design:
+   - Hidden state is scoped to .reveal-on, which JS only adds once
+     the observer is wired up. If JS never runs, everything shows.
+   - Disabled entirely under prefers-reduced-motion.
+   - Forced visible for print.
+   ============================================================ */
+
+html { scroll-behavior: smooth; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .reveal-on .adyan-site > section.rv {
+    opacity: 0;
+    transform: translateY(34px);
+    transition:
+      opacity .85s var(--ease-out),
+      transform .85s var(--ease-out);
+    will-change: opacity, transform;
+  }
+  .reveal-on .adyan-site > section.rv.rv-in {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Light stagger for grids/strips inside a revealing section. JS sets
+     --rv-i on each child; children settle a beat after their section. */
+  .reveal-on .adyan-site > section.rv [data-rv-stagger] > * {
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+      opacity .7s var(--ease-out),
+      transform .7s var(--ease-out);
+  }
+  .reveal-on .adyan-site > section.rv.rv-in [data-rv-stagger] > * {
+    opacity: 1;
+    transform: none;
+    transition-delay: calc(120ms + var(--rv-i, 0) * 80ms);
+  }
+}
+
+@media print {
+  .reveal-on .adyan-site > section.rv,
+  .reveal-on .adyan-site > section.rv [data-rv-stagger] > * {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

@@ -1,0 +1,162 @@
+/* =========================================================
+   site6.css, Arabic capability (.arb) + FAQ (.faq)
+   New landing-page sections. Uses ADYAN design tokens.
+   ========================================================= */
+
+/* ---------- Arabic & bilingual capability (.arb) ---------- */
+.arb { padding: 96px 40px; max-width: var(--maxw-content); margin: 0 auto; }
+.arb-inner {
+  display: grid; grid-template-columns: 0.95fr 1.05fr; gap: 56px; align-items: start;
+}
+
+/* left: capability cards */
+.arb-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.arb-card {
+  background: var(--bg-elev-1);
+  border: 1px solid var(--border-1);
+  border-radius: var(--r-lg);
+  padding: 22px 20px;
+  transition: border-color var(--dur) var(--ease-out), transform var(--dur) var(--ease-out);
+}
+.arb-card:hover { border-color: var(--border-active); transform: translateY(-2px); }
+.arb-card .ic {
+  width: 40px; height: 40px; border-radius: var(--r-md);
+  display: grid; place-items: center; margin-bottom: 14px;
+  background: var(--accent-soft); color: var(--accent);
+  border: 1px solid var(--border-active);
+}
+.arb-card .ic svg { width: 20px; height: 20px; }
+.arb-card h3 { font-size: 17px; margin-bottom: 6px; }
+.arb-card p { font-size: 14px; color: var(--fg-2); line-height: 1.55; }
+
+/* right: bilingual proof panel */
+.arb-proof {
+  background: var(--bg-elev-1);
+  border: 1px solid var(--border-1);
+  border-radius: var(--r-xl);
+  padding: 26px;
+  box-shadow: var(--shadow-md);
+}
+.arb-proof-head {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 13px; color: var(--fg-3); font-weight: 600;
+  letter-spacing: .04em; text-transform: uppercase;
+  padding-bottom: 16px; margin-bottom: 18px;
+  border-bottom: 1px solid var(--border-1);
+}
+.arb-proof-head .dot { width: 8px; height: 8px; border-radius: 50%; background: #2ecc71; box-shadow: 0 0 8px #2ecc71; }
+.arb-msgs { display: flex; flex-direction: column; gap: 12px; }
+.arb-msg { max-width: 86%; padding: 12px 15px; border-radius: 16px; font-size: 14.5px; line-height: 1.5; }
+.arb-msg .meta { display: block; margin-top: 6px; font-size: 11px; color: var(--fg-3); }
+.arb-msg.from-user {
+  align-self: flex-end; background: var(--accent); color: #fff;
+  border-bottom-right-radius: 5px;
+}
+.arb-msg.from-user .meta { color: rgba(255,255,255,.7); }
+.arb-msg.from-agent {
+  align-self: flex-start; background: var(--bg-elev-2);
+  border: 1px solid var(--border-1); border-bottom-left-radius: 5px;
+}
+.arb-msg.rtl { direction: rtl; text-align: right; }
+.arb-msg.rtl.from-user { border-bottom-right-radius: 16px; border-bottom-left-radius: 5px; }
+.arb-proof-note {
+  display: flex; align-items: center; gap: 9px;
+  margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--border-1);
+  font-size: 13px; color: var(--fg-3);
+}
+.arb-proof-note svg { width: 16px; height: 16px; color: var(--accent); flex: none; }
+
+@media (max-width: 900px) {
+  .arb { padding: 64px 20px; }
+  .arb-inner { grid-template-columns: 1fr; gap: 28px; }
+}
+@media (max-width: 480px) {
+  .arb-cards { grid-template-columns: 1fr; }
+}
+
+/* ---------- FAQ (.faq) ---------- */
+.faq { padding: 96px 40px; max-width: var(--maxw-content); margin: 0 auto; }
+.faq-groups { max-width: 920px; margin: 0 auto; display: flex; flex-direction: column; gap: 44px; }
+.faq-group-head {
+  display: flex; align-items: center; gap: 14px; margin-bottom: 6px;
+}
+.faq-group-ic {
+  flex: none; width: 34px; height: 34px; border-radius: 9px;
+  display: grid; place-items: center;
+  background: rgba(26,117,222,.1); border: 1px solid var(--border-1);
+  color: var(--accent);
+}
+.faq-group-ic svg { width: 17px; height: 17px; }
+.faq-group-label {
+  font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--fg-2); white-space: nowrap;
+}
+.faq-group-rule { flex: 1; height: 1px; background: var(--border-1); }
+.faq-list {
+  max-width: 920px; margin: 0 auto;
+  border-top: 1px solid var(--border-1);
+}
+.faq-item { border-bottom: 1px solid var(--border-1); }
+.faq-item summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  padding: 26px 4px;
+  font-family: var(--font-display); font-size: clamp(18px, 2vw, 21px);
+  font-weight: 600; color: var(--fg-1); letter-spacing: -0.01em;
+  transition: color var(--dur) var(--ease-out);
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary:hover { color: var(--accent); }
+.faq-item .faq-chev {
+  position: relative;
+  flex: none; width: 28px; height: 28px; border-radius: 50%;
+  border: 1px solid var(--border-1); color: var(--fg-3);
+  transition: color var(--dur) var(--ease-out), border-color var(--dur) var(--ease-out);
+}
+/* plus drawn with pseudo-elements, never touched by the icon re-scan */
+.faq-item .faq-chev::before,
+.faq-item .faq-chev::after {
+  content: ""; position: absolute; top: 50%; left: 50%;
+  background: currentColor; border-radius: 1px;
+}
+.faq-item .faq-chev::before { width: 11px; height: 1.6px; transform: translate(-50%, -50%); }
+.faq-item .faq-chev::after  { width: 1.6px; height: 11px; transform: translate(-50%, -50%); }
+/* Static transform, no transition/animation. A per-frame global icon re-scan
+   restarts any in-flight progression, so the rotation is applied statically:
+   each restyle simply recomputes the same 45deg. */
+.faq-item[open] .faq-chev {
+  color: var(--accent); border-color: var(--border-active);
+  transform: rotate(45deg);
+}
+.faq-item summary:hover .faq-chev { color: var(--accent); border-color: var(--border-active); }
+.faq-answer {
+  padding: 0 52px 28px 4px;
+  font-size: 16px; line-height: 1.7; color: var(--fg-2);
+  max-width: 70ch;
+  animation: faqReveal var(--dur-slow) var(--ease-out);
+}
+.faq-answer strong { color: var(--fg-1); font-weight: 600; }
+.faq-answer a { color: var(--accent); text-decoration: none; }
+.faq-answer a:hover { text-decoration: underline; }
+@keyframes faqReveal { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+
+.faq-foot {
+  max-width: 920px; margin: 40px auto 0;
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  padding: 22px 24px; border-radius: var(--r-lg);
+  background: var(--bg-elev-1); border: 1px solid var(--border-1);
+  font-size: 15px; color: var(--fg-2);
+}
+.faq-foot svg { width: 18px; height: 18px; color: var(--accent); flex: none; }
+.faq-foot a {
+  margin-left: auto; color: var(--accent); font-weight: 600; text-decoration: none;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.faq-foot a svg { color: var(--accent); }
+.faq-foot a:hover { color: var(--accent-hover); }
+
+@media (max-width: 700px) {
+  .faq { padding: 64px 20px; }
+  .faq-answer { padding-right: 4px; }
+  .faq-foot a { margin-left: 0; }
+}

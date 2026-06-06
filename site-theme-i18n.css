@@ -1,0 +1,522 @@
+/* =========================================================
+   ADYAN, Light mode + RTL + dark-surface isolation
+   Layered on top of site-pages.css.
+   ========================================================= */
+
+/* ---------- Arabic webfont ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap');
+
+/* =========================================================
+   Dark-surface isolation
+   These elements are "product mocks" inside the marketing
+   layout and MUST stay dark in both themes. We re-declare
+   the dark token values inside their scope so descendants
+   read the dark palette regardless of root data-theme.
+   ========================================================= */
+.hero-mock,
+.mc-board,
+.svc-visual,
+.wav-card,
+.sys-page-card .visual,
+.final-card,
+.audit-strip-inner,
+.hero-pill,
+.sticky-audit-bar,
+.mock-kpi,
+.mock-row,
+.mc-card-sm,
+.mc-panel,
+.mc-item,
+.sys-mini-row,
+.wa-head,
+.voice-call,
+.voice-transcript,
+.cal-day,
+.cal-slot {
+  --bg: #0D1D29;
+  --bg-elev-1: #142838;
+  --bg-elev-2: #1B344A;
+  --fg-1: #F5F7FA;
+  --fg-2: rgba(245,247,250,.72);
+  --fg-3: rgba(245,247,250,.5);
+  --fg-mute: rgba(245,247,250,.32);
+  --border-1: rgba(58,87,120,.3);
+  --border-2: rgba(58,87,120,.5);
+}
+
+/* =========================================================
+   LIGHT MODE, proper override
+   Marketing chrome flips to light. Product mocks stay dark
+   via the rules above.
+   ========================================================= */
+:root[data-theme="light"] {
+  --obsidian: #F4F6FA;
+  --graphite: #FFFFFF;
+  --graphite-2: #F8FAFC;
+  --cloud: #0D1D29;
+  --bg: #F4F6FA;
+  --bg-elev-1: #FFFFFF;
+  --bg-elev-2: #F0F4FA;
+  --fg-1: #0D1D29;
+  --fg-2: rgba(13,29,41,.74);
+  --fg-3: rgba(13,29,41,.54);
+  --fg-mute: rgba(13,29,41,.28);
+  --border-1: rgba(58,87,120,.18);
+  --border-2: rgba(58,87,120,.32);
+  --border-inset: rgba(13,29,41,.04);
+  --shadow-sm: 0 1px 2px rgba(13,29,41,.06);
+  --shadow-md: 0 6px 22px rgba(13,29,41,.07);
+  --shadow-lg: 0 18px 50px rgba(13,29,41,.09);
+  --shadow-glow: 0 0 0 1px rgba(26,117,222,.32), 0 12px 36px rgba(26,117,222,.16);
+  --shadow-glow-soft: 0 0 0 1px rgba(26,117,222,.2), 0 6px 22px rgba(26,117,222,.08);
+}
+
+:root[data-theme="light"] body,
+:root[data-theme="light"] .adyan-site {
+  background: #F4F6FA;
+  color: #0D1D29;
+}
+
+/* Nav */
+:root[data-theme="light"] .adyan-nav {
+  background: rgba(255,255,255,.82);
+  border-bottom: 1px solid rgba(58,87,120,.16);
+}
+:root[data-theme="light"] .nav-links a { color: rgba(13,29,41,.7); }
+:root[data-theme="light"] .nav-links a:hover { color: #0D1D29; }
+:root[data-theme="light"] .nav-links a.is-current { color: #1A75DE; }
+:root[data-theme="light"] .theme-toggle { color: rgba(13,29,41,.6); }
+:root[data-theme="light"] .lang-toggle { color: rgba(13,29,41,.6); border-color: rgba(58,87,120,.2); }
+:root[data-theme="light"] .lang-toggle:hover { color: #0D1D29; }
+:root[data-theme="light"] .btn-secondary { color: #0D1D29; border-color: rgba(58,87,120,.32); }
+
+/* Breadcrumb */
+:root[data-theme="light"] .breadcrumb { background: rgba(255,255,255,.7); border-bottom: 1px solid rgba(58,87,120,.14); }
+:root[data-theme="light"] .breadcrumb a { color: rgba(13,29,41,.55); }
+:root[data-theme="light"] .breadcrumb a:hover { color: #0D1D29; }
+:root[data-theme="light"] .breadcrumb .current { color: #0D1D29; }
+
+/* Page hero, lighten gradient, dark text */
+:root[data-theme="light"] .page-hero,
+:root[data-theme="light"] .hero {
+  background:
+    radial-gradient(80% 70% at 90% 10%, rgba(26,117,222,.06), transparent 60%),
+    radial-gradient(60% 50% at 8% 96%, rgba(26,117,222,.04), transparent 60%),
+    #F4F6FA;
+}
+:root[data-theme="light"] .hero-grid,
+:root[data-theme="light"] .page-hero::before { opacity: .25; }
+:root[data-theme="light"] .hero-mesh { opacity: .18; }
+:root[data-theme="light"] .hero-h1,
+:root[data-theme="light"] .page-hero h1 { color: #0D1D29; }
+:root[data-theme="light"] .hero-sub,
+:root[data-theme="light"] .page-hero .lede { color: rgba(13,29,41,.72); }
+:root[data-theme="light"] .hero-meta { color: rgba(13,29,41,.55); border-top-color: rgba(58,87,120,.18); }
+
+/* Page hero meta box */
+:root[data-theme="light"] .page-hero-meta {
+  background: rgba(255,255,255,.78);
+  border-color: rgba(58,87,120,.18);
+}
+:root[data-theme="light"] .page-hero-meta .item { border-bottom-color: rgba(58,87,120,.14); }
+:root[data-theme="light"] .page-hero-meta .lbl { color: rgba(13,29,41,.5); }
+:root[data-theme="light"] .page-hero-meta .val { color: #0D1D29; }
+
+/* Section heads (canvas) */
+:root[data-theme="light"] .section-head h2,
+:root[data-theme="light"] .section-head-c h2 { color: #0D1D29; }
+:root[data-theme="light"] .section-sub,
+:root[data-theme="light"] .section-head-c .lede { color: rgba(13,29,41,.7); }
+
+/* Trust strip */
+:root[data-theme="light"] .trust { background: rgba(255,255,255,.6); border-top-color: rgba(58,87,120,.14); border-bottom-color: rgba(58,87,120,.14); }
+:root[data-theme="light"] .trust-label,
+:root[data-theme="light"] .trust-logos .logo { color: rgba(13,29,41,.55); }
+
+/* Stats */
+:root[data-theme="light"] .stats-grid { background: rgba(58,87,120,.14); border-color: rgba(58,87,120,.16); }
+:root[data-theme="light"] .stat { background: #FFFFFF; }
+:root[data-theme="light"] .stat .num { color: #0D1D29; }
+:root[data-theme="light"] .stat .lbl { color: rgba(13,29,41,.5); }
+:root[data-theme="light"] .stat .desc { color: rgba(13,29,41,.65); }
+
+/* Problem / Solution */
+:root[data-theme="light"] .ps-block { background: #FFFFFF; border-color: rgba(58,87,120,.16); }
+:root[data-theme="light"] .ps-solution { background: linear-gradient(180deg, rgba(26,117,222,.06), #FFFFFF 70%); border-color: rgba(26,117,222,.28); }
+:root[data-theme="light"] .ps-h { color: #0D1D29; }
+:root[data-theme="light"] .ps-p { color: rgba(13,29,41,.72); }
+:root[data-theme="light"] .ps-list li { background: rgba(13,29,41,.025); border-color: rgba(58,87,120,.14); color: rgba(13,29,41,.74); }
+:root[data-theme="light"] .ps-list-yes li { background: rgba(26,117,222,.05); border-color: rgba(26,117,222,.22); }
+
+/* What We Build */
+:root[data-theme="light"] .wwb-card { background: #FFFFFF; border-color: rgba(58,87,120,.16); }
+:root[data-theme="light"] .wwb-card h3 { color: #0D1D29; }
+:root[data-theme="light"] .wwb-card p { color: rgba(13,29,41,.72); }
+:root[data-theme="light"] .wwb-features li { color: rgba(13,29,41,.55); }
+:root[data-theme="light"] .wwb-num { color: rgba(13,29,41,.45); }
+
+/* How / Stepper */
+:root[data-theme="light"] .how-step { background: #FFFFFF; border-color: rgba(58,87,120,.16); }
+:root[data-theme="light"] .how-step h4 { color: #0D1D29; }
+:root[data-theme="light"] .how-step p { color: rgba(13,29,41,.72); }
+:root[data-theme="light"] .how-banner { background: linear-gradient(180deg, rgba(26,117,222,.06), #FFFFFF); border-color: rgba(26,117,222,.28); color: #0D1D29; }
+
+/* Integrations (used as in-page nav) */
+:root[data-theme="light"] .integ-tile { background: #FFFFFF; border-color: rgba(58,87,120,.16); }
+:root[data-theme="light"] .integ-tile .name { color: #0D1D29; }
+:root[data-theme="light"] .integ-tile .cat { color: rgba(13,29,41,.5); }
+:root[data-theme="light"] .integ-tile:hover { border-color: rgba(26,117,222,.5); background: rgba(26,117,222,.04); }
+
+/* Systems Built, landing cards */
+:root[data-theme="light"] .sys-card { background: #FFFFFF; border-color: rgba(58,87,120,.16); }
+:root[data-theme="light"] .sys-card h3 { color: #0D1D29; }
+:root[data-theme="light"] .sys-card p { color: rgba(13,29,41,.72); }
+:root[data-theme="light"] .sys-foot { color: rgba(13,29,41,.55); border-top-color: rgba(58,87,120,.16); }
+
+/* Why */
+:root[data-theme="light"] .why-grid li { background: #FFFFFF; border-color: rgba(58,87,120,.16); }
+:root[data-theme="light"] .why-grid .body .t { color: #0D1D29; }
+:root[data-theme="light"] .why-grid .body .s { color: rgba(13,29,41,.72); }
+
+/* Section--elev */
+:root[data-theme="light"] .section--elev { background: #FFFFFF; }
+
+/* Principles + Industry + Pillars + Process cards */
+:root[data-theme="light"] .principle,
+:root[data-theme="light"] .industry-tile,
+:root[data-theme="light"] .about-mission .pillar,
+:root[data-theme="light"] .process-card {
+  background: #FFFFFF; border-color: rgba(58,87,120,.16);
+}
+:root[data-theme="light"] .principle h4,
+:root[data-theme="light"] .process-card h3,
+:root[data-theme="light"] .about-mission .pillar h4,
+:root[data-theme="light"] .industry-tile .name { color: #0D1D29; }
+:root[data-theme="light"] .principle p,
+:root[data-theme="light"] .process-card p,
+:root[data-theme="light"] .about-mission .pillar p { color: rgba(13,29,41,.72); }
+:root[data-theme="light"] .industry-tile .ex { color: rgba(13,29,41,.55); }
+:root[data-theme="light"] .process-card .deliv li { color: rgba(13,29,41,.7); }
+:root[data-theme="light"] .process-card .dur { color: rgba(13,29,41,.55); border-color: rgba(58,87,120,.18); }
+
+/* Process rail line */
+:root[data-theme="light"] .process-rail::before {
+  background: linear-gradient(180deg, var(--accent), rgba(58,87,120,.4) 30%, rgba(58,87,120,.4) 70%, transparent);
+  opacity: .6;
+}
+:root[data-theme="light"] .process-step .marker {
+  box-shadow: 0 0 0 6px #F4F6FA;
+}
+
+/* Services page bullets */
+:root[data-theme="light"] .svc-bullets li { background: rgba(26,117,222,.04); border-color: rgba(26,117,222,.16); color: rgba(13,29,41,.74); }
+:root[data-theme="light"] .svc-bullets b { color: #0D1D29; }
+:root[data-theme="light"] .svc-row h3 { color: #0D1D29; }
+:root[data-theme="light"] .svc-row .lede { color: rgba(13,29,41,.72); }
+:root[data-theme="light"] .svc-meta { color: rgba(13,29,41,.55); }
+
+/* Systems Built page cards */
+:root[data-theme="light"] .sys-page-card { background: #FFFFFF; border-color: rgba(58,87,120,.16); }
+:root[data-theme="light"] .sys-page-card h3 { color: #0D1D29; }
+:root[data-theme="light"] .sys-page-card .lede { color: rgba(13,29,41,.72); }
+:root[data-theme="light"] .sys-results .item { background: rgba(26,117,222,.05); border-color: rgba(26,117,222,.2); }
+:root[data-theme="light"] .sys-results .num { color: #0D1D29; }
+:root[data-theme="light"] .sys-results .lbl { color: rgba(13,29,41,.55); }
+
+/* Stats */
+:root[data-theme="light"] .stat { background: #FFFFFF; }
+
+/* FAQ */
+:root[data-theme="light"] .faq-group-ic { background: rgba(26,117,222,.08); border-color: rgba(58,87,120,.16); }
+:root[data-theme="light"] .faq-group-label { color: rgba(13,29,41,.6); }
+:root[data-theme="light"] .faq-group-rule { background: rgba(58,87,120,.16); }
+:root[data-theme="light"] .faq-item { background: #FFFFFF; border-color: rgba(58,87,120,.16); }
+:root[data-theme="light"] .faq-q { color: #0D1D29; }
+:root[data-theme="light"] .faq-a { color: rgba(13,29,41,.72); border-top-color: rgba(58,87,120,.16); }
+
+/* Form (contact) */
+:root[data-theme="light"] .contact-form-card,
+:root[data-theme="light"] .contact-cal-card { background: #FFFFFF; border-color: rgba(58,87,120,.16); }
+:root[data-theme="light"] .contact-form-card h3,
+:root[data-theme="light"] .contact-cal-card h3 { color: #0D1D29; }
+:root[data-theme="light"] .contact-form-card .sub,
+:root[data-theme="light"] .contact-cal-card .sub { color: rgba(13,29,41,.65); }
+:root[data-theme="light"] .form-row label { color: rgba(13,29,41,.55); }
+:root[data-theme="light"] .form-row input,
+:root[data-theme="light"] .form-row select,
+:root[data-theme="light"] .form-row textarea { background: #F4F6FA; color: #0D1D29; border-color: rgba(58,87,120,.18); }
+:root[data-theme="light"] .form-row input:focus,
+:root[data-theme="light"] .form-row select:focus,
+:root[data-theme="light"] .form-row textarea:focus { background: #FFFFFF; }
+
+:root[data-theme="light"] .cal-day.available { color: #0D1D29; border-color: rgba(58,87,120,.16); }
+:root[data-theme="light"] .cal-day.muted { color: rgba(13,29,41,.25); }
+:root[data-theme="light"] .cal-day.disabled { color: rgba(13,29,41,.3); }
+:root[data-theme="light"] .cal-slot { background: #F4F6FA; color: #0D1D29; border-color: rgba(58,87,120,.16); }
+:root[data-theme="light"] .cal-week,
+:root[data-theme="light"] .cal-slots .label,
+:root[data-theme="light"] .cal-tz { color: rgba(13,29,41,.55); }
+
+/* Contact side tiles */
+:root[data-theme="light"] .contact-side .tile { background: #FFFFFF; border-color: rgba(58,87,120,.16); }
+:root[data-theme="light"] .contact-side .tile .lbl { color: rgba(13,29,41,.55); }
+:root[data-theme="light"] .contact-side .tile .val { color: #0D1D29; }
+
+/* Footer */
+:root[data-theme="light"] .footer { background: #FFFFFF; border-top-color: rgba(58,87,120,.14); }
+:root[data-theme="light"] .footer-name { color: #0D1D29; }
+:root[data-theme="light"] .footer-blurb { color: rgba(13,29,41,.7); }
+:root[data-theme="light"] .footer-col-h { color: rgba(13,29,41,.5); }
+:root[data-theme="light"] .footer-cols a,
+:root[data-theme="light"] .footer-contact a { color: rgba(13,29,41,.7); }
+:root[data-theme="light"] .footer-cols a:hover,
+:root[data-theme="light"] .footer-contact a:hover { color: #0D1D29; }
+:root[data-theme="light"] .footer-base,
+:root[data-theme="light"] .footer-base .links a { color: rgba(13,29,41,.5); }
+
+/* WhatsApp+Voice section (home) */
+:root[data-theme="light"] .wav {
+  background:
+    radial-gradient(60% 50% at 10% 10%, rgba(43,209,126,.05), transparent 60%),
+    radial-gradient(60% 50% at 90% 90%, rgba(26,117,222,.05), transparent 60%),
+    #F4F6FA;
+}
+:root[data-theme="light"] .wav-head h2 { color: #0D1D29; }
+:root[data-theme="light"] .wav-lede { color: rgba(13,29,41,.72); }
+:root[data-theme="light"] .wav-feat { background: #FFFFFF; border-color: rgba(58,87,120,.16); color: rgba(13,29,41,.72); }
+:root[data-theme="light"] .wav-feat b { color: #0D1D29; }
+
+/* About industries + numbers */
+:root[data-theme="light"] .industry-tile { background: #FFFFFF; }
+
+/* Audit strip (always dark, handled by dark-surface scope) ✓ */
+
+/* Tag pills (placeholder note) */
+:root[data-theme="light"] .placeholder-note { background: rgba(232,166,58,.07); }
+
+/* Numbers stay LTR */
+.mock-kpi .val,
+.stat .num,
+.sys-results .num,
+.timer,
+.cal-slot,
+.cal-day,
+.cal-week,
+.mock-kpi .delta,
+.mc-card-sm .val { direction: ltr; unicode-bidi: isolate; }
+
+/* =========================================================
+   RTL, Arabic layout
+   ========================================================= */
+:root[dir="rtl"],
+[dir="rtl"] body,
+[dir="rtl"] .adyan-site {
+  font-family: 'Cairo', 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+[dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, [dir="rtl"] h4, [dir="rtl"] h5,
+[dir="rtl"] .h1, [dir="rtl"] .h2, [dir="rtl"] .h3, [dir="rtl"] .h4,
+[dir="rtl"] .display,
+[dir="rtl"] .brand-name,
+[dir="rtl"] .footer-name,
+[dir="rtl"] .hero-h1,
+[dir="rtl"] .page-hero h1,
+[dir="rtl"] .section-head h2,
+[dir="rtl"] .section-head-c h2,
+[dir="rtl"] .wav-head h2,
+[dir="rtl"] .audit-strip-inner h2,
+[dir="rtl"] .final-inner h2,
+[dir="rtl"] .ps-h,
+[dir="rtl"] .wwb-card h3,
+[dir="rtl"] .sys-card h3,
+[dir="rtl"] .sys-page-card h3,
+[dir="rtl"] .principle h4,
+[dir="rtl"] .process-card h3,
+[dir="rtl"] .about-mission .pillar h4,
+[dir="rtl"] .industry-tile .name,
+[dir="rtl"] .contact-form-card h3,
+[dir="rtl"] .contact-cal-card h3,
+[dir="rtl"] .agent-h,
+[dir="rtl"] .svc-statement h2,
+[dir="rtl"] .svc-row h3,
+[dir="rtl"] .mock-title,
+[dir="rtl"] .wa-head .name,
+[dir="rtl"] .voice-call .who,
+[dir="rtl"] .wav-card-head .title,
+[dir="rtl"] .mc-grid > div > h2 {
+  font-family: 'Cairo', 'Sora', system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+/* =========================================================
+   RTL, Arabic typography breathing room
+   Arabic glyphs carry dots above and below the baseline, so
+   English-tuned line-heights make stacked lines crash. Bump
+   line-height on every heading + paragraph, ease font-weight
+   on heaviest display sizes, and add a touch of padding so
+   diacritics aren't clipped by ancestor overflow.
+   ========================================================= */
+[dir="rtl"] .hero-h1,
+[dir="rtl"] .page-hero h1 {
+  line-height: 1.3 !important;
+  font-weight: 700;
+  padding-block: 0.04em;
+}
+[dir="rtl"] .section-head h2,
+[dir="rtl"] .section-head-c h2,
+[dir="rtl"] .wav-head h2,
+[dir="rtl"] .audit-strip-inner h2,
+[dir="rtl"] .final-inner h2,
+[dir="rtl"] .ps-h,
+[dir="rtl"] .agent-h,
+[dir="rtl"] .svc-statement h2,
+[dir="rtl"] .mc-grid > div > h2 {
+  line-height: 1.35 !important;
+  padding-block: 0.03em;
+}
+[dir="rtl"] h3, [dir="rtl"] .h3,
+[dir="rtl"] .wwb-card h3,
+[dir="rtl"] .sys-card h3,
+[dir="rtl"] .sys-page-card h3,
+[dir="rtl"] .svc-row h3,
+[dir="rtl"] .process-card h3 {
+  line-height: 1.4;
+  padding-block: 0.02em;
+}
+[dir="rtl"] h4, [dir="rtl"] .h4,
+[dir="rtl"] .principle h4,
+[dir="rtl"] .about-mission .pillar h4 {
+  line-height: 1.45;
+}
+[dir="rtl"] p,
+[dir="rtl"] li,
+[dir="rtl"] .hero-sub,
+[dir="rtl"] .section-sub,
+[dir="rtl"] .ps-p,
+[dir="rtl"] .wwb-card p,
+[dir="rtl"] .sys-card p,
+[dir="rtl"] .sys-page-card .lede,
+[dir="rtl"] .page-hero .lede,
+[dir="rtl"] .principle p,
+[dir="rtl"] .process-card p,
+[dir="rtl"] .about-mission .pillar p,
+[dir="rtl"] .wav-lede,
+[dir="rtl"] .wav-feat,
+[dir="rtl"] .faq-a,
+[dir="rtl"] .footer-blurb {
+  line-height: 1.75;
+}
+[dir="rtl"] .eyebrow,
+[dir="rtl"] .label,
+[dir="rtl"] .footer-col-h {
+  line-height: 1.6;
+}
+/* Eyebrows + ALL-CAPS labels lose their wide tracking in Arabic, tracking
+   on Arabic shaping looks broken. */
+[dir="rtl"] .eyebrow,
+[dir="rtl"] .footer-col-h,
+[dir="rtl"] .label,
+[dir="rtl"] .audit-strip-meta,
+[dir="rtl"] .breadcrumb-inner,
+[dir="rtl"] .form-row label,
+[dir="rtl"] .svc-meta,
+[dir="rtl"] .trust-label,
+[dir="rtl"] .lang-toggle {
+  letter-spacing: 0 !important;
+}
+/* Stop heading clip from ancestor overflow */
+[dir="rtl"] .hero-h1,
+[dir="rtl"] .ps-h,
+[dir="rtl"] .section-head h2,
+[dir="rtl"] .section-head-c h2 {
+  overflow: visible;
+}
+
+[dir="rtl"] .brand-tag,
+[dir="rtl"] .eyebrow,
+[dir="rtl"] .footer-tag,
+[dir="rtl"] .footer-col-h,
+[dir="rtl"] .label,
+[dir="rtl"] .form-row label,
+[dir="rtl"] .svc-meta,
+[dir="rtl"] .audit-strip-meta,
+[dir="rtl"] .breadcrumb-inner {
+  letter-spacing: 0.06em;
+}
+
+/* Arrow indicators flip in RTL */
+[dir="rtl"] .arr { transform: rotate(-135deg); margin-left: 0; margin-right: 2px; }
+
+/* Numbers, codes, prices stay LTR even in RTL pages */
+[dir="rtl"] .mono,
+[dir="rtl"] code,
+[dir="rtl"] .mock-kpi .val,
+[dir="rtl"] .mock-kpi .delta,
+[dir="rtl"] .stat .num,
+[dir="rtl"] .sys-results .num,
+[dir="rtl"] .timer,
+[dir="rtl"] .mc-card-sm .val,
+[dir="rtl"] .footer-base,
+[dir="rtl"] .wa-bubble .ts,
+[dir="rtl"] .voice-line .spk,
+[dir="rtl"] .cal-week,
+[dir="rtl"] .cal-day,
+[dir="rtl"] .cal-slot,
+[dir="rtl"] .ladder-price,
+[dir="rtl"] [dir="ltr"] {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+/* Process rail vertical line moves to the right */
+[dir="rtl"] .process-rail::before { left: auto; right: 36px; }
+[dir="rtl"] .process-step { grid-template-columns: 72px 1fr; }
+
+/* Nav alignment: brand on the right (start in RTL), nav links/CTAs flow naturally */
+[dir="rtl"] .adyan-nav { direction: rtl; }
+[dir="rtl"] .nav-links a.is-current::after { left: 0; right: 0; }
+
+/* Connector dot flip, purely cosmetic; symmetrical so no change needed */
+
+/* Cal navigation chevrons swap meaning */
+[dir="rtl"] .cal-head .nav { direction: ltr; } /* Keep prev=left, next=right for familiarity */
+
+/* Form select dropdown arrow position */
+[dir="rtl"] .form-row select {
+  background-position: 18px center, 13px center;
+  padding-right: 14px; padding-left: 36px;
+}
+
+/* Hero pill chip */
+[dir="rtl"] .hero-pill { padding: 6px 8px 6px 14px; }
+
+/* Sticky audit bar */
+[dir="rtl"] .sab-inner { direction: rtl; }
+
+/* WhatsApp bubbles, already designed bidirectional; ensure both stay aligned */
+.wa-bubble.from-user { direction: rtl; text-align: right; }
+.wa-bubble.from-agent { direction: rtl; text-align: right; }
+[dir="ltr"] .wa-bubble.from-user[lang="en"],
+[dir="ltr"] .wa-bubble.from-agent[lang="en"] { direction: ltr; text-align: left; }
+
+/* Lang toggle button */
+.lang-toggle {
+  display: inline-flex; align-items: center; gap: 6px;
+  height: 38px; padding: 0 12px; border-radius: 10px;
+  background: transparent; border: 1px solid var(--border-1);
+  color: var(--fg-2); cursor: pointer;
+  font-family: var(--font-mono); font-size: 11.5px; font-weight: 600;
+  letter-spacing: 0.08em;
+  transition: all .2s var(--ease-out);
+}
+.lang-toggle:hover { color: var(--fg-1); border-color: var(--border-2); }
+.lang-toggle .now { color: var(--accent); }
+.lang-toggle .sep { color: var(--fg-mute); margin: 0 2px; }
+
+/* Light mode tweak: the audit strip stays dark (already scoped); but its
+   "Talk to Operations" secondary button needs to be readable */
+.audit-strip-inner .btn-secondary { color: #F5F7FA; border-color: rgba(245,247,250,.3); }
+.audit-strip-inner .btn-secondary:hover { color: #fff; border-color: rgba(245,247,250,.6); }
+.final-card .btn-secondary { color: #F5F7FA; border-color: rgba(245,247,250,.3); }
+.final-card .btn-secondary:hover { color: #fff; border-color: rgba(245,247,250,.6); }

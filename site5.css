@@ -1,0 +1,100 @@
+/* =========================================================
+   ADYAN, Landing Page (part 5)
+   Industries (home) wrapper + customer-facing AI Agents showcase.
+   Reuses existing tokens so light-mode + RTL flip automatically.
+   ========================================================= */
+
+/* ---------- Industries (home) ---------- */
+.inds { padding: 96px 40px; max-width: var(--maxw-content); margin: 0 auto; }
+
+/* ---------- AI Agents showcase ---------- */
+.agx { padding: 96px 40px; max-width: var(--maxw-content); margin: 0 auto; }
+.agx-inner {
+  display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: start;
+}
+
+/* Agent cards */
+.agx-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.agx-card {
+  display: flex; align-items: flex-start; gap: 16px;
+  padding: 22px; background: var(--bg-elev-1);
+  border: 1px solid var(--border-1); border-radius: var(--r-md);
+  transition: all .22s var(--ease-out);
+}
+.agx-card:hover {
+  border-color: rgba(26,117,222,.45); background: rgba(26,117,222,.04);
+  transform: translateY(-2px); box-shadow: var(--shadow-glow-soft);
+}
+.agx-ic {
+  width: 42px; height: 42px; flex: 0 0 42px; border-radius: 11px;
+  background: rgba(26,117,222,.1); border: 1px solid rgba(26,117,222,.28);
+  display: grid; place-items: center; color: var(--accent);
+}
+.agx-ic svg { width: 20px; height: 20px; }
+.agx-card-body { display: flex; flex-direction: column; gap: 6px; }
+.agx-name { font-family: var(--font-display); font-size: 15.5px; font-weight: 600; color: var(--fg-1); }
+.agx-desc { font-family: var(--font-body); font-size: 13px; line-height: 1.55; color: var(--fg-2); }
+.agx-ch {
+  margin-top: 4px; font-family: var(--font-mono); font-size: 10.5px;
+  letter-spacing: 0.1em; color: var(--accent);
+  direction: ltr; unicode-bidi: isolate;
+}
+
+/* Demo column */
+.agx-demo { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+/* Scripted chat thread inside the phone body, fills the body, scrolls if long */
+.wa-thread {
+  flex: 1; display: flex; flex-direction: column; gap: 10px;
+  overflow-y: auto; max-height: 360px; scrollbar-width: none;
+}
+.wa-thread::-webkit-scrollbar { display: none; }
+/* Bubbles rest fully visible (opacity:1); the pop only animates transform, so a
+   shown bubble is never blank even if the animation clock is paused. */
+.wa-thread .wa-bubble-2 { opacity: 1; }
+/* Directional pop with a soft overshoot — bubbles spring up from their own
+   corner. Opacity stays 1 throughout, so a paused clock still shows the text. */
+.wa-pop { animation: waPop .46s cubic-bezier(.18,.82,.25,1) both; transform-origin: bottom; }
+.wa-bubble-2.from-user.wa-pop  { transform-origin: bottom right; animation-name: waPopUser; }
+.wa-bubble-2.from-agent.wa-pop { transform-origin: bottom left;  animation-name: waPopAgent; }
+@keyframes waPop {
+  from { transform: translateY(14px) scale(.92); }
+  to   { transform: none; }
+}
+@keyframes waPopAgent {
+  0%   { transform: translateY(16px) translateX(-12px) scale(.88); }
+  62%  { transform: translateY(0) translateX(0) scale(1.02); }
+  100% { transform: none; }
+}
+@keyframes waPopUser {
+  0%   { transform: translateY(16px) translateX(12px) scale(.88); }
+  62%  { transform: translateY(0) translateX(0) scale(1.02); }
+  100% { transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wa-pop { animation: none; }
+}
+.agx-foot {
+  display: flex; align-items: flex-start; gap: 10px;
+  max-width: 340px; font-family: var(--font-body); font-size: 12.5px;
+  line-height: 1.55; color: var(--fg-3); text-align: left;
+}
+.agx-foot svg { width: 15px; height: 15px; color: var(--accent); flex: none; margin-top: 1px; }
+
+/* ---------- RTL polish ---------- */
+[dir="rtl"] .agx-name {
+  font-family: 'Cairo', 'Sora', system-ui, sans-serif;
+  font-weight: 700; letter-spacing: 0;
+}
+[dir="rtl"] .agx-desc { line-height: 1.7; }
+[dir="rtl"] .agx-foot { text-align: right; }
+
+/* ---------- Mobile ---------- */
+@media (max-width: 1100px) {
+  .inds { padding: 64px 24px; }
+  .agx { padding: 64px 24px; }
+  .agx-inner { grid-template-columns: 1fr; gap: 40px; }
+  .agx-demo { order: -1; }
+}
+@media (max-width: 560px) {
+  .agx-cards { grid-template-columns: 1fr; }
+}

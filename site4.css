@@ -1,0 +1,318 @@
+/* =========================================================
+   ADYAN, Landing Page (part 4)
+   New sections: KSA Integrations, Data Sovereignty,
+   ROI Calculator, AI Readiness Assessment CTA.
+   Built on the existing token system (colors_and_type.css).
+   ========================================================= */
+
+/* ---------- Shared section sub copy ---------- */
+.section-sub-narrow { max-width: 60ch; }
+
+/* =========================================================
+   KSA Integrations  (.kint)
+   ========================================================= */
+.kint { padding: 96px 40px; max-width: var(--maxw-content); margin: 0 auto; }
+.kint-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr;
+  gap: 14px;
+}
+.kint-card {
+  background: var(--bg-elev-1);
+  border: 1px solid var(--border-1);
+  border-radius: var(--r-lg);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: all .22s var(--ease-out);
+}
+.kint-card:hover { border-color: rgba(26,117,222,.45); background: rgba(26,117,222,.04); }
+.kint-card .kint-cat {
+  font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--fg-3);
+}
+.kint-card .kint-rows { display: flex; flex-direction: column; gap: 10px; }
+.kint-row { display: flex; align-items: center; gap: 12px; }
+.kint-row .ic {
+  width: 38px; height: 38px; flex: none; border-radius: 10px;
+  background: rgba(26,117,222,.1); border: 1px solid rgba(26,117,222,.25);
+  display: grid; place-items: center; color: var(--accent);
+}
+.kint-row .ic svg { width: 18px; height: 18px; }
+.kint-row .kr-name { font-family: var(--font-display); font-size: 15px; font-weight: 600; color: var(--fg-1); }
+.kint-row .kr-note { font-family: var(--font-body); font-size: 12px; color: var(--fg-3); margin-top: 2px; line-height: 1.4; }
+
+/* Featured WhatsApp card */
+.kint-card.is-featured {
+  background: linear-gradient(180deg, rgba(26,117,222,.1), var(--bg-elev-1) 72%);
+  border-color: rgba(26,117,222,.5);
+  box-shadow: var(--shadow-glow-soft);
+}
+.kint-card.is-featured .kint-lead {
+  display: flex; align-items: center; gap: 12px;
+}
+.kint-card.is-featured .kint-lead .ic {
+  width: 46px; height: 46px; border-radius: 12px;
+}
+.kint-card.is-featured .kint-lead .ic svg { width: 22px; height: 22px; }
+.kint-card.is-featured h3 { font-family: var(--font-display); font-size: 19px; font-weight: 600; color: var(--fg-1); margin: 0; }
+.kint-card.is-featured p { font-size: 13.5px; line-height: 1.55; color: var(--fg-2); margin: 0; }
+.kint-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 2px; }
+.kint-pill {
+  font-family: var(--font-body); font-size: 11.5px; font-weight: 500;
+  color: var(--fg-2); padding: 5px 11px;
+  background: rgba(26,117,222,.08); border: 1px solid rgba(26,117,222,.22);
+  border-radius: 999px;
+}
+.kint-foot {
+  margin-top: 28px; font-family: var(--font-body); font-size: 13px;
+  color: var(--fg-3); display: flex; align-items: center; gap: 10px;
+}
+.kint-foot svg { width: 15px; height: 15px; color: var(--accent); flex: none; }
+
+/* =========================================================
+   Data Sovereignty / Security  (.sov)
+   ========================================================= */
+.sov { padding: 96px 40px; max-width: var(--maxw-content); margin: 0 auto; }
+.sov-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 18px;
+}
+.sov-card {
+  position: relative;
+  background: var(--bg-elev-1);
+  border: 1px solid var(--border-1);
+  border-radius: var(--r-lg);
+  padding: 28px 26px;
+  display: flex; flex-direction: column; gap: 14px;
+  transition: all .22s var(--ease-out);
+}
+.sov-card:hover { border-color: rgba(26,117,222,.45); }
+.sov-card .sov-ic {
+  width: 46px; height: 46px; border-radius: 12px;
+  background: rgba(26,117,222,.1); border: 1px solid rgba(26,117,222,.25);
+  display: grid; place-items: center; color: var(--accent);
+}
+.sov-card .sov-ic svg { width: 22px; height: 22px; }
+.sov-card h3 { font-family: var(--font-display); font-size: 19px; font-weight: 600; color: var(--fg-1); margin: 0; line-height: 1.25; }
+.sov-card p { font-size: 13.5px; line-height: 1.6; color: var(--fg-2); margin: 0; }
+.sov-card .sov-tag {
+  margin-top: auto; padding-top: 14px; border-top: 1px solid var(--border-1);
+  font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--fg-3);
+}
+
+/* principle chips */
+.sov-chips {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+  margin-top: 4px;
+}
+.sov-chip {
+  display: flex; align-items: center; gap: 12px;
+  padding: 16px 18px;
+  background: var(--bg-elev-1);
+  border: 1px solid var(--border-1);
+  border-radius: var(--r-md);
+}
+.sov-chip .ck {
+  width: 26px; height: 26px; flex: none; border-radius: 7px;
+  background: rgba(26,117,222,.12); border: 1px solid rgba(26,117,222,.28);
+  display: grid; place-items: center; color: var(--accent);
+}
+.sov-chip .ck svg { width: 14px; height: 14px; }
+.sov-chip .ctext { font-family: var(--font-body); font-size: 13.5px; font-weight: 500; color: var(--fg-1); line-height: 1.35; }
+
+.sov-note {
+  margin-top: 22px;
+  display: flex; align-items: flex-start; gap: 10px;
+  font-family: var(--font-body); font-size: 12.5px; line-height: 1.6;
+  color: var(--fg-3); max-width: 88ch;
+}
+.sov-note svg { width: 15px; height: 15px; color: var(--fg-3); flex: none; margin-top: 2px; }
+
+/* =========================================================
+   ROI Calculator  (.roi)
+   ========================================================= */
+.roi { padding: 96px 40px; max-width: var(--maxw-content); margin: 0 auto; }
+.roi-shell {
+  display: grid; grid-template-columns: 1fr 0.92fr; gap: 0;
+  background: var(--bg-elev-1);
+  border: 1px solid var(--border-1);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+.roi-inputs { padding: 40px; display: flex; flex-direction: column; gap: 30px; }
+.roi-field { display: flex; flex-direction: column; gap: 12px; }
+.roi-field-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
+.roi-field-label { font-family: var(--font-display); font-size: 15px; font-weight: 600; color: var(--fg-1); }
+.roi-field-val {
+  font-family: var(--font-mono); font-size: 16px; font-weight: 600; color: var(--accent);
+  white-space: nowrap;
+}
+.roi-field-sub { font-family: var(--font-body); font-size: 12px; color: var(--fg-3); margin-top: -4px; }
+
+/* range slider */
+.roi-range { -webkit-appearance: none; appearance: none; width: 100%; height: 6px;
+  border-radius: 999px; background: var(--bg-elev-2); outline: none; cursor: pointer; }
+.roi-range::-webkit-slider-runnable-track { height: 6px; border-radius: 999px; }
+.roi-range::-moz-range-track { height: 6px; border-radius: 999px; background: transparent; }
+.roi-range::-moz-range-progress { height: 6px; border-radius: 999px; background: var(--accent); }
+.roi-range::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none;
+  width: 20px; height: 20px; margin-top: -7px; border-radius: 50%;
+  background: var(--accent); border: 2px solid #fff;
+  box-shadow: 0 0 0 1px var(--accent), 0 2px 8px rgba(0,0,0,.4); cursor: pointer;
+  transition: transform .15s var(--ease-out);
+}
+.roi-range::-webkit-slider-thumb:hover { transform: scale(1.12); }
+.roi-range::-moz-range-thumb {
+  width: 20px; height: 20px; border-radius: 50%;
+  background: var(--accent); border: 2px solid #fff;
+  box-shadow: 0 0 0 1px var(--accent), 0 2px 8px rgba(0,0,0,.4); cursor: pointer;
+}
+
+/* results panel */
+.roi-results {
+  position: relative; overflow: hidden;
+  padding: 40px;
+  background:
+    radial-gradient(ellipse 80% 60% at 80% 10%, rgba(26,117,222,.16), transparent 70%),
+    linear-gradient(180deg, var(--bg-elev-2), var(--bg-elev-1));
+  border-left: 1px solid var(--border-1);
+  display: flex; flex-direction: column; gap: 8px;
+}
+.roi-results-grid {
+  position: absolute; inset: 0; opacity: .3; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(58,87,120,.16) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(58,87,120,.16) 1px, transparent 1px);
+  background-size: 44px 44px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 70% at 80% 10%, #000 20%, transparent 75%);
+          mask-image: radial-gradient(ellipse 70% 70% at 80% 10%, #000 20%, transparent 75%);
+}
+.roi-results > * { position: relative; z-index: 1; }
+.roi-results > .roi-results-grid { position: absolute; z-index: 0; }
+.roi-results-eyebrow {
+  font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--fg-3);
+}
+.roi-headline { margin-top: 6px; }
+.roi-headline .roi-big {
+  font-family: var(--font-display); font-weight: 700; letter-spacing: -0.02em;
+  font-size: 56px; line-height: 1; color: var(--fg-1);
+  display: flex; align-items: baseline; gap: 8px;
+}
+.roi-headline .roi-cur { font-size: 24px; font-weight: 600; color: var(--accent); }
+.roi-headline .roi-unit { font-family: var(--font-body); font-size: 15px; font-weight: 500; color: var(--fg-2); }
+.roi-headline .roi-cap {
+  font-family: var(--font-body); font-size: 13.5px; color: var(--fg-2); margin-top: 8px;
+}
+.roi-secondary {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+  margin-top: 26px; padding-top: 24px; border-top: 1px solid var(--border-1);
+}
+.roi-stat .rs-val { font-family: var(--font-display); font-size: 24px; font-weight: 700; color: var(--fg-1); }
+.roi-stat .rs-lbl { font-family: var(--font-body); font-size: 12px; color: var(--fg-3); margin-top: 4px; line-height: 1.4; }
+.roi-cta { margin-top: 26px; display: flex; flex-direction: column; gap: 12px; }
+.roi-cta .btn-primary { width: 100%; justify-content: center; }
+.roi-disclaimer {
+  font-family: var(--font-body); font-size: 11.5px; line-height: 1.55; color: var(--fg-3);
+  display: flex; align-items: flex-start; gap: 8px;
+}
+.roi-disclaimer svg { width: 13px; height: 13px; flex: none; margin-top: 2px; }
+
+/* =========================================================
+   AI Readiness Assessment CTA  (.ready)
+   ========================================================= */
+.ready { padding: 96px 40px; max-width: var(--maxw-content); margin: 0 auto; }
+.ready-card {
+  position: relative; overflow: hidden;
+  background: linear-gradient(135deg, rgba(26,117,222,.13), var(--bg-elev-1) 58%);
+  border: 1px solid rgba(26,117,222,.4);
+  border-radius: var(--r-xl);
+  padding: 56px 56px;
+  box-shadow: var(--shadow-glow);
+  display: grid; grid-template-columns: 1.15fr 1fr; gap: 48px; align-items: center;
+}
+.ready-grid-bg {
+  position: absolute; inset: 0; opacity: .25; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(58,87,120,.18) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(58,87,120,.18) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 60% 80% at 85% 15%, #000 30%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 60% 80% at 85% 15%, #000 30%, transparent 80%);
+}
+.ready-card > .ready-copy,
+.ready-card > .ready-panel { position: relative; z-index: 1; }
+.ready-copy .eyebrow { margin-bottom: 16px; }
+.ready-copy h2 {
+  font-family: var(--font-display); font-size: clamp(32px, 3.4vw, 46px);
+  font-weight: 700; letter-spacing: -0.02em; line-height: 1.06; color: var(--fg-1);
+  margin: 0 0 18px;
+}
+.ready-copy p { font-size: 16.5px; color: var(--fg-2); line-height: 1.6; margin: 0 0 28px; max-width: 52ch; }
+.ready-actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.ready-meta {
+  display: flex; gap: 28px; margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--border-1);
+}
+.ready-meta .item .lbl {
+  font-family: var(--font-body); font-size: 10.5px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--fg-3);
+}
+.ready-meta .item .val { font-family: var(--font-display); font-size: 16px; font-weight: 600; color: var(--fg-1); margin-top: 6px; }
+
+/* checklist panel */
+.ready-panel {
+  background: rgba(13,29,41,.5);
+  border: 1px solid var(--border-1);
+  border-radius: var(--r-lg);
+  padding: 30px 28px;
+  backdrop-filter: blur(4px);
+}
+.ready-panel-h {
+  font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--fg-3); margin-bottom: 18px;
+}
+.ready-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 16px; }
+.ready-list li { display: flex; align-items: flex-start; gap: 14px; }
+.ready-list .ck {
+  width: 26px; height: 26px; flex: none; border-radius: 7px;
+  background: rgba(26,117,222,.12); border: 1px solid rgba(26,117,222,.3);
+  display: grid; place-items: center; color: var(--accent);
+}
+.ready-list .ck svg { width: 14px; height: 14px; }
+.ready-list .rl-t { font-family: var(--font-display); font-size: 14.5px; font-weight: 600; color: var(--fg-1); }
+.ready-list .rl-s { font-family: var(--font-body); font-size: 12.5px; color: var(--fg-2); margin-top: 3px; line-height: 1.5; }
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+@media (max-width: 1024px) {
+  .kint { padding: 72px 24px; }
+  .kint-grid { grid-template-columns: 1fr 1fr; }
+  .kint-card.is-featured { grid-column: 1 / -1; }
+  .sov { padding: 72px 24px; }
+  .sov-grid { grid-template-columns: 1fr; }
+  .sov-chips { grid-template-columns: 1fr 1fr; }
+  .roi { padding: 72px 24px; }
+  .roi-shell { grid-template-columns: 1fr; }
+  .roi-results { border-left: none; border-top: 1px solid var(--border-1); }
+  .ready { padding: 72px 24px; }
+  .ready-card { grid-template-columns: 1fr; padding: 40px 32px; gap: 36px; }
+}
+@media (max-width: 640px) {
+  .kint-grid { grid-template-columns: 1fr; }
+  .sov-chips { grid-template-columns: 1fr; }
+  .roi-inputs, .roi-results { padding: 28px 22px; }
+  .roi-headline .roi-big { font-size: 44px; }
+  .roi-secondary { grid-template-columns: 1fr 1fr; }
+  .ready-meta { flex-wrap: wrap; gap: 20px 28px; }
+}
+
+/* =========================================================
+   RTL tweaks (engine sets html[dir=rtl])
+   ========================================================= */
+[dir="rtl"] .roi-results { border-left: none; border-right: 1px solid var(--border-1); }
+[dir="rtl"] .sov-card .sov-tag { text-align: right; }

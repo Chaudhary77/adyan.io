@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Systems Built: ADYAN</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<link rel="icon" type="image/svg+xml" href="/ds/assets/logo-monogram.png"/>
+<link rel="stylesheet" href="ds/colors_and_type.css"/>
+<link rel="stylesheet" href="site.css"/>
+<link rel="stylesheet" href="site2.css"/>
+<link rel="stylesheet" href="site3.css"/>
+<link rel="stylesheet" href="site-pages.css"/>
+<link rel="stylesheet" href="site-theme-i18n.css"/>
+<link rel="stylesheet" href="site-mobile.css"/>
+<link rel="stylesheet" href="site-reveal.css"/>
+<link rel="stylesheet" href="site-motion.css"/>
+<style>
+  /* ---- Confidentiality line ---- */
+  .client-conf {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: var(--fg-3);
+    margin: 0 0 16px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .client-conf::before {
+    content: "";
+    width: 6px; height: 6px; border-radius: 2px;
+    background: var(--fg-3); opacity: .55;
+  }
+
+  /* ---- "Anatomy of an agent" legend band ---- */
+  .agent-legend {
+    display: grid; grid-template-columns: 320px 1fr; gap: 48px;
+    align-items: start;
+    padding: 40px 0 8px;
+    border-top: 1px solid var(--border-1);
+  }
+  .agent-legend-h .k {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 14px;
+  }
+  .agent-legend-h h2 {
+    font-family: var(--font-display); font-size: clamp(24px, 2.4vw, 30px);
+    font-weight: 600; letter-spacing: -0.015em; line-height: 1.14;
+    color: var(--fg-1); margin: 0 0 14px; text-wrap: balance;
+  }
+  .agent-legend-h p { font-size: 14.5px; line-height: 1.6; color: var(--fg-2); margin: 0; max-width: 38ch; }
+  .agent-legend-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .legend-item {
+    display: grid; grid-template-columns: 36px 1fr; gap: 13px; align-items: start;
+    padding: 16px 18px; border: 1px solid var(--border-1); border-radius: var(--r-md);
+    background: var(--bg-elev-1);
+  }
+  .legend-item .ic {
+    width: 36px; height: 36px; flex: none; border-radius: 9px;
+    display: grid; place-items: center; color: var(--accent);
+    background: rgba(26,117,222,.1); border: 1px solid rgba(26,117,222,.22);
+  }
+  .legend-item .ic svg { width: 17px; height: 17px; }
+  .legend-item .t { font-family: var(--font-display); font-size: 13.5px; font-weight: 600; color: var(--fg-1); line-height: 1.25; }
+  .legend-item .d { font-size: 11.5px; color: var(--fg-3); line-height: 1.45; margin-top: 4px; text-wrap: balance; }
+
+  /* ---- Agent designation header ---- */
+  .agent-card { position: relative; }
+  .agent-card::before {
+    content: ""; position: absolute; left: 0; top: 40px; bottom: 40px; width: 2px;
+    background: linear-gradient(180deg, var(--accent), transparent);
+    border-radius: 2px; opacity: .6;
+  }
+  .agent-desig { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; flex-wrap: wrap; }
+  .agent-desig .no {
+    font-family: var(--font-mono); font-size: 12px; font-weight: 600; letter-spacing: 0.12em;
+    color: var(--accent); padding: 4px 10px; border: 1px solid rgba(26,117,222,.35);
+    border-radius: 6px; background: rgba(26,117,222,.07);
+  }
+  .agent-desig .role {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em;
+    color: var(--fg-3); text-transform: uppercase;
+  }
+  .agent-status {
+    margin-left: auto; display: inline-flex; align-items: center; gap: 7px;
+    font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.1em; color: #2BD17E;
+  }
+  .agent-status .live {
+    width: 7px; height: 7px; border-radius: 50%; background: #2BD17E;
+    box-shadow: 0 0 6px #2BD17E; animation: pulse-live 1.8s ease-in-out infinite;
+  }
+
+  /* ---- Agent anatomy spec (2x2) ---- */
+  .agent-spec {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+    background: var(--border-1); border: 1px solid var(--border-1);
+    border-radius: var(--r-md); overflow: hidden; margin: 20px 0;
+  }
+  .spec-cell { background: var(--bg-elev-1); padding: 14px 16px 16px; }
+  .spec-cell .lbl {
+    display: flex; align-items: center; gap: 7px;
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--fg-3);
+  }
+  .spec-cell .lbl .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); flex: none; }
+  .spec-cell .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .spec-tag {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.01em;
+    color: var(--fg-2); padding: 4px 9px; border-radius: 6px;
+    background: rgba(58,87,120,.14); border: 1px solid var(--border-1);
+  }
+
+  /* ---- Outcome row (qualitative, no fake numbers) ---- */
+  .agent-outcome { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-bottom: 22px; }
+  .agent-outcome .oc {
+    display: inline-flex; align-items: center; gap: 7px;
+    font-family: var(--font-body); font-size: 12.5px; color: var(--fg-2);
+  }
+  .agent-outcome .oc svg { width: 14px; height: 14px; color: #2BD17E; flex: none; }
+
+  /* ---- Card footer: NDA + walkthrough ---- */
+  .agent-foot {
+    display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center;
+    padding-top: 18px; border-top: 1px solid var(--border-1);
+  }
+  .agent-foot .placeholder-note { display: inline-flex; align-items: center; gap: 7px; }
+  .agent-foot .placeholder-note svg { width: 12px; height: 12px; color: var(--accent); }
+  .walk-link {
+    margin-left: auto; display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--font-body); font-size: 13px; font-weight: 500;
+    color: var(--fg-1); text-decoration: none; transition: color .15s;
+  }
+  .walk-link:hover { color: var(--accent); }
+  .walk-link .arr {
+    width: 14px; height: 14px;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat;
+    background: currentColor; transition: transform .18s var(--ease-out);
+  }
+  .walk-link:hover .arr { transform: translateX(3px); }
+
+  /* ---- Live preview column + caption ---- */
+  .agent-preview { display: flex; flex-direction: column; gap: 10px; }
+  .preview-cap {
+    display: flex; align-items: center; justify-content: space-between;
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--fg-3);
+  }
+  .preview-cap .l { display: inline-flex; align-items: center; gap: 7px; color: var(--fg-2); }
+  .preview-cap .l svg { width: 12px; height: 12px; color: var(--accent); }
+
+  /* ---- Section header (roster) ---- */
+  .sec-head { max-width: 640px; margin-bottom: 32px; }
+  .sec-head .k {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--accent); display: inline-flex; align-items: center; gap: 8px;
+  }
+  .sec-head .k::before { content: ""; width: 18px; height: 1px; background: var(--accent); }
+  .sec-head h2 {
+    font-family: var(--font-display); font-size: clamp(26px, 2.8vw, 36px);
+    font-weight: 600; letter-spacing: -0.018em; line-height: 1.1;
+    color: var(--fg-1); margin: 14px 0 0; text-wrap: balance;
+  }
+  .sec-head p { font-size: 15.5px; line-height: 1.6; color: var(--fg-2); margin: 14px 0 0; max-width: 56ch; }
+
+  /* ---- Agent roster grid ---- */
+  .roster-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; align-items: start; }
+  .roster-card {
+    position: relative; display: flex; flex-direction: column;
+    padding: 24px; background: var(--bg-elev-1);
+    border: 1px solid var(--border-1); border-radius: var(--r-lg);
+    transition: border-color .22s var(--ease-out), box-shadow .22s var(--ease-out), transform .22s var(--ease-out);
+  }
+  .roster-card.expandable { cursor: pointer; }
+  .roster-card:hover { border-color: rgba(26,117,222,.4); box-shadow: var(--shadow-glow-soft); transform: translateY(-3px); }
+  .roster-card.open { border-color: rgba(26,117,222,.4); box-shadow: var(--shadow-glow-soft); transform: none; }
+  .roster-card.open:hover { transform: none; }
+
+  /* ---- Expandable workflow ---- */
+  .rc-toggle {
+    display: flex; align-items: center; justify-content: space-between; gap: 10px;
+    width: 100%; margin-top: 16px; padding-top: 13px;
+    border: none; background: none; border-top: 1px solid var(--border-1);
+    font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--accent); cursor: pointer; text-align: left;
+  }
+  .rc-toggle .chev { display: grid; place-items: center; }
+  .rc-toggle .chev svg { width: 16px; height: 16px; }
+  .roster-card.open .rc-toggle .chev { transform: rotate(180deg); }
+  .rc-detail { max-height: 0; overflow: hidden; }
+  .roster-card.open .rc-detail { max-height: none; }
+  .rc-detail-inner { min-height: 0; }
+  @media (prefers-reduced-motion: no-preference) {
+    .roster-card.open .rc-detail-inner { animation: rcReveal .4s var(--ease-out) both; }
+  }
+  @keyframes rcReveal { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
+  /* Label is CSS-driven (class-based) so it never relies on React text reconciliation */
+  .rc-toggle .lbl-open { display: none; }
+  .roster-card.open .rc-toggle .lbl-closed { display: none; }
+  .roster-card.open .rc-toggle .lbl-open { display: inline; }
+  .rc-context {
+    font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.02em; line-height: 1.5;
+    color: var(--fg-3); margin: 16px 0 0; display: flex; align-items: flex-start; gap: 8px;
+  }
+  .rc-context svg { width: 12px; height: 12px; color: var(--accent); flex: none; margin-top: 2px; }
+  .rc-detail-inner .agent-spec { margin: 14px 0 14px; }
+  .rc-detail-inner .agent-outcome { margin-bottom: 4px; }
+  .rc-detail-inner .spec-cell { padding: 12px 14px 14px; }
+  .roster-card .rc-top { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+  .roster-card .rc-ic {
+    width: 44px; height: 44px; flex: none; border-radius: 12px;
+    display: grid; place-items: center; color: var(--accent);
+    background: rgba(26,117,222,.1); border: 1px solid rgba(26,117,222,.22);
+  }
+  .roster-card .rc-ic svg { width: 21px; height: 21px; }
+  .roster-card .rc-dept { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-3); }
+  .roster-card .rc-name { font-family: var(--font-display); font-size: 19px; font-weight: 600; letter-spacing: -0.01em; color: var(--fg-1); margin-top: 3px; line-height: 1.15; }
+  .roster-card .rc-desc { font-size: 13.5px; line-height: 1.56; color: var(--fg-2); margin: 0 0 18px; }
+  .roster-card .rc-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
+  .roster-chip {
+    font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.01em;
+    color: var(--fg-2); padding: 4px 9px; border-radius: 6px;
+    background: rgba(58,87,120,.14); border: 1px solid var(--border-1);
+  }
+
+  @media (max-width: 1100px) {
+    .agent-legend { grid-template-columns: 1fr; gap: 28px; }
+    .agent-legend-h p { max-width: 60ch; }
+    .agent-card::before { display: none; }
+  }
+  @media (max-width: 700px) {
+    .agent-legend-grid { grid-template-columns: 1fr; }
+    .agent-spec { grid-template-columns: 1fr; }
+    .roster-grid { grid-template-columns: 1fr; }
+  }
+</style>
+<script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+<div id="root"></div>
+
+
+<script type="module" src="/src/pages/systems-built.jsx"></script>
+</body>
+</html>

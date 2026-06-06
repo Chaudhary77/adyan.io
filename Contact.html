@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Book a Systems Audit: ADYAN</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<link rel="icon" type="image/svg+xml" href="/ds/assets/logo-monogram.png"/>
+<link rel="stylesheet" href="ds/colors_and_type.css"/>
+<link rel="stylesheet" href="site.css"/>
+<link rel="stylesheet" href="site2.css"/>
+<link rel="stylesheet" href="site3.css"/>
+<link rel="stylesheet" href="site-pages.css"/>
+<link rel="stylesheet" href="site-theme-i18n.css"/>
+<link rel="stylesheet" href="site-mobile.css"/>
+<link rel="stylesheet" href="site-reveal.css"/>
+<link rel="stylesheet" href="site-motion.css"/>
+<style>
+  /* Contact form: validation + submission states (scoped to this page) */
+  .form-row .err-msg { font-family: var(--font-body); font-size: 11.5px; color: #ff6b6b; margin-top: 2px; }
+  .form-row.invalid input,
+  .form-row.invalid select,
+  .form-row.invalid textarea { border-color: rgba(255,107,107,.6); background: rgba(255,107,107,.05); }
+  .form-note { display: flex; align-items: flex-start; gap: 8px; font-family: var(--font-body); font-size: 12px; color: var(--fg-2); line-height: 1.5; margin-top: 16px; }
+  .form-note i { width: 15px; height: 15px; flex: none; margin-top: 1px; color: var(--accent); }
+  .submit-error { display: flex; align-items: center; gap: 8px; font-family: var(--font-body); font-size: 12.5px; color: #ff6b6b; margin-top: 12px; }
+  .submit-error i { width: 16px; height: 16px; flex: none; }
+  .btn-primary[disabled], .btn-primary.is-busy { opacity: .55; cursor: not-allowed; pointer-events: none; }
+  .booking-success {
+    grid-column: 1 / -1; background: var(--bg-elev-1); border: 1px solid var(--border-1);
+    border-radius: var(--r-xl); padding: 48px 40px; box-shadow: var(--shadow-md); text-align: center;
+    max-width: 640px; margin: 0 auto;
+  }
+  .booking-success .ok-ic {
+    width: 56px; height: 56px; border-radius: 50%; margin: 0 auto 22px; display: grid; place-items: center;
+    background: rgba(43,209,126,.12); border: 1px solid rgba(43,209,126,.4); color: #2BD17E;
+  }
+  .booking-success .ok-ic i { width: 28px; height: 28px; }
+  .booking-success h3 { font-family: var(--font-display); font-size: 26px; font-weight: 600; color: var(--fg-1); margin: 0 0 12px; }
+  .booking-success p { font-family: var(--font-body); font-size: 14.5px; color: var(--fg-2); line-height: 1.6; margin: 0 auto 8px; max-width: 460px; }
+  .booking-recap {
+    display: inline-flex; align-items: center; gap: 10px; margin: 20px 0 26px;
+    padding: 12px 18px; border-radius: var(--r-md); background: rgba(26,117,222,.08);
+    border: 1px solid rgba(26,117,222,.3); color: var(--fg-1);
+    font-family: var(--font-display); font-size: 15px; font-weight: 600;
+  }
+  .booking-recap i { width: 18px; height: 18px; color: var(--accent); }
+  .booking-success .ok-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+</style>
+<script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+<div id="root"></div>
+
+
+<script type="module" src="/src/pages/contact.jsx"></script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+/* ============================================================
+   ADYAN motion layer — shared across every page.
+   Loaded after site-reveal.css. Driven by site-motion.js, which adds
+   `motion-on` (+ a level class: `motion-full` or `motion-subtle`) to
+   <html>, but ONLY when motion is enabled and the user hasn't asked for
+   reduced motion. If JS never runs, nothing here activates — the static
+   site is left completely untouched. Everything is wrapped in
+   prefers-reduced-motion: no-preference so the OS setting always wins.
+   ============================================================ */
+
+@media (prefers-reduced-motion: no-preference) {
+
+  /* =========================================================
+     1 · Scroll progress bar  (subtle + full)
+     ========================================================= */
+  .scroll-progress {
+    position: fixed; top: 0; left: 0; right: 0; height: 3px;
+    transform: scaleX(var(--sp, 0)); transform-origin: 0 50%;
+    background: linear-gradient(90deg, var(--accent), var(--accent-hover, #2C8BF0) 55%, #22D3EE);
+    box-shadow: 0 0 14px rgba(26, 117, 222, .55);
+    z-index: 120; pointer-events: none;
+    opacity: 0; transition: opacity .35s var(--ease-out);
+    will-change: transform;
+  }
+  html.motion-on .scroll-progress { opacity: 1; }
+
+  /* =========================================================
+     2 · Scroll-aware nav  (subtle + full)
+     ========================================================= */
+  html.motion-on .adyan-nav {
+    transition:
+      height .32s var(--ease-out),
+      background .32s var(--ease-out),
+      box-shadow .32s var(--ease-out),
+      border-color .32s var(--ease-out);
+  }
+  html.motion-on .adyan-nav.is-scrolled {
+    height: 58px;
+    background: rgba(8, 15, 23, .9);
+    box-shadow: 0 10px 34px rgba(0, 0, 0, .4);
+    border-bottom-color: var(--border-2);
+  }
+  :root[data-theme="light"] html.motion-on .adyan-nav.is-scrolled,
+  html.motion-on :root[data-theme="light"] .adyan-nav.is-scrolled {
+    background: rgba(255, 255, 255, .92);
+    box-shadow: 0 10px 34px rgba(13, 29, 41, .12);
+  }
+  html.motion-on .adyan-nav .brand-tag {
+    transition: opacity .25s var(--ease-out), max-height .25s var(--ease-out), margin-top .25s var(--ease-out);
+    max-height: 1.4em; overflow: hidden;
+  }
+  html.motion-on .adyan-nav.is-scrolled .brand-tag {
+    opacity: 0; max-height: 0; margin-top: 0;
+  }
+
+  /* nav-link animated underline — enhances the existing color hover */
+  html.motion-on .nav-links a { position: relative; }
+  html.motion-on .nav-links a::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: -8px; height: 2px;
+    background: var(--accent); border-radius: 2px;
+    transform: scaleX(0); transform-origin: 0 50%;
+    transition: transform .3s var(--ease-out);
+  }
+  html.motion-on .nav-links a:hover::after,
+  html.motion-on .nav-links a.is-current::after { transform: scaleX(1); }
+  [dir="rtl"] html.motion-on .nav-links a::after,
+  html.motion-on [dir="rtl"] .nav-links a::after { transform-origin: 100% 50%; }
+
+  /* =========================================================
+     3 · Card spotlight + 3D tilt
+     Spotlight: a screen-blended radial glow that follows the cursor.
+     screen blend means white text is unaffected (screen over white = white)
+     while the dark card surface lights up — so it never hurts legibility.
+     JS sets --mx/--my (cursor %) and, for tilt, an inline transform.
+     Targets are :after, which is unused on all of these selectors.
+     ========================================================= */
+  html.motion-on .explore-card,
+  html.motion-on .roster-card,
+  html.motion-on .agent-card,
+  html.motion-on .sys-page-card,
+  html.motion-on .industry-tile,
+  html.motion-on .wwb-card,
+  html.motion-on .svc-row,
+  html.motion-on .principle,
+  html.motion-on .process-card,
+  html.motion-on .legend-item,
+  html.motion-on .mock-kpi {
+    position: relative;
+  }
+  html.motion-on .explore-card::after,
+  html.motion-on .roster-card::after,
+  html.motion-on .agent-card::after,
+  html.motion-on .sys-page-card::after,
+  html.motion-on .industry-tile::after,
+  html.motion-on .wwb-card::after,
+  html.motion-on .svc-row::after,
+  html.motion-on .principle::after,
+  html.motion-on .process-card::after,
+  html.motion-on .legend-item::after,
+  html.motion-on .mock-kpi::after {
+    content: ""; position: absolute; inset: 0;
+    border-radius: inherit; pointer-events: none;
+    z-index: 1; mix-blend-mode: screen;
+    background: radial-gradient(
+      240px circle at var(--mx, 50%) var(--my, 50%),
+      rgba(60, 160, 255, .22), rgba(60, 160, 255, .05) 42%, transparent 65%);
+    opacity: 0; transition: opacity .35s var(--ease-out);
+  }
+  html.motion-on .explore-card:hover::after,
+  html.motion-on .roster-card:hover::after,
+  html.motion-on .agent-card:hover::after,
+  html.motion-on .sys-page-card:hover::after,
+  html.motion-on .industry-tile:hover::after,
+  html.motion-on .wwb-card:hover::after,
+  html.motion-on .svc-row:hover::after,
+  html.motion-on .principle:hover::after,
+  html.motion-on .process-card:hover::after,
+  html.motion-on .legend-item:hover::after,
+  html.motion-on .mock-kpi:hover::after { opacity: 1; }
+
+  /* In light theme the screen blend can't show on white cards — fade it out
+     so it never produces a muddy wash. */
+  :root[data-theme="light"] html.motion-on .explore-card::after,
+  :root[data-theme="light"] html.motion-on .roster-card::after,
+  :root[data-theme="light"] html.motion-on .agent-card::after,
+  :root[data-theme="light"] html.motion-on .sys-page-card::after,
+  :root[data-theme="light"] html.motion-on .industry-tile::after,
+  :root[data-theme="light"] html.motion-on .wwb-card::after,
+  :root[data-theme="light"] html.motion-on .svc-row::after,
+  :root[data-theme="light"] html.motion-on .principle::after,
+  :root[data-theme="light"] html.motion-on .process-card::after,
+  :root[data-theme="light"] html.motion-on .legend-item::after,
+  :root[data-theme="light"] html.motion-on .mock-kpi::after { display: none; }
+
+  /* Tilt (full only). JS writes the transform inline; we just want a smooth
+     return-to-rest when the cursor leaves. data-tilt is stamped by JS. */
+  html.motion-full [data-tilt] {
+    transition: transform .4s var(--ease-out), box-shadow .3s var(--ease-out);
+    transform-style: preserve-3d;
+    will-change: transform;
+  }
+  html.motion-full [data-tilt].is-tilting { transition: transform .08s linear; }
+
+  /* =========================================================
+     4 · Process timeline draw-on-scroll  (subtle + full)
+     A bright progress line overlays the static rail and grows as you
+     scroll; markers light up as the line reaches them.
+     ========================================================= */
+  html.motion-on .process-prog {
+    position: absolute; top: 0; left: 36px; width: 2px;
+    height: var(--rail, 0%);
+    background: linear-gradient(180deg, var(--accent), #22D3EE);
+    box-shadow: 0 0 12px rgba(26, 117, 222, .6);
+    border-radius: 2px; z-index: 0; pointer-events: none;
+    transition: height .18s linear;
+  }
+  [dir="rtl"] html.motion-on .process-prog,
+  html.motion-on [dir="rtl"] .process-prog { left: auto; right: 36px; }
+
+  html.motion-on .process-step .marker {
+    transition: background .4s var(--ease-out), box-shadow .4s var(--ease-out),
+                border-color .4s var(--ease-out), transform .4s var(--ease-out);
+  }
+  html.motion-on .process-step.is-reached .marker {
+    background: linear-gradient(180deg, var(--accent), var(--accent-hover, #2C8BF0));
+    border-color: var(--accent);
+    box-shadow: 0 0 0 6px var(--bg), 0 0 22px rgba(26, 117, 222, .5);
+    transform: scale(1.04);
+  }
+  html.motion-on .process-step.is-reached .marker svg { color: #fff; }
+
+  /* =========================================================
+     5 · Showcase touches — hero KPI value flicker + agent live rows
+     ========================================================= */
+  html.motion-on .mock-kpi .val { transition: color .3s var(--ease-out); }
+
+  /* count-up target keeps tabular figures so width doesn't jump mid-count */
+  html.motion-on .mock-kpi .val,
+  html.motion-on .stat .num,
+  html.motion-on [data-countup] { font-variant-numeric: tabular-nums; }
+}

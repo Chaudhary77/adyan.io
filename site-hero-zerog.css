@@ -1,0 +1,208 @@
+/* =========================================================
+   ADYAN, Zero-Gravity Hero
+   Programmatic orb-field canvas + weightless centered headline.
+   Letters lift / spread tracking / fracture on pointer, drag &
+   scroll. Scoped to .hero[data-variant="zerog"].
+   ========================================================= */
+
+.hero[data-variant="zerog"] {
+  position: relative;
+  overflow: hidden;
+  min-height: calc(100svh - var(--nav-h));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(40px, 8vh, 96px) 24px;
+  background:
+    radial-gradient(60% 60% at 50% 18%, rgba(26,117,222,.14), transparent 60%),
+    radial-gradient(70% 60% at 50% 110%, rgba(15,79,168,.16), transparent 60%),
+    var(--obsidian);
+  isolation: isolate;
+  touch-action: pan-y;           /* keep vertical page scroll; drag adds impulse on desktop */
+}
+
+/* layered background */
+.zg-mesh,
+.zg-canvas {
+  position: absolute; inset: 0; pointer-events: none; z-index: 0;
+}
+.zg-mesh {
+  filter: blur(70px) saturate(1.1);
+  opacity: .85;
+  background:
+    radial-gradient(32% 36% at 22% 22%, rgba(26,117,222,.42), transparent 70%),
+    radial-gradient(30% 32% at 80% 16%, rgba(110,180,255,.24), transparent 70%),
+    radial-gradient(40% 42% at 70% 88%, rgba(15,79,168,.40), transparent 72%),
+    radial-gradient(26% 28% at 14% 84%, rgba(58,87,120,.30), transparent 72%);
+  animation: zgMeshDrift 26s ease-in-out infinite alternate;
+}
+@keyframes zgMeshDrift {
+  0%   { transform: translate3d(0,0,0) scale(1); }
+  50%  { transform: translate3d(-2.5%,2%,0) scale(1.08); }
+  100% { transform: translate3d(2%,-2.5%,0) scale(1.04); }
+}
+.zg-canvas { z-index: 1; }
+
+/* vignette for legibility */
+.hero[data-variant="zerog"]::after {
+  content: "";
+  position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  background:
+    radial-gradient(60% 50% at 50% 45%, rgba(13,29,41,.55), transparent 72%),
+    linear-gradient(180deg, rgba(13,29,41,.5) 0%, transparent 26%, transparent 72%, rgba(13,29,41,.62) 100%);
+}
+
+/* ---- centered weightless stage ---- */
+.zg-stage {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(20px, 3vh, 34px);
+}
+
+.zg-pill {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: rgba(26,117,222,.10);
+  border: 1px solid rgba(26,117,222,.32);
+  border-radius: var(--r-pill);
+  padding: 6px 16px 6px 8px;
+  font-family: var(--font-body); font-size: 12.5px; font-weight: 500;
+  color: var(--fg-2);
+  backdrop-filter: blur(6px);
+}
+.zg-pill .chip {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: .12em;
+  background: #006c35; color: #fff; padding: 4px 9px; border-radius: var(--r-pill);
+  font-weight: 700;
+}
+
+/* the headline */
+.zg-headline {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(44px, 11vw, 168px);
+  line-height: .9;
+  letter-spacing: -.02em;
+  color: var(--fg-1);
+  margin: 0;
+  /* tracking opens up as you interact (driven by --zg-track JS var) */
+  --zg-track: 0px;
+  perspective: 900px;
+  -webkit-user-select: none; user-select: none;
+}
+.zg-word {
+  display: inline-block;
+  white-space: nowrap;
+  margin: 0 .18em;
+  transform-style: preserve-3d;
+}
+.zg-l {
+  display: inline-block;
+  position: relative;
+  margin-left: var(--zg-track);
+  /* per-letter transform set by JS: translateY (lift) + rotate (fracture) */
+  transform: translate3d(0, var(--ly, 0px), 0) rotate(var(--lr, 0deg));
+  transition: text-shadow .3s ease;
+  will-change: transform;
+}
+.zg-l:first-child { margin-left: 0; }
+.zg-headline .grad {
+  background: linear-gradient(100deg, #8fc0ff 0%, var(--accent) 50%, #bcd9ff 100%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+}
+
+.zg-sub {
+  font-family: var(--font-body);
+  font-size: clamp(15px, 1.4vw, 20px);
+  line-height: 1.6; color: var(--fg-2);
+  max-width: 56ch; margin: 0;
+}
+
+.zg-cta { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+
+.zg-meta {
+  display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
+  margin-top: 4px;
+}
+.zg-meta span {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: .04em;
+  color: var(--fg-2);
+  padding: 6px 12px;
+  border: 1px solid var(--border-1);
+  border-radius: var(--r-pill);
+  background: rgba(13,29,41,.45);
+  backdrop-filter: blur(6px);
+}
+.zg-meta svg { width: 13px; height: 13px; color: var(--accent); }
+
+/* drag hint */
+.zg-hint {
+  position: absolute; left: 50%; bottom: clamp(14px, 4vh, 36px);
+  transform: translateX(-50%);
+  z-index: 3;
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em;
+  color: var(--fg-3); text-transform: uppercase;
+  pointer-events: none;
+  animation: zgHintPulse 3.2s ease-in-out infinite;
+}
+.zg-hint svg { width: 14px; height: 14px; }
+@keyframes zgHintPulse { 0%,100% { opacity: .35; } 50% { opacity: .85; } }
+
+/* =========================================================
+   Entrance reveal, base state VISIBLE (opacity:1). The fade
+   FROM hidden only runs under JS-added `.is-in`, attached only
+   when the document is visible, so print/PDF/static never blank.
+   ========================================================= */
+@media (prefers-reduced-motion: no-preference) {
+  .hero[data-variant="zerog"].is-in .zg-reveal {
+    animation: zgReveal 1s var(--ease-out) both;
+    animation-delay: var(--d, 0ms);
+  }
+  @keyframes zgReveal {
+    from { opacity: 0; transform: translateY(26px); filter: blur(6px); }
+    to   { opacity: 1; transform: none; filter: none; }
+  }
+}
+
+/* =========================================================
+   Scroll-driven exit, headline drifts up, fades, tracking opens
+   as the hero scrolls away. Progressive enhancement.
+   ========================================================= */
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .zg-stage {
+      animation: zgScrollLift linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 95vh;
+    }
+    .zg-canvas {
+      animation: zgCanvasFade linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 100vh;
+    }
+    @keyframes zgScrollLift {
+      to { opacity: 0; transform: translateY(-70px) scale(.97); letter-spacing: .06em; }
+    }
+    @keyframes zgCanvasFade {
+      to { opacity: .15; transform: scale(1.06); }
+    }
+  }
+}
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+@media (max-width: 700px) {
+  .hero[data-variant="zerog"] { padding: 56px 18px; }
+  .zg-headline { font-size: clamp(40px, 15vw, 76px); }
+  .zg-meta { display: none; }
+}

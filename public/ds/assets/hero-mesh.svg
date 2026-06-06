@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" fill="none">
+  
+  <defs>
+    <radialGradient id="fade" cx="100%" cy="40%" r="80%">
+      <stop offset="0" stop-color="#1A75DE" stop-opacity="0.5"></stop>
+      <stop offset="0.4" stop-color="#1A75DE" stop-opacity="0.18"></stop>
+      <stop offset="1" stop-color="#1A75DE" stop-opacity="0"></stop>
+    </radialGradient>
+    <linearGradient id="leftFade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#0D1D29" stop-opacity="1"></stop>
+      <stop offset="0.45" stop-color="#0D1D29" stop-opacity="0"></stop>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="600" fill="#0D1D29"></rect>
+  <g opacity="0.85">
+    
+    <g fill="#1A75DE">
+      
+      <g opacity="0.9">
+        <circle cx="900" cy="100" r="1"></circle><circle cx="930" cy="110" r="1.2"></circle><circle cx="960" cy="120" r="1.4"></circle><circle cx="990" cy="135" r="1.6"></circle><circle cx="1020" cy="150" r="1.8"></circle><circle cx="1050" cy="170" r="2"></circle><circle cx="1080" cy="190" r="2.2"></circle><circle cx="1110" cy="215" r="2.4"></circle><circle cx="1140" cy="240" r="2.6"></circle><circle cx="1170" cy="270" r="2.8"></circle>
+        <circle cx="880" cy="160" r="1"></circle><circle cx="910" cy="170" r="1.2"></circle><circle cx="940" cy="185" r="1.4"></circle><circle cx="970" cy="200" r="1.6"></circle><circle cx="1000" cy="220" r="1.8"></circle><circle cx="1030" cy="240" r="2"></circle><circle cx="1060" cy="260" r="2.2"></circle><circle cx="1090" cy="285" r="2.4"></circle><circle cx="1120" cy="310" r="2.6"></circle><circle cx="1150" cy="340" r="2.8"></circle>
+        <circle cx="860" cy="220" r="1"></circle><circle cx="890" cy="235" r="1.2"></circle><circle cx="920" cy="250" r="1.4"></circle><circle cx="950" cy="270" r="1.6"></circle><circle cx="980" cy="290" r="1.8"></circle><circle cx="1010" cy="310" r="2"></circle><circle cx="1040" cy="335" r="2.2"></circle><circle cx="1070" cy="360" r="2.4"></circle><circle cx="1100" cy="385" r="2.6"></circle><circle cx="1130" cy="415" r="2.8"></circle>
+        <circle cx="840" cy="280" r="1"></circle><circle cx="870" cy="300" r="1.2"></circle><circle cx="900" cy="320" r="1.4"></circle><circle cx="930" cy="340" r="1.6"></circle><circle cx="960" cy="360" r="1.8"></circle><circle cx="990" cy="385" r="2"></circle><circle cx="1020" cy="410" r="2.2"></circle><circle cx="1050" cy="435" r="2.4"></circle><circle cx="1080" cy="460" r="2.6"></circle><circle cx="1110" cy="490" r="2.8"></circle>
+        <circle cx="820" cy="350" r="1"></circle><circle cx="850" cy="370" r="1.2"></circle><circle cx="880" cy="390" r="1.4"></circle><circle cx="910" cy="415" r="1.6"></circle><circle cx="940" cy="440" r="1.8"></circle><circle cx="970" cy="465" r="2"></circle><circle cx="1000" cy="490" r="2.2"></circle><circle cx="1030" cy="515" r="2.4"></circle><circle cx="1060" cy="540" r="2.6"></circle>
+      </g>
+    </g>
+  </g>
+  <rect width="1200" height="600" fill="url(#fade)" opacity="0.6"></rect>
+  <rect width="1200" height="600" fill="url(#leftFade)"></rect>
+</svg>

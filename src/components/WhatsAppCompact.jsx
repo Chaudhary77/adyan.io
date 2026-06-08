@@ -29,7 +29,7 @@ function WhatsAppCompact() {
             <a className="btn-primary btn-wa" href="https://wa.me/966508183984" target="_blank" rel="noopener">
               <i data-lucide="message-circle"/> Talk to Operations
             </a>
-            <a className="btn-secondary" href="Services.html#whatsapp">See how it works</a>
+            <a className="btn-secondary" href="/services#whatsapp">See how it works</a>
           </div>
         </div>
 

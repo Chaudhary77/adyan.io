@@ -170,7 +170,7 @@ function HeroZeroG() {
           <a className="btn-primary" href="https://wa.me/966508183984" target="_blank" rel="noopener">
             <i data-lucide="message-circle" /> Talk to Operations
           </a>
-          <a className="btn-secondary" href="Contact.html">Book a Systems Audit <span className="arr" /></a>
+          <a className="btn-secondary" href="/contact">Book a Systems Audit <span className="arr" /></a>
         </div>
 
         <div className="zg-meta zg-reveal" style={{ "--d": "420ms" }}>

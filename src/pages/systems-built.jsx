@@ -102,7 +102,7 @@ function AgentEntry({ no, role, sector, title, conf, blurb, spec, outcome, scree
         </div>
         <div className="agent-foot">
           <span className="placeholder-note"><i data-lucide="lock" />Detailed systems available under NDA</span>
-          <a className="walk-link" href="Contact.html">Private walkthrough available <span className="arr" /></a>
+          <a className="walk-link" href="/contact">Private walkthrough available <span className="arr" /></a>
         </div>
       </div>
       <div className="agent-preview">
@@ -578,7 +578,7 @@ function PendingNotice() {
             NDA on request.
           </p>
         </div>
-        <a className="btn-secondary" href="Contact.html">Request a walkthrough <span className="arr" /></a>
+        <a className="btn-secondary" href="/contact">Request a walkthrough <span className="arr" /></a>
       </div>
     </section>);
 

@@ -73,7 +73,7 @@ function GlobalCompliance() {
           ADYAN designs and operates to these frameworks and control families.
           Formal third-party certifications (SOC 2 Type II, ISO 27001) are on the
           roadmap rather than held today, current status is shared in writing on
-          request. See the <a href="Security.html" style={{ color: "var(--accent)" }}>Security overview</a> for detail.
+          request. See the <a href="/security" style={{ color: "var(--accent)" }}>Security overview</a> for detail.
         </span>
       </div>
     </section>);

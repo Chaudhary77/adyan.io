@@ -4,11 +4,11 @@ import React from "react";
 // Single-file so any page can <script src> it once.
 
 const NAV_LINKS = [
-{ label: "Services", href: "Services.html", match: "services" },
-{ label: "Work", href: "Systems Built.html", match: "work" },
-{ label: "Process", href: "Process.html", match: "process" },
-{ label: "Partners", href: "Partnerships.html", match: "partners" },
-{ label: "About", href: "About.html", match: "about" }];
+{ label: "Services", href: "/services", match: "services" },
+{ label: "Work", href: "/systems-built", match: "work" },
+{ label: "Process", href: "/process", match: "process" },
+{ label: "Partners", href: "/partnerships", match: "partners" },
+{ label: "About", href: "/about", match: "about" }];
 
 
 function ThemeToggle() {
@@ -76,7 +76,7 @@ function SiteNav({ current }) {
   return (
     <React.Fragment>
       <nav className="adyan-nav" data-screen-label="Nav">
-        <a className="brand" href="ADYAN Landing Page.html">
+        <a className="brand" href="/">
           <img src={(window.__resources && window.__resources.logoMono) || "ds/assets/logo-monogram.png"} alt="" width="36" height="36" />
           <div className="brand-text">
             <div className="brand-name">ADYAN</div>
@@ -97,7 +97,7 @@ function SiteNav({ current }) {
         <div className="nav-cta">
           <LangToggle />
           <ThemeToggle />
-          <a className="btn-primary nav-cta-btn" href="Contact.html">
+          <a className="btn-primary nav-cta-btn" href="/contact">
             Book a Systems Audit <span className="arr" />
           </a>
           <button
@@ -114,7 +114,7 @@ function SiteNav({ current }) {
       </nav>
       <div className={`mobile-menu ${open ? "is-open" : ""}`} aria-hidden={!open}>
         <div className="mobile-menu-head">
-          <a className="brand" href="ADYAN Landing Page.html" onClick={() => setOpen(false)}>
+          <a className="brand" href="/" onClick={() => setOpen(false)}>
             <img src={(window.__resources && window.__resources.logoMono) || "ds/assets/logo-monogram.png"} alt="" width="34" height="34" />
             <div className="brand-text">
               <div className="brand-name">ADYAN</div>
@@ -141,13 +141,13 @@ function SiteNav({ current }) {
               {l.label}
             </a>
           )}
-          <a href="Contact.html" onClick={() => setOpen(false)}>Contact</a>
+          <a href="/contact" onClick={() => setOpen(false)}>Contact</a>
         </nav>
         <div className="mobile-menu-cta">
           <a className="btn-primary" href="https://wa.me/966508183984" target="_blank" rel="noopener">
             Talk to Operations
           </a>
-          <a className="btn-secondary" href="Contact.html">Book a Systems Audit</a>
+          <a className="btn-secondary" href="/contact">Book a Systems Audit</a>
         </div>
       </div>
     </React.Fragment>);
@@ -160,7 +160,7 @@ function Breadcrumb({ trail }) {
   return (
     <nav className="breadcrumb" aria-label="Breadcrumb">
       <div className="breadcrumb-inner">
-        <a href="ADYAN Landing Page.html"><i data-lucide="home"></i></a>
+        <a href="/"><i data-lucide="home"></i></a>
         {trail.map((c, i) =>
         <React.Fragment key={i}>
             <span className="sep">/</span>
@@ -188,7 +188,7 @@ function StickyAuditBar() {
           <strong>Free 30-minute Systems Audit.</strong>{" "}
           I map your operations bottlenecks and propose a phased buildout.
         </span>
-        <a className="sab-cta" href="Contact.html">
+        <a className="sab-cta" href="/contact">
           Book now <span className="arr" />
         </a>
         <button
@@ -218,8 +218,8 @@ function AuditCTAStrip() {
           <p>We map your highest-friction workflows, identify quick wins, and outline a practical buildout for your first AI operations system, agents, automations, dashboards, and integrations, in the order that compounds fastest.</p>
         </div>
         <div className="audit-strip-cta">
-          <a className="btn-primary" href="Contact.html">Book a Systems Audit <span className="arr" /></a>
-          <a className="btn-secondary" href="Systems Built.html">View Systems Built</a>
+          <a className="btn-primary" href="/contact">Book a Systems Audit <span className="arr" /></a>
+          <a className="btn-secondary" href="/systems-built">View Systems Built</a>
           <div className="audit-strip-meta">
             <span><i data-lucide="clock"></i> Response within 24 hours</span>
             <span><i data-lucide="shield-check"></i> NDA on request</span>
@@ -258,25 +258,25 @@ function SiteFooter() {
         <div className="footer-cols">
           <div>
             <div className="footer-col-h">Services</div>
-            <a href="Services.html#agents">AI Agents</a>
-            <a href="Services.html#automation">Workflow Automation</a>
-            <a href="Services.html#whatsapp">WhatsApp AI Assistants</a>
-            <a href="Services.html#voice">Voice Agents</a>
-            <a href="Services.html#erp">ERP & CRM Integrations</a>
-            <a href="Services.html#apps">Apps & Dashboards</a>
+            <a href="/services#agents">AI Agents</a>
+            <a href="/services#automation">Workflow Automation</a>
+            <a href="/services#whatsapp">WhatsApp AI Assistants</a>
+            <a href="/services#voice">Voice Agents</a>
+            <a href="/services#erp">ERP & CRM Integrations</a>
+            <a href="/services#apps">Apps & Dashboards</a>
           </div>
           <div>
             <div className="footer-col-h">Studio</div>
-            <a href="About.html">About</a>
-            <a href="Process.html">How I Work</a>
-            <a href="Partnerships.html">Partnerships</a>
-            <a href="Contact.html">Contact</a>
+            <a href="/about">About</a>
+            <a href="/process">How I Work</a>
+            <a href="/partnerships">Partnerships</a>
+            <a href="/contact">Contact</a>
           </div>
           <div>
             <div className="footer-col-h">Resources</div>
-            <a href="Contact.html">Book a Systems Audit</a>
-            <a href="Partnerships.html">Partner with me</a>
-            <a href="Systems Built.html">Systems Built</a>
+            <a href="/contact">Book a Systems Audit</a>
+            <a href="/partnerships">Partner with me</a>
+            <a href="/systems-built">Systems Built</a>
             <a href="https://wa.me/966508183984" target="_blank" rel="noopener">Talk on WhatsApp</a>
           </div>
         </div>
@@ -285,9 +285,9 @@ function SiteFooter() {
       <div className="footer-base">
         <span>© 2026 ADYAN, AI Operations Systems</span>
         <div className="links">
-          <a href="Privacy.html">Privacy</a>
-          <a href="Terms.html">Terms</a>
-          <a href="Security.html">Security</a>
+          <a href="/privacy">Privacy</a>
+          <a href="/terms">Terms</a>
+          <a href="/security">Security</a>
         </div>
         <span>adyan.io · Khobar, Saudi Arabia</span>
       </div>

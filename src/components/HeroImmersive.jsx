@@ -197,7 +197,7 @@ function HeroImmersive() {
               </div>
             </a>
 
-            <a className="hi-card secondary" href="Contact.html">
+            <a className="hi-card secondary" href="/contact">
               <div className="ct-top">
                 <i data-lucide="calendar-check" style={{ width: 22, height: 22, color: "var(--accent)" }} />
                 <span className="ct-arrow"><i data-lucide="arrow-up-right" /></span>

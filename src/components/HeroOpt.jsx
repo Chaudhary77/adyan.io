@@ -65,7 +65,7 @@ function HeroOpt({ variant = "mission" }) {
             <a className="btn-primary" href="https://wa.me/966508183984?text=Hi%2C%20I%27d%20like%20to%20book%20a%20systems%20audit." target="_blank" rel="noopener" data-comment-anchor="ae9aa058a4-a-64-13">
               <i data-lucide="message-circle" /> Talk to Operations
             </a>
-            <a className="btn-secondary" href="Contact.html">Book a Systems Audit <span className="arr" /></a>
+            <a className="btn-secondary" href="/contact">Book a Systems Audit <span className="arr" /></a>
           </div>
 
           <div className="hero-meta">

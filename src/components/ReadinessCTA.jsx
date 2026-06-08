@@ -25,7 +25,7 @@ function ReadinessCTA() {
             with a phased plan. No pitch deck, no commitment beyond the call.
           </p>
           <div className="ready-actions">
-            <a className="btn-primary" href="Contact.html">
+            <a className="btn-primary" href="/contact">
               Get your free assessment <span className="arr" />
             </a>
             <a className="btn-secondary btn-wa" href="https://wa.me/966508183984" target="_blank" rel="noopener">

@@ -1,0 +1,16 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/ADYAN Landing Page.html", "destination": "/", "permanent": true },
+    { "source": "/Systems Built.html", "destination": "/systems-built", "permanent": true },
+    { "source": "/About.html", "destination": "/about", "permanent": true },
+    { "source": "/Contact.html", "destination": "/contact", "permanent": true },
+    { "source": "/Partnerships.html", "destination": "/partnerships", "permanent": true },
+    { "source": "/Privacy.html", "destination": "/privacy", "permanent": true },
+    { "source": "/Process.html", "destination": "/process", "permanent": true },
+    { "source": "/Security.html", "destination": "/security", "permanent": true },
+    { "source": "/Services.html", "destination": "/services", "permanent": true },
+    { "source": "/Terms.html", "destination": "/terms", "permanent": true }
+  ]
+}

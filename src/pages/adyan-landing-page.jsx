@@ -29,13 +29,13 @@ function ExploreMore() {
   const cards = [
     { icon: "layout-grid", k: "Proof", t: "Systems we've built",
       s: "Real production agents and automations, the workflow each one owns, and the outcome it moved.",
-      cta: "See the work", href: "Systems Built.html" },
+      cta: "See the work", href: "/systems-built" },
     { icon: "shield-check", k: "Trust", t: "Security & compliance",
       s: "In-Kingdom, on-prem or your own cloud. PDPL and NCA-aligned, with a full audit trail on every action.",
-      cta: "How we keep data safe", href: "Security.html" },
+      cta: "How we keep data safe", href: "/security" },
     { icon: "route", k: "Method", t: "How we work",
       s: "From a two-week Systems Audit to a phased buildout, working software early and often.",
-      cta: "See the process", href: "Process.html" },
+      cta: "See the process", href: "/process" },
   ];
   return (
     <section className="explore rv" data-screen-label="Go Deeper">

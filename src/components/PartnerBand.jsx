@@ -18,8 +18,8 @@ function PartnerBand() {
           </p>
         </div>
         <div className="audit-strip-cta" data-comment-anchor="ca52c7983a-div-19-9">
-          <a className="btn-primary" href="Partnerships.html">Explore partnerships <span className="arr" /></a>
-          <a className="btn-secondary" href="Contact.html">Book a partner call</a>
+          <a className="btn-primary" href="/partnerships">Explore partnerships <span className="arr" /></a>
+          <a className="btn-secondary" href="/contact">Book a partner call</a>
           <div className="audit-strip-meta">
             <span><i data-lucide="layers"></i> Referral · White-label · Joint</span>
             <span><i data-lucide="shield-check"></i> NDA on request</span>

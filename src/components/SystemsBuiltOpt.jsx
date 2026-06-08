@@ -43,7 +43,7 @@ function SystemsBuiltOpt() {
       </div>
       <div className="sys-grid">
         {systems.map((s, i) => (
-          <a className="sys-card" key={i} href="Systems Built.html">
+          <a className="sys-card" key={i} href="/systems-built">
             <div className="sys-tag">{s.tag}</div>
             <h3>{s.title}</h3>
             <p className="sys-lede">{s.lede}</p>

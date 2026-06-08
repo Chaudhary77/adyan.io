@@ -113,7 +113,7 @@ function ROICalculator() {
           </div>
 
           <div className="roi-cta">
-            <a className="btn-primary" href="Contact.html">
+            <a className="btn-primary" href="/contact">
               Get your free AI Readiness Assessment <span className="arr" />
             </a>
             <div className="roi-disclaimer">

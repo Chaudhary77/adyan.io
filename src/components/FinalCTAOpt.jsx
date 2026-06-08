@@ -20,8 +20,8 @@ function FinalCTAOpt() {
           <a className="btn-primary btn-wa" href="https://wa.me/966508183984" target="_blank" rel="noopener">
             <i data-lucide="message-circle"/> Talk to Operations
           </a>
-          <a className="btn-secondary" href="Contact.html">Book a Systems Audit</a>
-          <a className="btn-ghost" href="Systems Built.html">View Systems Built →</a>
+          <a className="btn-secondary" href="/contact">Book a Systems Audit</a>
+          <a className="btn-ghost" href="/systems-built">View Systems Built →</a>
           <div className="final-talk-meta">
             <span><i data-lucide="clock"/> Response within 24 hours</span>
             <span><i data-lucide="shield-check"/> NDA on request</span>

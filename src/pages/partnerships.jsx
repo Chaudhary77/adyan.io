@@ -318,8 +318,8 @@ function PartnerCTA() {
           <p>One call to find the right model. Bring a client situation you're sitting on, I'll tell you honestly whether it's a fit and how we'd build it. No pressure, no sales team.</p>
         </div>
         <div className="audit-strip-cta">
-          <a className="btn-primary" href="Contact.html">Book a partner call <span className="arr"/></a>
-          <a className="btn-secondary" href="Systems Built.html">See systems I've built</a>
+          <a className="btn-primary" href="/contact">Book a partner call <span className="arr"/></a>
+          <a className="btn-secondary" href="/systems-built">See systems I've built</a>
           <div className="audit-strip-meta">
             <span><i data-lucide="clock"/> Response within 24 hours</span>
             <span><i data-lucide="shield-check"/> NDA on request</span>

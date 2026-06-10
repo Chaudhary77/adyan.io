@@ -225,3 +225,44 @@
 @media (max-width: 700px) {
   .zg-headline--copy { font-size: clamp(30px, 9vw, 44px); }
 }
+
+/* =========================================================
+   Hybrid split, copy left + Mission Control mock right.
+   Below 1080px the mock column is hidden and the stage falls
+   back to the centered single-column layout above.
+   ========================================================= */
+.zg-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(20px, 3vh, 34px);
+}
+.zg-mockcol { display: none; }
+.zg-mock-cap {
+  margin-top: 12px;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+@media (min-width: 1080px) {
+  .zg-stage--split {
+    display: grid;
+    grid-template-columns: 1.04fr .96fr;
+    gap: clamp(40px, 5vw, 72px);
+    align-items: center;
+    max-width: var(--maxw-content);
+    text-align: start;
+  }
+  .zg-copy { align-items: flex-start; }
+  .zg-copy .zg-headline--copy {
+    margin-left: 0;
+    margin-right: 0;
+    font-size: clamp(36px, 3.8vw, 58px);
+  }
+  .zg-copy .zg-cta,
+  .zg-copy .zg-meta { justify-content: flex-start; }
+  .zg-mockcol { display: block; }
+}

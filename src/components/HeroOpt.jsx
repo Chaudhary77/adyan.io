@@ -207,4 +207,5 @@ function WaPhone({ contact, children }) {
 }
 
 window.HeroOpt = HeroOpt;
+window.HeroMockMission = HeroMockMission;
 window.WaPhone = WaPhone;

@@ -83,6 +83,7 @@ window.ADYAN_AR_DICT = {
   "Daily owner briefing compiled": "تم تجهيز الإحاطة اليومية للمالك",
   "Executive Agent · 7 decisions queued": "الوكيل التنفيذي · 7 قرارات بالانتظار",
   "DONE": "منجز",
+  "Illustrative dashboard — production systems differ.": "لوحة توضيحية — الأنظمة الفعلية في الإنتاج تختلف.",
 
   /* ===== Trust strip ===== */
   "Trusted by operations-heavy teams across": "موثوق به لدى فرق العمليات في",

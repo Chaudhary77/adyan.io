@@ -15,7 +15,10 @@ function HeroTerrain() {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    // Treat small screens like reduced motion: draw one static frame instead
+    // of running a 60fps terrain loop behind the headline on phones.
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+                   window.matchMedia("(max-width: 820px)").matches;
 
     let W = 0, H = 0, dpr = Math.min(window.devicePixelRatio || 1, 2);
     let raf = 0, t = 0;

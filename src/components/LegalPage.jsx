@@ -37,6 +37,7 @@ function LegalPage({ data, current }) {
       <SiteNav current={current} />
       <Breadcrumb trail={[{ label: data.title }]} />
 
+      <main id="main">
       <section className="page-hero" data-screen-label="Legal Hero">
         <div className="page-hero-inner" style={{ gridTemplateColumns: "1fr", display: "block" }}>
           <div className="page-hero-left" style={{ maxWidth: 760 }}>
@@ -83,6 +84,7 @@ function LegalPage({ data, current }) {
           </div>
         </div>
       </div>
+      </main>
 
       <SiteFooter />
       <StickyAuditBar />

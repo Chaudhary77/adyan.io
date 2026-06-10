@@ -3,8 +3,8 @@
    Layered on top of site-pages.css.
    ========================================================= */
 
-/* ---------- Arabic webfont ---------- */
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap');
+/* ---------- Arabic webfont ----------
+   Cairo loads from the combined Google Fonts <link> in each page head. */
 
 /* =========================================================
    Dark-surface isolation
@@ -38,7 +38,7 @@
   --bg-elev-2: #1B344A;
   --fg-1: #F5F7FA;
   --fg-2: rgba(245,247,250,.72);
-  --fg-3: rgba(245,247,250,.5);
+  --fg-3: rgba(245,247,250,.58);
   --fg-mute: rgba(245,247,250,.32);
   --border-1: rgba(58,87,120,.3);
   --border-2: rgba(58,87,120,.5);

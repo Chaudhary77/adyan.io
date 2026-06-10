@@ -931,4 +931,129 @@ window.ADYAN_AR_DICT = {
     "جلسة مركّزة مدتها 30 دقيقة. أرسم مسارات العمل الأكثر احتكاكًا لديك، وأخبرك بصدق أين يناسب الذكاء الاصطناعي, وأين لا يناسب, وأترك لك خطة مرحلية. دون عرض تقديمي، ودون التزام يتجاوز المكالمة.",
   "Or message me on WhatsApp": "أو راسلني على واتساب",
   "What I'd ship first, in 4–6 weeks, and what compounds after it.": "ما الذي سأطلقه أولًا، خلال 4–6 أسابيع، وما الذي يتراكم بعده.",
+
+  /* ===== Hero (rewritten) ===== */
+  "AI operations studio · Khobar": "استوديو عمليات بالذكاء الاصطناعي · الخبر",
+  "AI agents that run your operations.": "وكلاء ذكاء اصطناعي يديرون عملياتك.",
+  "Live in 4–6 weeks.": "جاهزون خلال 4–6 أسابيع.",
+  "ADYAN builds production AI systems for operations-heavy businesses — quoting, follow-ups, site reports, tender watch — WhatsApp-native, Arabic + English, wired into your ERP, with human approval on every action that matters.":
+    "تبني أديان أنظمة ذكاء اصطناعي إنتاجية للأعمال كثيفة العمليات, عروض الأسعار، والمتابعات، وتقارير المواقع، ومراقبة المنافسات, تعمل عبر واتساب، بالعربية والإنجليزية، مرتبطة بنظام ERP لديك، مع اعتماد بشري لكل إجراء مهم.",
+  "Book a free Systems Audit": "احجز تشخيص أنظمة مجاني",
+  "See systems in production": "شاهد الأنظمة في الإنتاج",
+
+  /* ===== Stats band (rewritten) ===== */
+  "Systems in Production": "نظام في الإنتاج",
+  "Agents and automations running inside real businesses.": "وكلاء وأتمتة تعمل داخل شركات حقيقية.",
+  "Industries Served": "قطاعات نخدمها",
+  "Manufacturing, contracting, logistics, F&B, real estate, suppliers.": "التصنيع، والمقاولات، والخدمات اللوجستية، والأغذية والمشروبات، والعقارات، والموردون.",
+  "To First System Live": "حتى تشغيل أول نظام",
+  "From audit to a workflow running in production.": "من التشخيص إلى مسار عمل يعمل في الإنتاج.",
+  "Response Time": "زمن الاستجابة",
+  "Every inquiry answered within one business day.": "نرد على كل استفسار خلال يوم عمل واحد.",
+
+  /* ===== Proof teaser ===== */
+  "Proof": "الإثبات",
+  "Systems already running.": "أنظمة تعمل بالفعل.",
+  "See them work.": "شاهدها وهي تعمل.",
+  "Sales operations · Manufacturing": "عمليات المبيعات · التصنيع",
+  "Quoting Agent": "وكيل عروض الأسعار",
+  "RFQs arrive on WhatsApp, get priced from live ERP stock, and go out after a one-tap human approval.":
+    "تصل طلبات التسعير عبر واتساب، وتُسعَّر من مخزون ERP الحي، وتُرسل بعد اعتماد بشري بلمسة واحدة.",
+  "Quotes out in minutes, not hours": "عروض أسعار خلال دقائق، لا ساعات",
+  "Multi-branch operations · F&B": "عمليات متعددة الفروع · أغذية ومشروبات",
+  "Daily Brief Agent": "وكيل الملخص اليومي",
+  "One morning voice note per branch, transcribed, structured, inventory logged, issues routed to the right team.":
+    "رسالة صوتية صباحية واحدة من كل فرع, تُفرَّغ وتُنظَّم، ويُسجَّل المخزون، وتُوجَّه المشكلات للفريق المناسب.",
+  "No more morning phone calls": "لا مزيد من مكالمات الصباح",
+  "Live in production": "يعمل في الإنتاج",
+  "See the full system": "شاهد النظام كاملًا",
+  "Five agents documented in depth, with triggers, approval gates, and outcomes.":
+    "خمسة وكلاء موثّقون بالتفصيل، مع المحفزات وبوابات الاعتماد والنتائج.",
+  "View all systems built": "شاهد كل الأنظمة المبنية",
+  "· detailed walkthroughs under NDA.": "· جولات تفصيلية بموجب اتفاقية سرية.",
+
+  /* ===== FAQ (home) ===== */
+  "Questions": "الأسئلة",
+  "Asked before": "أسئلة تُطرح قبل",
+  "every engagement.": "كل تعاون.",
+  "What's the difference between an AI agent and a chatbot?": "ما الفرق بين وكيل الذكاء الاصطناعي وروبوت المحادثة؟",
+  "A chatbot follows scripts and answers questions. An ADYAN agent reasons over your live business data, takes multi-step actions across your tools, looking up an order, routing an approval, updating the ERP, and escalates to a human when it should. It does the work, not just the talking.":
+    "روبوت المحادثة يتبع نصوصًا جاهزة ويجيب عن الأسئلة. أما وكيل أديان فيستدل على بياناتك الحية، وينفّذ إجراءات متعددة الخطوات عبر أدواتك, يبحث عن طلب، ويوجّه اعتمادًا، ويحدّث الـ ERP, ويصعّد للإنسان عند الحاجة. إنه ينجز العمل، لا يكتفي بالكلام.",
+  "Do your agents really work in Arabic and Saudi dialects?": "هل يعمل وكلاؤكم فعلًا بالعربية واللهجات السعودية؟",
+  "Yes. Every system is bilingual from the ground up, it understands Najdi, Hijazi and Khaleeji phrasing, Arabic voice notes, and mid-sentence Arabic-English code-switching, and replies in kind. Arabic isn't a translation layer bolted on afterward.":
+    "نعم. كل نظام ثنائي اللغة من الأساس, يفهم العبارات النجدية والحجازية والخليجية، والرسائل الصوتية العربية، والتنقل بين العربية والإنجليزية في الجملة الواحدة، ويرد بالمثل. العربية ليست طبقة ترجمة مضافة لاحقًا.",
+  "How long does it take to build and deploy an AI agent?": "كم يستغرق بناء وكيل الذكاء الاصطناعي ونشره؟",
+  "Most clients are using their first production system within about 6 weeks of the initial audit. Simpler workflows go live sooner; deep, multi-system enterprise builds take longer. You see working software early and often.":
+    "معظم العملاء يستخدمون أول نظام إنتاجي خلال نحو 6 أسابيع من التشخيص الأولي. المسارات الأبسط تنطلق أسرع، والبناءات المؤسسية متعددة الأنظمة تستغرق أطول. وترى برمجيات تعمل مبكرًا وباستمرار.",
+  "What does an AI agent project cost in Saudi Arabia?": "كم تكلفة مشروع وكيل ذكاء اصطناعي في السعودية؟",
+  "It depends on scope, a single focused workflow is a very different investment than a multi-department operations layer with deep ERP integration. Engagements are scoped transparently with clear milestones and no hidden fees.":
+    "يعتمد على النطاق, مسار عمل واحد مركّز استثمار مختلف تمامًا عن طبقة عمليات متعددة الأقسام بتكامل ERP عميق. تُحدَّد الاتفاقات بشفافية، بمراحل واضحة ودون رسوم خفية.",
+  "Where does our data live, and is it compliant with Saudi regulations?": "أين تُخزَّن بياناتنا، وهل تتوافق مع الأنظمة السعودية؟",
+  "You choose: in-Kingdom cloud, fully on-premise on your own servers, or inside your own cloud tenancy. Every system is engineered around Saudi PDPL data-protection and NCA cybersecurity principles, with a full audit trail on every action.":
+    "أنت تختار: سحابة داخل المملكة، أو على خوادمك بالكامل، أو ضمن اشتراكك السحابي الخاص. كل نظام مُهندَس وفق نظام حماية البيانات الشخصية السعودي (PDPL) ومبادئ الأمن السيبراني للهيئة الوطنية (NCA)، مع سجل تدقيق كامل لكل إجراء.",
+  "Can you connect to our existing ERP and tools?": "هل يمكنكم الربط مع الـ ERP والأدوات الحالية لدينا؟",
+  "Yes, SAP, Odoo, Microsoft Dynamics, CRMs, databases, and WhatsApp, Slack or Teams. If a system has an API or a database, it can be connected. No rip-and-replace.":
+    "نعم, SAP وOdoo وMicrosoft Dynamics وأنظمة CRM وقواعد البيانات، وواتساب وSlack وTeams. أي نظام له API أو قاعدة بيانات يمكن ربطه. دون استبدال أنظمتك.",
+  "What happens after the AI agent launches?": "ماذا يحدث بعد إطلاق وكيل الذكاء الاصطناعي؟",
+  "Systems are monitored, tuned, and improved over time, agents get sharper as they handle more real cases. You get ongoing support, performance visibility, and a clear path to extend into new workflows.":
+    "تُراقَب الأنظمة وتُضبَط وتتحسّن مع الوقت, يزداد الوكلاء دقة كلما عالجوا حالات حقيقية أكثر. تحصل على دعم مستمر، ورؤية للأداء، ومسار واضح للتوسع في مسارات عمل جديدة.",
+  "Which industries do you work with?": "ما القطاعات التي تعملون معها؟",
+  "Operations-heavy businesses, industrial and manufacturing, contracting and construction, logistics and transport, trading and distribution, e-commerce and retail, and service teams.":
+    "الأعمال كثيفة العمليات, الصناعة والتصنيع، والمقاولات والإنشاءات، والخدمات اللوجستية والنقل، والتجارة والتوزيع، والتجارة الإلكترونية والتجزئة، وفرق الخدمات.",
+  "Something else on your mind? Ask it on the call, or message me directly.": "لديك سؤال آخر؟ اطرحه في المكالمة، أو راسلني مباشرة.",
+  "WhatsApp me": "راسلني على واتساب",
+
+  /* ===== Founder strip ===== */
+  "ADYAN is founder-led — you work directly with me, from audit to production. No handoffs, no account managers. I design the system, build it, and stay on it after launch.":
+    "أديان يقودها مؤسسها, تعمل معي مباشرة، من التشخيص إلى الإنتاج. دون وسطاء ودون مديري حسابات. أصمم النظام، وأبنيه، وأبقى عليه بعد الإطلاق.",
+  "LinkedIn": "لينكدإن",
+  "About the studio": "عن الاستوديو",
+
+  /* ===== Explore (rewritten) ===== */
+  "How I keep data safe": "كيف أحمي البيانات",
+  "How I work": "كيف أعمل",
+  "For IT & ERP firms": "لشركات تقنية المعلومات والـ ERP",
+  "Add AI automation delivery to your client offering, scoped, built, and supported behind your brand.":
+    "أضف تنفيذ أتمتة الذكاء الاصطناعي إلى خدماتك لعملائك, يُحدَّد نطاقه ويُبنى ويُدعم باسم علامتك.",
+
+  /* ===== Contact (rewritten) ===== */
+  "Two weeks to a real plan.": "أسبوعان حتى خطة حقيقية.",
+  "Your first system live in 4–6.": "وأول نظام يعمل خلال 4–6 أسابيع.",
+  "Tell me a little about your operation and send it over WhatsApp or email. I reply within one business day with call times, and on the call we walk your highest-friction workflow and map a phased buildout. No pitch decks, no commitment.":
+    "أخبرني قليلًا عن عملياتك وأرسلها عبر واتساب أو البريد. أرد خلال يوم عمل واحد بمواعيد للمكالمة، وفيها نستعرض مسار العمل الأكثر احتكاكًا لديك ونرسم خطة تنفيذ مرحلية. دون عروض تقديمية ودون التزام.",
+  "Channel": "القناة",
+  "WhatsApp · Email · Call": "واتساب · بريد · مكالمة",
+  "Tell me about your operation": "أخبرني عن عملياتك",
+  "Preferred days/times (optional)": "الأيام/الأوقات المفضلة (اختياري)",
+  "The button below opens WhatsApp with your brief pre-filled —": "الزر أدناه يفتح واتساب وملخصك جاهز مسبقًا,",
+  "press send there to deliver it": "اضغط إرسال هناك ليصلني",
+  ". I reply within one business day with 2–3 call slots. Your details are never shared.":
+    ". أرد خلال يوم عمل واحد بموعدين أو ثلاثة للمكالمة. بياناتك لا تُشارك أبدًا.",
+  "Send my brief on WhatsApp": "أرسل ملخصي عبر واتساب",
+  "Prefer email? Send the same brief": "تفضّل البريد؟ أرسل الملخص نفسه",
+  "I respond within one business day and never share your details with anyone.":
+    "أرد خلال يوم عمل واحد ولا أشارك بياناتك مع أي جهة.",
+  "Almost done — press send in WhatsApp.": "اقتربنا, اضغط إرسال في واتساب.",
+  "Your brief is pre-filled in the WhatsApp tab that just opened,": "ملخصك جاهز في نافذة واتساب التي فُتحت للتو،",
+  ". Once you send it, I reply within one business day with a short plan for the call and 2–3 time options.":
+    ". بعد إرساله، أرد خلال يوم عمل واحد بخطة مختصرة للمكالمة وموعدين أو ثلاثة.",
+  "If the tab didn't open, use the button below.": "إذا لم تُفتح النافذة، استخدم الزر أدناه.",
+  "Open WhatsApp again": "افتح واتساب مجددًا",
+  "Edit my brief": "عدّل ملخصي",
+  "Almost done — send the email.": "اقتربنا, أرسل البريد.",
+  "Send another brief": "أرسل ملخصًا آخر",
+  "All three reach me directly. Response within one business day.": "القنوات الثلاث تصلني مباشرة. الرد خلال يوم عمل واحد.",
+  "Send a message or a voice note, Arabic or English. I reply within one business day.":
+    "أرسل رسالة أو ملاحظة صوتية، بالعربية أو الإنجليزية. أرد خلال يوم عمل واحد.",
+
+  /* ===== Misc (rewritten sections) ===== */
+  "Message me on WhatsApp": "راسلني على واتساب",
+  "I don't sell chatbots.": "أنا لا أبيع روبوتات محادثة.",
+  "I build systems that run departments.": "أبني أنظمة تدير أقسامًا كاملة.",
+  "support agent · demo": "وكيل دعم · عرض توضيحي",
+  "illustrative demo": "عرض توضيحي",
+  "Illustrative conversation, production systems differ. Every real conversation is bilingual, logged, and handed to a human the moment it needs one.":
+    "محادثة توضيحية, الأنظمة الإنتاجية تختلف. كل محادثة حقيقية ثنائية اللغة، ومسجّلة، وتُسلَّم لإنسان فور الحاجة.",
+  "Skip to content": "تخطَّ إلى المحتوى",
+  "The Mission": "المهمة",
 };

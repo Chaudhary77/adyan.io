@@ -31,6 +31,9 @@ function ZeroGField() {
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    // On small screens the 60fps loop costs battery for a background effect
+    // nobody is hovering over, render a single static field instead.
+    const isStatic = reduce || window.matchMedia("(max-width: 820px)").matches;
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
 
     const spriteBlue = makeOrbSprite("96,164,255");
@@ -64,13 +67,7 @@ function ZeroGField() {
       });
     }
 
-    function frame() {
-      t += 0.006;
-      // ease the parallax pointer
-      ptr.px += (ptr.x - ptr.px) * 0.06;
-      ptr.py += (ptr.y - ptr.py) * 0.06;
-      ptr.vx *= 0.9; ptr.vy *= 0.9;
-
+    function draw() {
       ctx.clearRect(0, 0, W, H);
       ctx.globalCompositeOperation = "lighter";
 
@@ -78,7 +75,7 @@ function ZeroGField() {
       const offY = (ptr.py - 0.5);
 
       for (const o of orbs) {
-        if (!reduce) {
+        if (!isStatic) {
           // weightless drift + bob
           o.x += o.vx;
           o.y += o.vy + Math.sin(t * o.bob + o.ph) * 0.06;
@@ -104,6 +101,15 @@ function ZeroGField() {
       }
       ctx.globalAlpha = 1;
       ctx.globalCompositeOperation = "source-over";
+    }
+
+    function frame() {
+      t += 0.006;
+      // ease the parallax pointer
+      ptr.px += (ptr.x - ptr.px) * 0.06;
+      ptr.py += (ptr.y - ptr.py) * 0.06;
+      ptr.vx *= 0.9; ptr.vy *= 0.9;
+      draw();
       raf = requestAnimationFrame(frame);
     }
 
@@ -134,6 +140,16 @@ function ZeroGField() {
 
     build();
     window.addEventListener("resize", build);
+
+    if (isStatic) {
+      // One calm frame, redrawn only on resize. No loop, no pointer physics.
+      const drawStatic = () => { build(); draw(); };
+      draw();
+      window.removeEventListener("resize", build);
+      window.addEventListener("resize", drawStatic);
+      return () => window.removeEventListener("resize", drawStatic);
+    }
+
     window.addEventListener("pointermove", onMove, { passive: true });
     window.addEventListener("pointerdown", onDown, { passive: true });
     window.addEventListener("pointerup", onUp, { passive: true });

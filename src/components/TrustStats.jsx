@@ -25,10 +25,10 @@ function Trust() {
 // Stats strip
 function Stats() {
   const items = [
-  { num: "12", unit: "+", lbl: "Operations Systems Live", desc: "Built across industrial, contracting, logistics, and services." },
-  { num: "40", unit: "%", lbl: "Avg. Cycle Time Reduction", desc: "Across approval, follow-up, and reporting workflows." },
-  { num: "24", unit: "/7", lbl: "Always-On Monitoring", desc: "Mission Control keeps eyes on operations around the clock." },
-  { num: "6", unit: "wks", lbl: "From Audit to First Win", desc: "First production system, deployed and used by real teams." }];
+  { num: "12", unit: "+", lbl: "Systems in Production", desc: "Agents and automations running inside real businesses." },
+  { num: "6", unit: "", lbl: "Industries Served", desc: "Manufacturing, contracting, logistics, F&B, real estate, suppliers." },
+  { num: "4–6", unit: "wks", lbl: "To First System Live", desc: "From audit to a workflow running in production." },
+  { num: "24", unit: "h", lbl: "Response Time", desc: "Every inquiry answered within one business day." }];
 
   return (
     <section className="stats">

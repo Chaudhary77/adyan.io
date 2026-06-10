@@ -590,6 +590,7 @@ function Site() {
     <div className="adyan-site" data-screen-label="ADYAN · Systems Built">
       <SiteNav current="work" />
       <Breadcrumb trail={[{ label: "Systems Built" }]} />
+      <main id="main">
       <WorkHero />
       <AgentLegend />
       <section className="section" style={{ paddingTop: 24 }}>
@@ -604,6 +605,7 @@ function Site() {
       <AgentRoster />
       <PendingNotice />
       <AuditCTAStrip />
+      </main>
       <SiteFooter />
       <StickyAuditBar />
     </div>);

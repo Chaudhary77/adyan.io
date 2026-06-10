@@ -211,11 +211,13 @@ function Site() {
     <div className="adyan-site" data-screen-label="ADYAN · Process">
       <SiteNav current="process"/>
       <Breadcrumb trail={[{label:"Process"}]}/>
+      <main id="main">
       <ProcessHero/>
       <ProcessSteps/>
       <WhatWeNeed/>
       <Faqs/>
       <AuditCTAStrip/>
+      </main>
       <SiteFooter/>
       <StickyAuditBar/>
     </div>

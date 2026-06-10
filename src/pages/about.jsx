@@ -2,9 +2,10 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import "../lib/bootstrap.js";
 import "../components/SiteChrome.jsx";
+import "../components/HomeSections.jsx";
 
 const ReactDOM = { createRoot };
-const { Compliance, SiteNav, SiteFooter, StickyAuditBar, Breadcrumb, AuditCTAStrip } = window;
+const { FounderStrip, SiteNav, SiteFooter, StickyAuditBar, Breadcrumb, AuditCTAStrip } = window;
 
 function AboutHero() {
   return (
@@ -14,7 +15,7 @@ function AboutHero() {
           <div className="eyebrow"><span className="eyebrow-dot"/> About ADYAN</div>
           <h1>A founder-led AI studio<br/>built for <span className="accent-word">real businesses.</span></h1>
           <p className="lede">
-            ADYAN is my studio. I'm an AI systems builder based in Khobar,
+            ADYAN is my studio. I'm Adyan, an AI systems builder based in Khobar,
             working with the kind of businesses spreadsheets and dashboards were
             never enough for, manufacturers, contractors, traders, logistics
             operators, real estate firms. I sit between strategy and engineering:
@@ -38,7 +39,7 @@ function Mission() {
     <section className="section" data-screen-label="02 Mission">
       <div className="about-mission">
         <div>
-          <div className="eyebrow"><span className="eyebrow-dot"/> Our Mission</div>
+          <div className="eyebrow"><span className="eyebrow-dot"/> The Mission</div>
           <h2 style={{fontFamily:"var(--font-display)", fontSize:"clamp(34px,3.8vw,48px)", fontWeight:600, letterSpacing:"-0.018em", lineHeight:1.08, margin:"14px 0 22px"}}>
             Make AI operate like<br/>a <span className="accent-word">real part of the business.</span>
           </h2>
@@ -100,7 +101,7 @@ function Principles() {
     { num: "01", t: "Systems over scripts",        d: "A prompt is a toy. A system is a workflow that knows its own state, retries, escalates, and reports back." },
     { num: "02", t: "Operations over magic",       d: "I don't sell AI. I sell faster collections, fewer missed follow-ups, cleaner reporting, calmer Mondays." },
     { num: "03", t: "Audit-ready by default",      d: "Every action an agent takes is logged, attributed, and reviewable. Compliance is not a feature we add later." },
-    { num: "04", t: "Built around the WhatsApp",   d: "The team will not open a dashboard. They will send a message. My systems meet them there." },
+    { num: "04", t: "Built around WhatsApp",       d: "The team will not open a dashboard. They will send a message. My systems meet them there." },
     { num: "05", t: "Integrate, don't replace",    d: "Your ERP, your CRM, your accounting tool, they stay. I connect to them, lift the friction, and step back." },
     { num: "06", t: "Phased, never big-bang",      d: "I deliver in 4-6 week phases, starting with the highest-leverage workflow. Each phase pays for the next." },
   ];
@@ -158,7 +159,7 @@ function Numbers() {
       <div className="stats-grid">
         <div className="stat"><div className="num">12<span className="unit">+</span></div><div className="lbl">Systems Shipped</div><div className="desc">Live agents and automations running in production.</div></div>
         <div className="stat"><div className="num">4–6<span className="unit">wks</span></div><div className="lbl">First System Live</div><div className="desc">From kick-off to a workflow saving time in production.</div></div>
-        <div className="stat"><div className="num">3<span className="unit">+</span></div><div className="lbl">Industries</div><div className="desc">Manufacturing, contracting, hospitality, and beyond.</div></div>
+        <div className="stat"><div className="num">6</div><div className="lbl">Industries</div><div className="desc">Manufacturing, contracting, logistics, F&B, real estate, suppliers.</div></div>
         <div className="stat"><div className="num">24<span className="unit">h</span></div><div className="lbl">Audit Response</div><div className="desc">From contact form to a real conversation, one business day.</div></div>
       </div>
     </section>
@@ -171,12 +172,15 @@ function Site() {
     <div className="adyan-site" data-screen-label="ADYAN · About">
       <SiteNav current="about"/>
       <Breadcrumb trail={[{label:"About"}]}/>
+      <main id="main">
       <AboutHero/>
+      <FounderStrip/>
       <Mission/>
       <Principles/>
       <Industries/>
       <Numbers/>
       <AuditCTAStrip/>
+      </main>
       <SiteFooter/>
       <StickyAuditBar/>
     </div>

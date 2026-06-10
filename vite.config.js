@@ -11,6 +11,7 @@ export default defineConfig({
       input: {
         // index.html is the landing page (homepage at "/"); no redirect hop.
         "root": resolve(__dirname, "index.html"),
+        "404": resolve(__dirname, "404.html"),
         "about": resolve(__dirname, "about.html"),
         "contact": resolve(__dirname, "contact.html"),
         "index-ar": resolve(__dirname, "index-ar.html"),

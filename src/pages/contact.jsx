@@ -20,9 +20,9 @@ const { SiteNav, SiteFooter, StickyAuditBar, Breadcrumb } = window;
 
    2) No endpoint set (default, zero-backend, works on deploy today):
       the form hands the visitor off to WhatsApp with a fully
-      pre-filled, structured message to the number below — native to
-      this audience and reliable on every device. A mailto fallback
-      covers the rare case WhatsApp can't open.
+      pre-filled, structured brief — and the UI is explicit that the
+      visitor must press send there to deliver it. An email path
+      composes the same brief via mailto.
    =================================================================== */
 const CONTACT_ENDPOINT = "";              // e.g. "https://formspree.io/f/your-id"
 const CONTACT_EMAIL    = "mail@adyan.io";
@@ -34,19 +34,19 @@ function ContactHero() {
       <div className="page-hero-inner">
         <div className="page-hero-left">
           <div className="eyebrow"><span className="eyebrow-dot"/> Book a Systems Audit</div>
-          <h1>Two weeks. A real plan.<br/><span className="accent-word">A first system live in 4–6.</span></h1>
+          <h1>Two weeks to a real plan.<br/><span className="accent-word">Your first system live in 4–6.</span></h1>
           <p className="lede">
-            Tell us a little about your operation, then pick a 30-minute slot.
-            On the call we walk your highest-friction workflow, confirm whether
-            it's a fit, and, if so, propose a phased buildout. No pitch decks,
-            no commitment to anything beyond the call.
+            Tell me a little about your operation and send it over WhatsApp or
+            email. I reply within one business day with call times, and on the
+            call we walk your highest-friction workflow and map a phased
+            buildout. No pitch decks, no commitment.
           </p>
         </div>
         <div className="page-hero-meta">
-          <div className="item"><div className="lbl">Call duration</div><div className="val">30 minutes</div></div>
           <div className="item"><div className="lbl">Cost</div><div className="val">Free · no commitment</div></div>
           <div className="item"><div className="lbl">Response</div><div className="val">Within 24 hours</div></div>
           <div className="item"><div className="lbl">Languages</div><div className="val">Arabic · English</div></div>
+          <div className="item"><div className="lbl">Channel</div><div className="val">WhatsApp · Email · Call</div></div>
         </div>
       </div>
     </section>
@@ -54,32 +54,36 @@ function ContactHero() {
 }
 
 // ---- Presentational form card (controlled by BookingFlow) ----
-function QualificationForm({ v, errors, onField }) {
+function QualificationForm({ v, errors, onField, status, onSendWhatsApp, onSendEmail }) {
   const field = (id, label, opts = {}) => {
     const invalid = !!errors[id];
+    const errId = id + "-err";
+    const a11y = invalid ? { "aria-invalid": true, "aria-describedby": errId } : {};
     return (
       <div className={"form-row" + (opts.full ? " full" : "") + (invalid ? " invalid" : "")}>
         <label htmlFor={id}>{label}</label>
         {opts.el === "textarea" ? (
           <textarea id={id} value={v[id]} placeholder={opts.placeholder}
-            onChange={(e) => onField(id, e.target.value)} />
+            onChange={(e) => onField(id, e.target.value)} {...a11y} />
         ) : opts.el === "select" ? (
-          <select id={id} value={v[id]} onChange={(e) => onField(id, e.target.value)}>
+          <select id={id} value={v[id]} onChange={(e) => onField(id, e.target.value)} {...a11y}>
             <option value="" disabled>Select…</option>
             {opts.options.map((o) => <option key={o}>{o}</option>)}
           </select>
         ) : (
           <input id={id} type={opts.type || "text"} value={v[id]} placeholder={opts.placeholder}
-            onChange={(e) => onField(id, e.target.value)} />
+            onChange={(e) => onField(id, e.target.value)} {...a11y} />
         )}
-        {invalid && <span className="err-msg">{errors[id]}</span>}
+        {invalid && <span className="err-msg" id={errId}>{errors[id]}</span>}
       </div>
     );
   };
 
+  const busy = status === "submitting";
+
   return (
-    <div className="contact-form-card">
-      <h3>Tell us about your operation</h3>
+    <div className="contact-form-card" style={{ maxWidth: 760, margin: "0 auto" }}>
+      <h3>Tell me about your operation</h3>
       <p className="sub">Five fields. Two minutes. So the call starts where it should, with the work, not the introductions.</p>
       <form className="form-grid" onSubmit={(e) => e.preventDefault()} noValidate>
         {field("name", "Your name", { placeholder: "e.g. Faisal Al-Saud" })}
@@ -90,155 +94,92 @@ function QualificationForm({ v, errors, onField }) {
         {field("size", "Team size", { el: "select", options: ["Under 25","25 – 100","100 – 500","500 – 2,000","2,000+"] })}
         {field("problem", "What's the highest-friction workflow today?", { el: "textarea", full: true, placeholder: "e.g. Sales reps spend 3 hours a day quoting over WhatsApp, slow, inconsistent, disconnected from stock." })}
         {field("tools", "Tools in play (ERP, CRM, accounting)", { full: true, placeholder: "e.g. Odoo + Salesforce + ZATCA + WhatsApp Business" })}
+        {field("preferred", "Preferred days/times (optional)", { full: true, placeholder: "e.g. Sun–Tue mornings, Khobar time" })}
       </form>
       <div className="form-note">
-        <i data-lucide="arrow-right-circle"></i>
-        <span>Pick a 30-minute slot on the right, then confirm. We respond within one business day and never share your details.</span>
+        <i data-lucide="message-circle"></i>
+        <span>
+          The button below opens WhatsApp with your brief pre-filled — <strong>press
+          send there to deliver it</strong>. I reply within one business day with
+          2–3 call slots. Your details are never shared.
+        </span>
       </div>
-    </div>
-  );
-}
-
-// ---- Presentational calendar card (controlled by BookingFlow) ----
-function CalendarPicker({ selectedDay, setSelectedDay, selectedSlot, setSelectedSlot, status, onSubmit }) {
-  const today = new Date();
-  const [month, setMonth] = React.useState(new Date(today.getFullYear(), today.getMonth(), 1));
-
-  React.useEffect(() => { if (window.lucide) window.lucide.createIcons(); });
-
-  const monthName = month.toLocaleDateString("en-GB", { month: "long", year: "numeric" });
-  const firstWeekday = (new Date(month.getFullYear(), month.getMonth(), 1).getDay() + 6) % 7; // Mon=0
-  const daysInMonth = new Date(month.getFullYear(), month.getMonth() + 1, 0).getDate();
-
-  const cells = [];
-  for (let i = 0; i < firstWeekday; i++) cells.push({ muted: true, n: "" });
-  for (let d = 1; d <= daysInMonth; d++) {
-    const date = new Date(month.getFullYear(), month.getMonth(), d);
-    const dow = date.getDay();
-    const isWeekend = (dow === 5 || dow === 6); // Fri/Sat weekend in KSA
-    const isPast = date < new Date(today.getFullYear(), today.getMonth(), today.getDate());
-    const isToday = date.toDateString() === today.toDateString();
-    cells.push({ muted: false, n: d, date, isWeekend, isPast, isToday, available: !isWeekend && !isPast });
-  }
-  while (cells.length % 7 !== 0) cells.push({ muted: true, n: "" });
-  while (cells.length < 42) cells.push({ muted: true, n: "" });
-
-  const slots = [
-    { t: "09:30", gone: false }, { t: "10:30", gone: false }, { t: "11:30", gone: true },
-    { t: "13:00", gone: false }, { t: "14:00", gone: false }, { t: "15:30", gone: false },
-    { t: "16:30", gone: true }, { t: "17:30", gone: false }, { t: "18:30", gone: false },
-  ];
-
-  const slotLabel = selectedDay
-    ? `Available · ${selectedDay.toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long" })}`
-    : "Available · pick a date first";
-
-  const prevMonth = () => setMonth(new Date(month.getFullYear(), month.getMonth() - 1, 1));
-  const nextMonth = () => setMonth(new Date(month.getFullYear(), month.getMonth() + 1, 1));
-  const busy = status === "submitting";
-  const ready = !!(selectedDay && selectedSlot) && !busy;
-
-  return (
-    <div className="contact-cal-card">
-      <h3>Pick a 30-minute slot</h3>
-      <p className="sub">All slots are in Khobar time (GMT+3). I respect Friday + Saturday as the local weekend.</p>
-
-      <div className="cal-head">
-        <div className="month">{monthName}</div>
-        <div className="nav">
-          <button type="button" aria-label="Previous month" onClick={prevMonth}><i data-lucide="chevron-left"/></button>
-          <button type="button" aria-label="Next month" onClick={nextMonth}><i data-lucide="chevron-right"/></button>
-        </div>
-      </div>
-
-      <div className="cal-week">
-        {["MON","TUE","WED","THU","FRI","SAT","SUN"].map(d => <div key={d}>{d}</div>)}
-      </div>
-
-      <div className="cal-grid">
-        {cells.map((c, i) => {
-          if (c.muted) return <div key={i} className="cal-day muted"/>;
-          const isSel = selectedDay && selectedDay.toDateString() === c.date.toDateString();
-          const cls = ["cal-day"];
-          if (c.isPast || c.isWeekend) cls.push("disabled"); else cls.push("available");
-          if (c.isToday) cls.push("today");
-          if (isSel) cls.push("selected");
-          return (
-            <div key={i} className={cls.join(" ")}
-              onClick={() => { if (c.isPast || c.isWeekend) return; setSelectedDay(c.date); setSelectedSlot(null); }}>
-              {c.n}
-            </div>
-          );
-        })}
-      </div>
-
-      <div className="cal-slots">
-        <div className="label">{slotLabel}</div>
-        <div className="cal-slots-grid">
-          {slots.map(s => {
-            const disabled = s.gone || !selectedDay;
-            const sel = selectedSlot === s.t;
-            const cls = ["cal-slot"];
-            if (s.gone) cls.push("gone");
-            if (sel) cls.push("selected");
-            return (
-              <div key={s.t} className={cls.join(" ")}
-                onClick={() => { if (!disabled) setSelectedSlot(s.t); }}
-                style={{ opacity: disabled && !s.gone ? 0.5 : 1, cursor: disabled ? "not-allowed" : "pointer" }}>
-                {s.t}
-              </div>
-            );
-          })}
-        </div>
-      </div>
-
-      <div className="cal-tz"><i data-lucide="globe"/> Khobar · GMT+3 · auto-converted to your timezone on confirmation</div>
-
-      <div className="contact-submit" style={{ marginTop: 22, flexDirection: "column", alignItems: "stretch" }}>
+      <div className="contact-submit" style={{ flexDirection: "column", alignItems: "stretch" }}>
         <button type="button"
           className={"btn-primary" + (busy ? " is-busy" : "")}
-          disabled={!ready}
-          style={{ justifyContent: "center", opacity: ready ? 1 : 0.5, cursor: ready ? "pointer" : "not-allowed" }}
-          onClick={onSubmit}>
-          {busy ? "Sending…" : "Confirm Systems Audit"} <span className="arr"/>
+          disabled={busy}
+          style={{ justifyContent: "center" }}
+          onClick={onSendWhatsApp}>
+          {busy ? "Sending…" : "Send my brief on WhatsApp"} <span className="arr"/>
+        </button>
+        <button type="button" className="btn-secondary" style={{ justifyContent: "center" }} onClick={onSendEmail}>
+          Prefer email? Send the same brief
         </button>
         {status === "error" && (
           <div className="submit-error">
             <i data-lucide="alert-circle"></i>
-            <span>Something went wrong sending that. Please try again, or reach us on WhatsApp at +966 50 818 3984.</span>
+            <span>Something went wrong sending that. Please try again, or reach me on WhatsApp at +966 50 818 3984.</span>
           </div>
         )}
-        <small style={{ color: "var(--fg-3)", marginTop: 10 }}>By confirming you agree to a one-business-day response. We don't share your details with anyone.</small>
+        <small style={{ marginTop: 10 }}>I respond within one business day and never share your details with anyone.</small>
       </div>
     </div>
   );
 }
 
-function BookingSuccess({ data, onReset }) {
+function BookingSuccess({ data, onReset, onReopen }) {
   React.useEffect(() => { if (window.lucide) window.lucide.createIcons(); });
-  const slotText = data.dateLabel ? `${data.dateLabel} · ${data.slot} (Khobar, GMT+3)` : "your requested slot";
+  const viaWhatsApp = data.via === "whatsapp";
+  const viaEmail = data.via === "email";
   return (
-    <div className="booking-success" data-screen-label="Booking Confirmed">
+    <div className="booking-success" data-screen-label="Brief Ready">
       <div className="ok-ic"><i data-lucide="check"></i></div>
-      <h3>Request received, {data.name.split(" ")[0] || "thanks"}.</h3>
-      <p>Thanks for the details on {data.company || "your operation"}. We'll review your highest-friction workflow before the call so we walk in already up to speed.</p>
-      <div className="booking-recap"><i data-lucide="calendar-check"></i> {slotText}</div>
-      <p>You'll get a confirmation on WhatsApp and email within one business day. If anything changes, just reply to either.</p>
-      <div className="ok-actions">
-        <a className="btn-primary" href="https://wa.me/966508183984" target="_blank" rel="noopener">Message us on WhatsApp <span className="arr"/></a>
-        <button type="button" className="btn-secondary" onClick={onReset}>Book another slot</button>
-      </div>
+      {viaWhatsApp ? (
+        <React.Fragment>
+          <h3>Almost done — press send in WhatsApp.</h3>
+          <p>
+            Your brief is pre-filled in the WhatsApp tab that just opened,
+            {data.name ? ` ${data.name.split(" ")[0]}` : ""}. Once you send it,
+            I reply within one business day with a short plan for the call and
+            2–3 time options.
+          </p>
+          <p>If the tab didn't open, use the button below.</p>
+          <div className="ok-actions">
+            <button type="button" className="btn-primary" onClick={onReopen}>Open WhatsApp again <span className="arr"/></button>
+            <button type="button" className="btn-secondary" onClick={onReset}>Edit my brief</button>
+          </div>
+        </React.Fragment>
+      ) : viaEmail ? (
+        <React.Fragment>
+          <h3>Almost done — send the email.</h3>
+          <p>
+            Your brief is drafted in your email app, addressed to {CONTACT_EMAIL}.
+            Once you send it, I reply within one business day with call times.
+          </p>
+          <div className="ok-actions">
+            <a className="btn-primary" href="https://wa.me/966508183984" target="_blank" rel="noopener">Or message me on WhatsApp <span className="arr"/></a>
+            <button type="button" className="btn-secondary" onClick={onReset}>Edit my brief</button>
+          </div>
+        </React.Fragment>
+      ) : (
+        <React.Fragment>
+          <h3>Request received{data.name ? `, ${data.name.split(" ")[0]}` : ""}.</h3>
+          <p>Thanks for the details on {data.company || "your operation"}. I'll review your highest-friction workflow and reply within one business day with call times.</p>
+          <div className="ok-actions">
+            <a className="btn-primary" href="https://wa.me/966508183984" target="_blank" rel="noopener">Message me on WhatsApp <span className="arr"/></a>
+            <button type="button" className="btn-secondary" onClick={onReset}>Send another brief</button>
+          </div>
+        </React.Fragment>
+      )}
     </div>
   );
 }
 
 function BookingFlow() {
   const [v, setV] = React.useState({
-    name: "", company: "", email: "", phone: "", industry: "", size: "", problem: "", tools: ""
+    name: "", company: "", email: "", phone: "", industry: "", size: "", problem: "", tools: "", preferred: ""
   });
   const [errors, setErrors] = React.useState({});
-  const [selectedDay, setSelectedDay] = React.useState(null);
-  const [selectedSlot, setSelectedSlot] = React.useState(null);
   const [status, setStatus] = React.useState("idle"); // idle | submitting | error | done
   const [doneData, setDoneData] = React.useState(null);
 
@@ -253,27 +194,19 @@ function BookingFlow() {
     if (!v.company.trim()) e.company = "Please add your company.";
     if (!v.email.trim()) e.email = "Please add a work email.";
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.email.trim())) e.email = "That email doesn't look right.";
-    if (!v.problem.trim()) e.problem = "Tell us the workflow so the call is useful.";
+    if (!v.problem.trim()) e.problem = "Tell me the workflow so the call is useful.";
     setErrors(e);
     return Object.keys(e).length === 0;
   };
 
-  const buildPayload = () => {
-    const dateLabel = selectedDay
-      ? selectedDay.toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long", year: "numeric" })
-      : "";
-    return {
-      ...v,
-      date: selectedDay ? selectedDay.toISOString().slice(0, 10) : "",
-      dateLabel,
-      slot: selectedSlot || "",
-      timezone: "Asia/Riyadh (GMT+3)",
-      _subject: `Systems Audit request — ${v.name}${v.company ? ", " + v.company : ""}`,
-      submittedAt: new Date().toISOString(),
-    };
-  };
+  const buildPayload = () => ({
+    ...v,
+    timezone: "Asia/Riyadh (GMT+3)",
+    _subject: `Systems Audit request — ${v.name}${v.company ? ", " + v.company : ""}`,
+    submittedAt: new Date().toISOString(),
+  });
 
-  // Build the structured, human-readable message body shared by both fallbacks.
+  // Build the structured, human-readable brief shared by both channels.
   const composeBody = (p) => [
     `New Systems Audit request — ${p.name}${p.company ? ", " + p.company : ""}`,
     ``,
@@ -284,79 +217,83 @@ function BookingFlow() {
     `Industry: ${p.industry || "—"}`,
     `Team size: ${p.size || "—"}`,
     `Tools: ${p.tools || "—"}`,
-    ``,
-    `Requested slot: ${p.dateLabel ? p.dateLabel + " at " + p.slot + " (Khobar, GMT+3)" : "—"}`,
+    `Preferred times: ${p.preferred || "—"}`,
     ``,
     `Highest-friction workflow:`,
     p.problem,
   ].join("\n");
 
-  // Zero-backend delivery: hand off to WhatsApp (native to this audience),
-  // with a mailto fallback if WhatsApp can't be opened.
-  const sendViaHandoff = (p) => {
-    const body = composeBody(p);
-    const wa = `https://wa.me/${CONTACT_WHATSAPP}?text=${encodeURIComponent(body)}`;
-    const win = window.open(wa, "_blank", "noopener");
-    if (!win) {
-      window.location.href =
-        `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(p._subject)}&body=${encodeURIComponent(body)}`;
-    }
-  };
+  const waUrl = (p) =>
+    `https://wa.me/${CONTACT_WHATSAPP}?text=${encodeURIComponent(composeBody(p))}`;
+  const mailtoUrl = (p) =>
+    `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(p._subject)}&body=${encodeURIComponent(composeBody(p))}`;
 
-  const submit = async () => {
+  // When a server endpoint is configured, capture silently and show the
+  // confirmation screen; otherwise hand off to the chosen channel.
+  const submit = async (via) => {
     if (!validate()) return;
-    if (!selectedDay || !selectedSlot) {
-      setErrors((e) => ({ ...e, slot: "Pick a date and time." }));
-      return;
-    }
     const payload = buildPayload();
-    setStatus("submitting");
-    try {
-      if (CONTACT_ENDPOINT) {
+    if (CONTACT_ENDPOINT) {
+      setStatus("submitting");
+      try {
         const res = await fetch(CONTACT_ENDPOINT, {
           method: "POST",
           headers: { "Content-Type": "application/json", "Accept": "application/json" },
           body: JSON.stringify(payload),
         });
         if (!res.ok) throw new Error("Bad status " + res.status);
-      } else {
-        // No endpoint configured yet → never lose the lead: hand off to WhatsApp.
-        sendViaHandoff(payload);
+        setDoneData({ ...payload, via: "endpoint" });
+        setStatus("done");
+      } catch (err) {
+        console.error("Contact submit failed:", err);
+        setStatus("error");
       }
-      setDoneData(payload);
-      setStatus("done");
-    } catch (err) {
-      console.error("Contact submit failed:", err);
-      setStatus("error");
+      return;
     }
+    if (via === "whatsapp") {
+      const win = window.open(waUrl(payload), "_blank", "noopener");
+      if (!win) {
+        // Popup blocked → fall back to the email draft instead of losing the brief.
+        window.location.href = mailtoUrl(payload);
+        setDoneData({ ...payload, via: "email" });
+      } else {
+        setDoneData({ ...payload, via: "whatsapp" });
+      }
+    } else {
+      window.location.href = mailtoUrl(payload);
+      setDoneData({ ...payload, via: "email" });
+    }
+    setStatus("done");
   };
 
+  const reopen = () => {
+    if (!doneData) return;
+    const win = window.open(waUrl(doneData), "_blank", "noopener");
+    if (!win) window.location.href = mailtoUrl(doneData);
+  };
+
+  // "Edit my brief" keeps the values; the visitor only fixes what they need.
   const reset = () => {
-    setV({ name: "", company: "", email: "", phone: "", industry: "", size: "", problem: "", tools: "" });
     setErrors({});
-    setSelectedDay(null);
-    setSelectedSlot(null);
     setDoneData(null);
     setStatus("idle");
   };
 
   if (status === "done" && doneData) {
     return (
-      <div className="contact-grid" style={{ display: "block" }}>
-        <BookingSuccess data={doneData} onReset={reset} />
+      <div style={{ maxWidth: 760, margin: "0 auto" }}>
+        <BookingSuccess data={doneData} onReset={reset} onReopen={reopen} />
       </div>
     );
   }
 
   return (
-    <div className="contact-grid">
-      <QualificationForm v={v} errors={errors} onField={onField} />
-      <CalendarPicker
-        selectedDay={selectedDay} setSelectedDay={setSelectedDay}
-        selectedSlot={selectedSlot} setSelectedSlot={setSelectedSlot}
-        status={status} onSubmit={submit}
-      />
-    </div>
+    <QualificationForm
+      v={v} errors={errors} onField={onField}
+      status={status}
+      onSendWhatsApp={() => submit("whatsapp")}
+      onSendEmail={() => submit("email")}
+    />
   );
 }
 
@@ -365,7 +302,7 @@ function ContactSide() {
     <section className="section section--tight" data-screen-label="03 Side Channels">
       <div className="section-head-c" style={{marginBottom:32}}>
         <h2 style={{fontSize:"clamp(28px,3vw,38px)"}}>Prefer another channel?</h2>
-        <p className="lede">All three reach the same operations team. Response within one business day.</p>
+        <p className="lede">All three reach me directly. Response within one business day.</p>
       </div>
       <div className="contact-side" style={{marginTop:0, gridTemplateColumns:"repeat(3,1fr)"}}>
         <div className="tile">
@@ -376,7 +313,7 @@ function ContactSide() {
             <div className="lbl">WhatsApp</div>
           </div>
           <div className="val"><a href="https://wa.me/966508183984" target="_blank" rel="noopener">+966 50 818 3984</a></div>
-          <p style={{fontSize:12.5, color:"var(--fg-3)", marginTop:8, lineHeight:1.5}}>Send a voice note. My operations agent picks it up in seconds and routes to the right person.</p>
+          <p style={{fontSize:12.5, color:"var(--fg-3)", marginTop:8, lineHeight:1.5}}>Send a message or a voice note, Arabic or English. I reply within one business day.</p>
         </div>
         <div className="tile">
           <div style={{display:"flex", alignItems:"center", gap:10, marginBottom:10}}>
@@ -409,11 +346,13 @@ function Site() {
     <div className="adyan-site" data-screen-label="ADYAN · Contact">
       <SiteNav current="contact"/>
       <Breadcrumb trail={[{label:"Contact"}]}/>
-      <ContactHero/>
-      <section className="section" data-screen-label="02 Contact Split">
-        <BookingFlow/>
-      </section>
-      <ContactSide/>
+      <main id="main">
+        <ContactHero/>
+        <section className="section" data-screen-label="02 Contact Form">
+          <BookingFlow/>
+        </section>
+        <ContactSide/>
+      </main>
       <SiteFooter/>
       <StickyAuditBar/>
     </div>

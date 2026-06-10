@@ -336,6 +336,7 @@ function Site() {
     <div className="adyan-site" data-screen-label="ADYAN · Partnerships">
       <SiteNav current="partners"/>
       <Breadcrumb trail={[{label:"Partnerships"}]}/>
+      <main id="main">
       <PartnersHero/>
       <Audience/>
       <FounderNote/>
@@ -344,6 +345,7 @@ function Site() {
       <Capabilities/>
       <HowItWorks/>
       <PartnerCTA/>
+      </main>
       <SiteFooter/>
       <StickyAuditBar/>
     </div>

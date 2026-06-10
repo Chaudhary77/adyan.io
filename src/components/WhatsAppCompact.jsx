@@ -27,14 +27,14 @@ function WhatsAppCompact() {
           </ul>
           <div className="wac-cta">
             <a className="btn-primary btn-wa" href="https://wa.me/966508183984" target="_blank" rel="noopener">
-              <i data-lucide="message-circle"/> Talk to Operations
+              <i data-lucide="message-circle"/> Message me on WhatsApp
             </a>
             <a className="btn-secondary" href="/services#whatsapp">See how it works</a>
           </div>
         </div>
 
         <WaPhone
-          contact={{ initial: "S", name: "Site · Block C", status: "driving · voice note" }}
+          contact={{ initial: "S", name: "Site · Block C", status: "illustrative demo" }}
         >
           <div className="wa-bubble-2 from-user">
             Where are we on PO #4821?

@@ -510,7 +510,10 @@
 }
 .form-row input:focus,
 .form-row select:focus,
-.form-row textarea:focus { outline: none; border-color: var(--border-active); background: rgba(13,29,41,.6); }
+.form-row textarea:focus {
+  outline: none; border-color: var(--border-active); background: rgba(13,29,41,.6);
+  box-shadow: 0 0 0 3px var(--accent-ring);
+}
 .form-row textarea { min-height: 110px; resize: vertical; }
 .form-row select { appearance: none; -webkit-appearance: none; background-image:
   linear-gradient(45deg, transparent 50%, var(--fg-3) 50%),

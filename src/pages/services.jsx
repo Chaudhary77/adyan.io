@@ -14,7 +14,7 @@ function ServicesHero() {
           <div className="eyebrow"><span className="eyebrow-dot"/> Services</div>
           <h1>Start with a 30-minute <span className="accent-word">systems audit.</span><br/>Get a clear path to your first AI system.</h1>
           <p className="lede">
-            Share a little about your business, then book a 30-minute call. We'll identify your highest-friction workflow, confirm whether AI automation is a good fit, and outline the fastest practical way to move forward — from a simple quick-win automation to a phased AI operations system.
+            Share a little about your business, then book a 30-minute call. I'll identify your highest-friction workflow, confirm whether AI automation is a good fit, and outline the fastest practical way to move forward — from a simple quick-win automation to a phased AI operations system.
           </p>
         </div>
         <div className="page-hero-meta">
@@ -59,11 +59,11 @@ function SvcStatement() {
   return (
     <section className="svc-statement" data-screen-label="Statement">
       <h2>
-        We don't just automate tasks.<br/>
-        <span className="accent-word">We transform departments.</span>
+        I don't sell chatbots.<br/>
+        <span className="accent-word">I build systems that run departments.</span>
       </h2>
       <p className="lead">
-        A single automation that answers emails isn't transformation. We architect
+        A single automation that answers emails isn't transformation. I architect
         agent systems that handle end-to-end workflows, from intake to execution
         to reporting, replacing entire process chains, not individual steps.
       </p>
@@ -178,7 +178,7 @@ function SvcAutomation() {
           <span className="svc-num">02 / Service</span>
           <h3>Workflow Automation that survives Monday morning.</h3>
           <p className="lede">
-            We map the workflow as it actually runs, including the exceptions 
+            I map the workflow as it actually runs, including the exceptions
             then build automation around it. Triggers, parsing, ERP writes,
             approvals, retries, alerts. The mundane handled silently. The edge
             cases surfaced clearly.
@@ -339,8 +339,8 @@ function SvcERP() {
           <ul className="svc-bullets">
             <li><i data-lucide="check"/><span><b>Bidirectional syncs.</b> ERP ↔ CRM ↔ accounting ↔ WhatsApp, one source of truth, never out of date.</span></li>
             <li><i data-lucide="check"/><span><b>ZATCA Phase-2 ready.</b> e-invoicing, QR codes, signing, built into the workflow, not bolted on.</span></li>
-            <li><i data-lucide="check"/><span><b>Custom APIs.</b> When the off-the-shelf connector doesn't exist, we build it.</span></li>
-            <li><i data-lucide="check"/><span><b>Migration support.</b> Moving from spreadsheets, or between ERPs? We model, map, and migrate without losing audit history.</span></li>
+            <li><i data-lucide="check"/><span><b>Custom APIs.</b> When the off-the-shelf connector doesn't exist, I build it.</span></li>
+            <li><i data-lucide="check"/><span><b>Migration support.</b> Moving from spreadsheets, or between ERPs? I model, map, and migrate without losing audit history.</span></li>
           </ul>
           <div className="svc-meta">
             <span><i data-lucide="repeat"/>Real-time sync</span>
@@ -402,7 +402,7 @@ function SvcApps() {
           <span className="svc-num">06 / Service</span>
           <h3>Custom Apps & Dashboards, a single pane on operations.</h3>
           <p className="lede">
-            When the off-the-shelf tool can't see what you need to see, we build
+            When the off-the-shelf tool can't see what you need to see, I build
             the app. Internal tools, ops dashboards, executive briefings, built
             on the data your agents and integrations already gather, designed for
             the role that actually uses it.
@@ -430,6 +430,7 @@ function Site() {
     <div className="adyan-site" data-screen-label="ADYAN · Services">
       <SiteNav current="services"/>
       <Breadcrumb trail={[{label:"Services"}]}/>
+      <main id="main">
       <ServicesHero/>
       <ServicesNav/>
       <SvcStatement/>
@@ -440,6 +441,7 @@ function Site() {
       <SvcERP/>
       <SvcApps/>
       <AuditCTAStrip/>
+      </main>
       <SiteFooter/>
       <StickyAuditBar/>
     </div>

@@ -113,7 +113,7 @@ function AgentsShowcase() {
         </div>
 
         <div className="agx-demo" ref={demoRef}>
-          <WaPhone contact={{ initial: "A", name: "ADYAN · Support", status: "online · replies instantly" }}>
+          <WaPhone contact={{ initial: "A", name: "ADYAN · Support", status: "support agent · demo" }}>
             <div className="wa-thread" ref={bodyRef}>
               {script.slice(0, shown).map((m, i) =>
               <div
@@ -130,8 +130,8 @@ function AgentsShowcase() {
             </div>
           </WaPhone>
           <div className="agx-foot">
-            <i data-lucide="shield-check" />
-            Every conversation is bilingual, logged, and handed to a human the moment it needs one.
+            <i data-lucide="eye" />
+            Illustrative conversation, production systems differ. Every real conversation is bilingual, logged, and handed to a human the moment it needs one.
           </div>
         </div>
       </div>

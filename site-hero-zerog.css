@@ -8,6 +8,7 @@
 .hero[data-variant="zerog"] {
   position: relative;
   overflow: hidden;
+  min-height: calc(100vh - var(--nav-h)); /* fallback: Safari < 15.4 */
   min-height: calc(100svh - var(--nav-h));
   display: flex;
   align-items: center;
@@ -205,4 +206,22 @@
   .hero[data-variant="zerog"] { padding: 56px 18px; }
   .zg-headline { font-size: clamp(40px, 15vw, 76px); }
   .zg-meta { display: none; }
+}
+
+/* =========================================================
+   Copy headline variant, sentence-case value proposition
+   (longer than the original display words, so smaller scale)
+   ========================================================= */
+.zg-headline--copy {
+  font-size: clamp(36px, 5.4vw, 78px);
+  font-weight: 700;
+  line-height: 1.04;
+  letter-spacing: -.025em;
+  text-transform: none;
+  max-width: 18ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 700px) {
+  .zg-headline--copy { font-size: clamp(30px, 9vw, 44px); }
 }

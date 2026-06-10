@@ -5,10 +5,10 @@
    ========================================================= */
 
 /* ---------- Brand webfonts ----------
-   The bundle's local TTF files were not exported, so we load the matching
-   Google Fonts the design system was built to pair with: Sora (display) +
-   Inter (body). Rendered identically across every page. */
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,600;1,700;1,900&family=Sora:wght@400;600;700;800&display=swap');
+   Sora (display) + Inter (body) + Cairo (Arabic) load via a single
+   <link rel="stylesheet"> in each page's <head>, preceded by preconnect
+   hints. No @import here: an @import inside CSS chains a second
+   render-blocking request behind this file. */
 
 :root {
   /* ---------- Color tokens (raw) ---------- */
@@ -30,7 +30,7 @@
   /* ---------- Semantic foreground ---------- */
   --fg-1: var(--cloud);                 /* primary text */
   --fg-2: rgba(245,247,250,.72);        /* secondary text */
-  --fg-3: rgba(245,247,250,.5);         /* tertiary text / labels */
+  --fg-3: rgba(245,247,250,.58);        /* tertiary text / labels (>= 4.5:1 on obsidian) */
   --fg-mute: rgba(245,247,250,.32);     /* disabled / dividers */
 
   /* ---------- Semantic accent ---------- */

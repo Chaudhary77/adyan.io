@@ -68,13 +68,27 @@ function LangToggle() {
 
 function SiteNav({ current }) {
   const [open, setOpen] = React.useState(false);
+  const toggleRef = React.useRef(null);
   React.useEffect(() => {if (window.lucide) window.lucide.createIcons();}, [open]);
   React.useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
     return () => {document.body.style.overflow = "";};
   }, [open]);
+  // Escape closes the mobile menu and hands focus back to the toggle.
+  React.useEffect(() => {
+    if (!open) return;
+    const onKey = (e) => {
+      if (e.key === "Escape") {
+        setOpen(false);
+        if (toggleRef.current) toggleRef.current.focus();
+      }
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [open]);
   return (
     <React.Fragment>
+      <a className="skip-link" href="#main">Skip to content</a>
       <nav className="adyan-nav" data-screen-label="Nav">
         <a className="brand" href="/">
           <img src={(window.__resources && window.__resources.logoMono) || "ds/assets/logo-monogram.png"} alt="" width="36" height="36" />
@@ -105,6 +119,7 @@ function SiteNav({ current }) {
             className="nav-mobile-toggle"
             aria-label="Open menu"
             aria-expanded={open}
+            ref={toggleRef}
             onClick={() => setOpen(true)}
             data-no-i18n>
             
@@ -145,7 +160,7 @@ function SiteNav({ current }) {
         </nav>
         <div className="mobile-menu-cta">
           <a className="btn-primary" href="https://wa.me/966508183984" target="_blank" rel="noopener">
-            Talk to Operations
+            Message me on WhatsApp
           </a>
           <a className="btn-secondary" href="/contact">Book a Systems Audit</a>
         </div>

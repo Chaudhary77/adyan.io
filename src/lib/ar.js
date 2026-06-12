@@ -767,17 +767,12 @@ window.ADYAN_AR_DICT = {
   "hrs": "ساعة",
   "reclaimed monthly · ≈": "تُستعاد شهريًا · ≈",
   "full days": "أيام كاملة",
-  "Get your free AI Readiness Assessment": "احصل على تقييم الجاهزية للذكاء الاصطناعي مجانًا",
-  "An estimate based on a 40% reduction in manual workload, not a quote. Your assessment produces real numbers for your operation.":
-    "تقدير مبني على خفض 40٪ من العمل اليدوي, وليس عرض سعر. تقييمك يُنتج أرقامًا حقيقية لعملياتك.",
-
-  /* ===== Landing, AI Readiness Assessment CTA (new) ===== */
-  "Free AI Readiness Assessment": "تقييم مجاني للجاهزية للذكاء الاصطناعي",
+  /* ===== Landing, free Systems Audit CTA (offer naming, 2026-06) =====
+     Stale "AI Readiness Assessment" keys removed — the offer is named
+     "Free 30-Minute Systems Audit" site-wide; those keys live near the
+     ReadinessCTA block further down. */
   "Find out where AI pays off": "اكتشف أين يؤتي الذكاء الاصطناعي ثماره",
   "in your operation.": "في عملياتك.",
-  "A focused 30-minute session. We map your highest-friction workflows, tell you honestly where AI fits, and where it doesn't, and leave you with a phased plan. No pitch deck, no commitment beyond the call.":
-    "جلسة مركّزة من 30 دقيقة. نرسم أعلى مساراتك احتكاكًا، ونخبرك بصدق أين يناسب الذكاء الاصطناعي, وأين لا يناسب, ونترك لك خطة مرحلية. بلا عرض تقديمي، وبلا التزام يتجاوز المكالمة.",
-  "Get your free assessment": "احصل على تقييمك المجاني",
   "Or message us on WhatsApp": "أو راسلنا على واتساب",
   "Duration": "المدة",
   "What you walk away with": "ما ستخرج به",

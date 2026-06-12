@@ -12,9 +12,10 @@ function ProcessHero() {
       <div className="page-hero-inner">
         <div className="page-hero-left">
           <div className="eyebrow"><span className="eyebrow-dot"/> How I Work</div>
-          <h1>Audit. Design. Build. Deploy.<br/><span className="accent-word">Improve.</span></h1>
+          <h1>Blueprint. Design. Build. Deploy.<br/><span className="accent-word">Improve.</span></h1>
           <p className="lede">
-            Every engagement follows the same five-step process, built around
+            It starts with a free 30-minute Systems Audit call. From there,
+            every engagement follows the same five-step process, built around
             real operations, paced for the people who have to actually use the
             result. Each phase has a clear deliverable, a fixed timebox, and a
             gate before the next one starts. No big-bang launches. No scope drift.
@@ -34,10 +35,18 @@ function ProcessHero() {
 function ProcessSteps() {
   const steps = [
     {
+      num:"00",
+      dur:"30 minutes · Free",
+      ic:"phone-call",
+      t:"Systems Audit call",
+      p:"Where it all starts, and the only step that costs nothing. We walk your highest-friction workflow together, I tell you honestly whether AI fits, and you get a fixed-scope quote before any paid work begins.",
+      d:["Your highest-friction workflow, mapped","Honest fit assessment","Fixed-scope quote for the Blueprint","No commitment beyond the call"]
+    },
+    {
       num:"01",
       dur:"Week 1–2",
       ic:"search",
-      t:"Systems Audit",
+      t:"Operations Blueprint",
       p:"I sit with operations leadership, walk every workflow that matters, and map where the bottlenecks are, measured in time, cost, and risk. Output is a prioritised systems map: the workflows to automate first, second, third, and the ones to leave alone.",
       d:["Stakeholder interviews (4–6)","Workflow mapping per function","Tool & ERP inventory","Prioritised systems map","Phased buildout proposal"]
     },
@@ -167,11 +176,11 @@ function WhatWeNeed() {
 function Faqs() {
   const faqs = [
     {q:"How fast can a first system be live?",
-     a:"For most engagements, 4–6 weeks from audit kick-off to the first system handling production traffic. The audit itself takes two weeks, design takes one, build takes two to three, and we go live on a controlled slice in week 5 or 6."},
+     a:"For most engagements, 4–6 weeks from kick-off to the first system handling production traffic. The Operations Blueprint takes two weeks, design takes one, build takes two to three, and we go live on a controlled slice in week 5 or 6."},
     {q:"Do you replace our ERP?",
      a:"No. I connect to your existing ERP, Odoo, SAP B1, Oracle, Zoho, in-house, anything with an API or even a database connection. The ERP stays. The friction around it goes."},
     {q:"What does it cost?",
-     a:"Engagements are scoped per phase. A typical first phase, audit + one system live, sits between SAR 40k–120k depending on complexity. I give a fixed-scope quote after the audit, never before."},
+     a:"Engagements are scoped per phase. A typical first phase, Blueprint + one system live, sits between SAR 40k–120k depending on complexity. The free audit call comes first; you get a fixed-scope quote before any paid work starts."},
     {q:"Who owns the system after handover?",
      a:"You do. I hand over source code, runbooks, prompt libraries, and credentials. You can keep me on a monthly improvement retainer, hire your own team to maintain it, or both."},
     {q:"Is our data safe?",

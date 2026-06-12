@@ -1,6 +1,9 @@
 import React from "react";
-// AI Readiness Assessment, relationship-first primary CTA for the home page.
-// Replaces FinalCTAOpt. Primary action = free assessment; WhatsApp is secondary.
+// Free Systems Audit, relationship-first primary CTA for the home page.
+// Replaces FinalCTAOpt. Primary action = the free 30-minute audit call;
+// WhatsApp is secondary. Naming is canonical site-wide: the free 30-minute
+// call IS the "Systems Audit"; the paid two-week phase is the
+// "Operations Blueprint" (see process page).
 function ReadinessCTA() {
   React.useEffect(() => {if (window.lucide) window.lucide.createIcons();});
 
@@ -12,21 +15,21 @@ function ReadinessCTA() {
 
 
   return (
-    <section className="ready" data-screen-label="Readiness Assessment CTA">
+    <section className="ready" data-screen-label="Systems Audit CTA">
       <div className="ready-card" data-comment-anchor="264f338d4e-div-15-7">
         <div className="ready-grid-bg" />
 
         <div className="ready-copy">
-          <div className="eyebrow"><span className="eyebrow-dot" /> Free AI Readiness Assessment</div>
+          <div className="eyebrow"><span className="eyebrow-dot" /> Free 30-Minute Systems Audit</div>
           <h2>Find out where AI pays off <span className="accent-word">in your operation.</span></h2>
           <p>
-            A focused 30-minute session. I map your highest-friction workflows,
+            A focused 30-minute audit call. I map your highest-friction workflows,
             tell you honestly where AI fits, and where it doesn't, and leave you
             with a phased plan. No pitch deck, no commitment beyond the call.
           </p>
           <div className="ready-actions">
             <a className="btn-primary" href="/contact">
-              Get your free assessment <span className="arr" />
+              Book your free Systems Audit <span className="arr" />
             </a>
             <a className="btn-secondary btn-wa" href="https://wa.me/966508183984" target="_blank" rel="noopener">
               <i data-lucide="message-circle" /> Or message me on WhatsApp

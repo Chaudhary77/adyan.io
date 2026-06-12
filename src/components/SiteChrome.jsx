@@ -229,8 +229,8 @@ function AuditCTAStrip() {
       <div className="audit-strip-inner">
         <div>
           <div className="eyebrow"><span className="eyebrow-dot" /> Next Step</div>
-          <h2>Start with a <span className="accent-word">Systems Audit.</span></h2>
-          <p>We map your highest-friction workflows, identify quick wins, and outline a practical buildout for your first AI operations system, agents, automations, dashboards, and integrations, in the order that compounds fastest.</p>
+          <h2>Start with a <span className="accent-word">free Systems Audit.</span></h2>
+          <p>A free 30-minute call. We map your highest-friction workflows, identify quick wins, and outline a practical buildout for your first AI operations system, agents, automations, dashboards, and integrations, in the order that compounds fastest.</p>
         </div>
         <div className="audit-strip-cta">
           <a className="btn-primary" href="/contact">Book a Systems Audit <span className="arr" /></a>
@@ -304,7 +304,7 @@ function SiteFooter() {
           <a href="/terms">Terms</a>
           <a href="/security">Security</a>
         </div>
-        <span>adyan.io · Khobar, Saudi Arabia</span>
+        <span>adyan.io · Khobar, Saudi Arabia · Sun–Thu</span>
       </div>
     </footer>);
 

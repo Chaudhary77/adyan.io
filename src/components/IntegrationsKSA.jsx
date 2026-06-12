@@ -7,7 +7,7 @@ function IntegrationsKSA() {
   return (
     <section className="kint" id="integrations" data-screen-label="05 Integrations">
       <div className="section-head">
-        <div className="eyebrow"><span className="eyebrow-dot"/> 05 / Integrations</div>
+        <div className="eyebrow"><span className="eyebrow-dot"/> Integrations</div>
         <h2>Built for the tools <span className="accent-word">Saudi teams already run on.</span></h2>
         <p className="section-sub section-sub-narrow">
           I meet your business where it works, WhatsApp first, then the chat and

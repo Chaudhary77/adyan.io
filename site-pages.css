@@ -500,6 +500,7 @@
 .form-row { display: flex; flex-direction: column; gap: 6px; }
 .form-row.full { grid-column: span 2; }
 .form-row label { font-family: var(--font-body); font-size: 11.5px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg-3); }
+.form-row .req-mark { color: var(--accent); font-weight: 700; }
 .form-row input,
 .form-row select,
 .form-row textarea {

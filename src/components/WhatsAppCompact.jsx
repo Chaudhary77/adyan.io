@@ -1,8 +1,18 @@
 import React from "react";
 import "./HeroOpt.jsx";
 const { WaPhone } = window;
-// WhatsAppCompact, replaces the long WhatsApp + Voice section. One column
-// of copy + a single phone mock. Stacks on mobile.
+// WhatsAppCompact, the single WhatsApp + Voice section on the landing pages.
+// One column of copy + ONE phone mock (the ops voice-note demo), plus a
+// compact strip of the customer-facing agent types absorbed from the retired
+// AgentsShowcase section, so the homepage carries one phone demo, not two.
+// Stacks on mobile.
+
+const CUSTOMER_AGENTS = [
+  { ic: "headset",        n: "Customer Support Agent",      ch: "WhatsApp · Web · Voice" },
+  { ic: "target",         n: "Sales & Lead Qualification",  ch: "Web · WhatsApp" },
+  { ic: "map-pin",        n: "Order & Delivery Tracking",   ch: "WhatsApp · SMS" },
+  { ic: "calendar-check", n: "Booking & Appointments",      ch: "WhatsApp · Web" },
+];
 
 function WhatsAppCompact() {
   React.useEffect(() => { if (window.lucide) window.lucide.createIcons(); });
@@ -30,6 +40,20 @@ function WhatsAppCompact() {
               <i data-lucide="message-circle"/> Message me on WhatsApp
             </a>
             <a className="btn-secondary" href="/services#whatsapp">See how it works</a>
+          </div>
+          <div className="wac-agents">
+            <div className="wac-agents-h">Agents your customers can just talk to:</div>
+            <div className="wac-agents-grid">
+              {CUSTOMER_AGENTS.map((a) =>
+                <div className="wac-agent" key={a.n}>
+                  <i data-lucide={a.ic}/>
+                  <div>
+                    <div className="n">{a.n}</div>
+                    <div className="ch">{a.ch}</div>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
         </div>
 

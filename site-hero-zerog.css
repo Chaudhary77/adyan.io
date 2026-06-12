@@ -205,7 +205,10 @@
 @media (max-width: 700px) {
   .hero[data-variant="zerog"] { padding: 56px 18px; }
   .zg-headline { font-size: clamp(40px, 15vw, 76px); }
-  .zg-meta { display: none; }
+  /* keep the two highest-signal trust chips on mobile (WhatsApp-native,
+     ERP-connected); hide the rest to save vertical space */
+  .zg-meta span:nth-child(2),
+  .zg-meta span:nth-child(4) { display: none; }
 }
 
 /* =========================================================

@@ -12,7 +12,7 @@ function ServicesHero() {
       <div className="page-hero-inner">
         <div className="page-hero-left">
           <div className="eyebrow"><span className="eyebrow-dot"/> Services</div>
-          <h1>Start with a 30-minute <span className="accent-word">systems audit.</span><br/>Get a clear path to your first AI system.</h1>
+          <h1>Start with a free 30-minute <span className="accent-word">Systems Audit.</span><br/>Get a clear path to your first AI system.</h1>
           <p className="lede">
             Share a little about your business, then book a 30-minute call. I'll identify your highest-friction workflow, confirm whether AI automation is a good fit, and outline the fastest practical way to move forward — from a simple quick-win automation to a phased AI operations system.
           </p>

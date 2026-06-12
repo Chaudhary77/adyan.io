@@ -94,7 +94,7 @@ function ExploreMore() {
       s: "In-Kingdom, on-prem or your own cloud. PDPL and NCA-aligned, with a full audit trail on every action.",
       cta: "How I keep data safe", href: "/security" },
     { icon: "route", k: "Method", t: "How I work",
-      s: "From a two-week Systems Audit to a phased buildout, working software early and often.",
+      s: "From a free 30-minute audit call to a phased buildout, working software early and often.",
       cta: "See the process", href: "/process" },
     { icon: "handshake", k: "Partners", t: "For IT & ERP firms",
       s: "Add AI automation delivery to your client offering, scoped, built, and supported behind your brand.",

@@ -4,7 +4,7 @@ import "../lib/bootstrap.js";
 import "../components/SiteChrome.jsx";
 
 const ReactDOM = { createRoot };
-const { SiteNav, SiteFooter, StickyAuditBar, Breadcrumb } = window;
+const { SiteNav, SiteFooter, Breadcrumb } = window;
 
 /* ===================================================================
    FORM SUBMISSION  ―  how audit requests reach ADYAN.
@@ -34,7 +34,7 @@ function ContactHero() {
       <div className="page-hero-inner">
         <div className="page-hero-left">
           <div className="eyebrow"><span className="eyebrow-dot"/> Book a Systems Audit</div>
-          <h1>Two weeks to a real plan.<br/><span className="accent-word">Your first system live in 4–6.</span></h1>
+          <h1>A free 30-minute audit call.<br/><span className="accent-word">Your first system live in 4–6 weeks.</span></h1>
           <p className="lede">
             Tell me a little about your operation and send it over WhatsApp or
             email. I reply within one business day with call times, and on the
@@ -61,7 +61,7 @@ function QualificationForm({ v, errors, onField, status, onSendWhatsApp, onSendE
     const a11y = invalid ? { "aria-invalid": true, "aria-describedby": errId } : {};
     return (
       <div className={"form-row" + (opts.full ? " full" : "") + (invalid ? " invalid" : "")}>
-        <label htmlFor={id}>{label}</label>
+        <label htmlFor={id}>{label}{opts.req && <span className="req-mark" aria-hidden="true" data-no-i18n> *</span>}</label>
         {opts.el === "textarea" ? (
           <textarea id={id} value={v[id]} placeholder={opts.placeholder}
             onChange={(e) => onField(id, e.target.value)} {...a11y} />
@@ -84,16 +84,16 @@ function QualificationForm({ v, errors, onField, status, onSendWhatsApp, onSendE
   return (
     <div className="contact-form-card" style={{ maxWidth: 760, margin: "0 auto" }}>
       <h3>Tell me about your operation</h3>
-      <p className="sub">Five fields. Two minutes. So the call starts where it should, with the work, not the introductions.</p>
+      <p className="sub">Four required fields, two minutes — the rest is optional. So the call starts where it should, with the work, not the introductions.</p>
       <form className="form-grid" onSubmit={(e) => e.preventDefault()} noValidate>
-        {field("name", "Your name", { placeholder: "e.g. Faisal Al-Saud" })}
-        {field("company", "Company", { placeholder: "e.g. Building Chemistry Industry" })}
-        {field("email", "Work email", { type: "email", placeholder: "you@company.com" })}
-        {field("phone", "WhatsApp number", { type: "tel", placeholder: "+966 50 818 3984" })}
-        {field("industry", "Industry", { el: "select", options: ["Construction","Manufacturing","Industrial Suppliers","Contracting","Logistics","Real Estate","Hospitality / F&B","Other"] })}
-        {field("size", "Team size", { el: "select", options: ["Under 25","25 – 100","100 – 500","500 – 2,000","2,000+"] })}
-        {field("problem", "What's the highest-friction workflow today?", { el: "textarea", full: true, placeholder: "e.g. Sales reps spend 3 hours a day quoting over WhatsApp, slow, inconsistent, disconnected from stock." })}
-        {field("tools", "Tools in play (ERP, CRM, accounting)", { full: true, placeholder: "e.g. Odoo + Salesforce + ZATCA + WhatsApp Business" })}
+        {field("name", "Your name", { placeholder: "e.g. Mohammed Al-Qahtani", req: true })}
+        {field("company", "Company", { placeholder: "e.g. Eastern Trading Co.", req: true })}
+        {field("email", "Work email", { type: "email", placeholder: "you@company.com", req: true })}
+        {field("phone", "WhatsApp number (optional)", { type: "tel", placeholder: "+966 5X XXX XXXX" })}
+        {field("industry", "Industry (optional)", { el: "select", options: ["Construction","Manufacturing","Industrial Suppliers","Contracting","Logistics","Real Estate","Hospitality / F&B","Other"] })}
+        {field("size", "Team size (optional)", { el: "select", options: ["Under 25","25 – 100","100 – 500","500 – 2,000","2,000+"] })}
+        {field("problem", "What's the highest-friction workflow today?", { el: "textarea", full: true, req: true, placeholder: "e.g. Sales reps spend 3 hours a day quoting over WhatsApp, slow, inconsistent, disconnected from stock." })}
+        {field("tools", "Tools in play (ERP, CRM, accounting — optional)", { full: true, placeholder: "e.g. Odoo + Salesforce + ZATCA + WhatsApp Business" })}
         {field("preferred", "Preferred days/times (optional)", { full: true, placeholder: "e.g. Sun–Tue mornings, Khobar time" })}
       </form>
       <div className="form-note">
@@ -333,7 +333,7 @@ function ContactSide() {
             <div className="lbl">In person</div>
           </div>
           <div className="val">Khobar · Eastern Province</div>
-          <p style={{fontSize:12.5, color:"var(--fg-3)", marginTop:8, lineHeight:1.5}}>By appointment, when remote won't do. I come to your office, or you come to mine.</p>
+          <p style={{fontSize:12.5, color:"var(--fg-3)", marginTop:8, lineHeight:1.5}}>By appointment, Sun–Thu, 9:00–18:00 (AST). I come to your office, or you come to mine.</p>
         </div>
       </div>
     </section>
@@ -354,7 +354,6 @@ function Site() {
         <ContactSide/>
       </main>
       <SiteFooter/>
-      <StickyAuditBar/>
     </div>
   );
 }

@@ -8,7 +8,6 @@ import "../components/TrustStats.jsx";
 import "../components/ProblemSolutionOpt.jsx";
 import "../components/WhatWeBuild.jsx";
 import "../components/IndustriesHome.jsx";
-import "../components/AgentsShowcase.jsx";
 import "../components/ArabicCapability.jsx";
 import "../components/WhatsAppCompact.jsx";
 import "../components/IntegrationsKSA.jsx";
@@ -17,7 +16,7 @@ import "../components/HomeSections.jsx";
 import "../components/ReadinessCTA.jsx";
 
 const ReactDOM = { createRoot };
-const { AgentsShowcase, ArabicCapability, ExploreMore, FounderStrip, HeroZeroG, HomeFAQ, IndustriesHome, IntegrationsKSA, ProblemSolutionOpt, ProofTeaser, ReadinessCTA, SiteNav, SiteFooter, Stats, WhatsAppCompact, WhatWeBuild } = window;
+const { ArabicCapability, ExploreMore, FounderStrip, HeroZeroG, HomeFAQ, IndustriesHome, IntegrationsKSA, ProblemSolutionOpt, ProofTeaser, ReadinessCTA, SiteNav, SiteFooter, Stats, WhatsAppCompact, WhatWeBuild } = window;
 
 // Same assembly as the EN landing page; index-ar.html pins adyan-lang=ar so
 // the i18n engine renders everything from the Arabic dictionary.
@@ -34,15 +33,14 @@ function Site() {
         <HeroZeroG/>
         <Stats/>
         <ProblemSolutionOpt/>
-        <WhatWeBuild/>
         <ProofTeaser/>
-        <IndustriesHome/>
-        <AgentsShowcase/>
-        <ArabicCapability/>
-        <IntegrationsKSA/>
+        <WhatWeBuild/>
         <WhatsAppCompact/>
-        <HomeFAQ/>
+        <ArabicCapability/>
+        <IndustriesHome/>
+        <IntegrationsKSA/>
         <FounderStrip/>
+        <HomeFAQ/>
         <ExploreMore/>
         <ReadinessCTA/>
       </main>

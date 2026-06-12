@@ -50,8 +50,8 @@ function HeroZeroG() {
           <p className="zg-sub zg-reveal" style={{ "--d": "240ms" }}>
             ADYAN builds production AI systems for operations-heavy businesses —
             quoting, follow-ups, site reports, tender watch — WhatsApp-native,
-            Arabic + English, wired into your ERP, with human approval on every
-            action that matters.
+            Arabic + English, wired into your ERP. A human approves every action
+            that matters.
           </p>
 
           <div className="zg-cta zg-reveal" style={{ "--d": "340ms" }}>

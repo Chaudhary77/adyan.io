@@ -119,8 +119,9 @@ window.ADYAN_AR_DICT = {
   /* ===== Audit CTA strip ===== */
   "Start with a": "ابدأ بـ",
   "Systems Audit.": "تشخيص أنظمة.",
-  "Two weeks. We map every operations bottleneck across your business and propose a phased system buildout, agents, automations, dashboards, and integrations, in the order that compounds fastest.":
-    "أسبوعان. نرسم خريطة كل نقاط الاختناق في عملياتك ونقترح خطة تنفيذ مرحلية, وكلاء وأتمتة ولوحات تحكم وتكاملات، بالترتيب الأسرع تأثيرًا.",
+  "free Systems Audit.": "تشخيص أنظمة مجاني.",
+  "A free 30-minute call. We map your highest-friction workflows, identify quick wins, and outline a practical buildout for your first AI operations system, agents, automations, dashboards, and integrations, in the order that compounds fastest.":
+    "مكالمة مجانية من 30 دقيقة. نرسم مسارات العمل الأكثر احتكاكًا لديك، ونحدد المكاسب السريعة، ونرسم خطة بناء عملية لأول نظام عمليات بالذكاء الاصطناعي لديك, وكلاء وأتمتة ولوحات تحكم وتكاملات، بالترتيب الأسرع تأثيرًا.",
   "Response within 24 hours": "ردّ خلال 24 ساعة",
   "NDA on request": "اتفاقية سرية عند الطلب",
 
@@ -148,7 +149,7 @@ window.ADYAN_AR_DICT = {
   "Terms": "الشروط",
   "Security": "الأمن",
   "© 2026 ADYAN, AI Operations Systems": "© 2026 أديان, أنظمة عمليات بالذكاء الاصطناعي",
-  "adyan.io · Khobar, Saudi Arabia": "adyan.io · الخبر، المملكة العربية السعودية",
+  "adyan.io · Khobar, Saudi Arabia · Sun–Thu": "adyan.io · الخبر، المملكة العربية السعودية · الأحد–الخميس",
 
   /* ===== About page ===== */
   "A founder-led AI studio": "أستوديو ذكاء اصطناعي بقيادة مؤسّسه",
@@ -250,10 +251,10 @@ window.ADYAN_AR_DICT = {
     "حين لا ترى الأدوات الجاهزة ما تحتاج رؤيته، نبني التطبيق. أدوات داخلية، لوحات عمليات، إحاطات تنفيذية, مبنية على البيانات التي يجمعها وكلاؤك وتكاملاتك أصلًا، ومصمّمة للدور الذي يستخدمها فعلًا.",
 
   /* ===== Process page ===== */
-  "Audit. Design. Build. Deploy.": "تشخيص. تصميم. بناء. إطلاق.",
+  "Blueprint. Design. Build. Deploy.": "تخطيط. تصميم. بناء. إطلاق.",
   "Improve.": "تحسين.",
-  "Every engagement follows the same five-step process, built around real operations, paced for the people who have to actually use the result. Each phase has a clear deliverable, a fixed timebox, and a gate before the next one starts. No big-bang launches. No scope drift.":
-    "كل تعاون يتبع نفس الخطوات الخمس, مبنية حول عمليات حقيقية، بإيقاع يناسب من سيستخدم النتيجة فعلًا. لكل مرحلة مُخرج واضح، وزمن محدد، وبوّابة قبل التالية. لا إطلاقات انفجارية. ولا تمدّد نطاق.",
+  "It starts with a free 30-minute Systems Audit call. From there, every engagement follows the same five-step process, built around real operations, paced for the people who have to actually use the result. Each phase has a clear deliverable, a fixed timebox, and a gate before the next one starts. No big-bang launches. No scope drift.":
+    "تبدأ بمكالمة تشخيص أنظمة مجانية من 30 دقيقة. ومن هناك، يتبع كل تعاون نفس الخطوات الخمس, مبنية حول عمليات حقيقية، بإيقاع يناسب من سيستخدم النتيجة فعلًا. لكل مرحلة مُخرج واضح، وزمن محدد، وبوّابة قبل التالية. لا إطلاقات انفجارية. ولا تمدّد نطاق.",
   "Total cycle": "الدورة الكاملة",
   "6–10 weeks": "6–10 أسابيع",
   "First go-live": "أول تشغيل",
@@ -262,10 +263,25 @@ window.ADYAN_AR_DICT = {
   "Continuous": "مستمر",
   "Monthly improvement cycles": "دورات تحسين شهرية",
   "Systems Audit": "تشخيص الأنظمة",
+  "Systems Audit call": "مكالمة تشخيص الأنظمة",
+  "Operations Blueprint": "مخطط العمليات",
+  "30 minutes · Free": "30 دقيقة · مجانًا",
+  "Where it all starts, and the only step that costs nothing. We walk your highest-friction workflow together, I tell you honestly whether AI fits, and you get a fixed-scope quote before any paid work begins.":
+    "هنا تبدأ الرحلة, وهي الخطوة الوحيدة التي لا تكلف شيئًا. نستعرض معًا مسار العمل الأكثر احتكاكًا لديك، وأخبرك بصدق إن كان الذكاء الاصطناعي مناسبًا، وتحصل على عرض سعر ثابت النطاق قبل بدء أي عمل مدفوع.",
+  "Your highest-friction workflow, mapped": "مسار العمل الأكثر احتكاكًا لديك، مرسومًا",
+  "Honest fit assessment": "تقييم صادق للملاءمة",
+  "Fixed-scope quote for the Blueprint": "عرض سعر ثابت النطاق للمخطط",
+  "No commitment beyond the call": "لا التزام يتجاوز المكالمة",
   "Design": "تصميم",
   "Build": "بناء",
   "Deploy": "إطلاق",
   "Improve": "تحسين",
+  "How fast can a first system be live?": "ما أسرع وقت يمكن أن يعمل فيه أول نظام؟",
+  "For most engagements, 4–6 weeks from kick-off to the first system handling production traffic. The Operations Blueprint takes two weeks, design takes one, build takes two to three, and we go live on a controlled slice in week 5 or 6.":
+    "في معظم التعاونات، 4–6 أسابيع من الانطلاق حتى يعالج أول نظام حركة العمل الفعلية. يستغرق مخطط العمليات أسبوعين، والتصميم أسبوعًا، والبناء أسبوعين إلى ثلاثة، ثم ننطلق على شريحة محدودة في الأسبوع الخامس أو السادس.",
+  "What does it cost?": "كم التكلفة؟",
+  "Engagements are scoped per phase. A typical first phase, Blueprint + one system live, sits between SAR 40k–120k depending on complexity. The free audit call comes first; you get a fixed-scope quote before any paid work starts.":
+    "تُحدَّد التعاونات مرحلةً بمرحلة. المرحلة الأولى النموذجية, المخطط + نظام واحد يعمل, تتراوح بين 40 و120 ألف ريال حسب التعقيد. تأتي مكالمة التشخيص المجانية أولًا، وتحصل على عرض سعر ثابت النطاق قبل بدء أي عمل مدفوع.",
 
   /* Process, what we need */
   "What we expect.": "ما نتوقّعه.",
@@ -309,15 +325,16 @@ window.ADYAN_AR_DICT = {
   "Response": "الردّ",
   "Within 24 hours": "خلال 24 ساعة",
   "Tell us about your operation": "أخبرنا عن عملياتك",
-  "Five fields. Two minutes. So the call starts where it should, with the work, not the introductions.":
-    "خمسة حقول. دقيقتان. لتبدأ المكالمة من حيث يجب, من العمل، لا التعارف.",
+  "Four required fields, two minutes — the rest is optional. So the call starts where it should, with the work, not the introductions.":
+    "أربعة حقول مطلوبة، دقيقتان, والباقي اختياري. لتبدأ المكالمة من حيث يجب, من العمل، لا التعارف.",
   "Your name": "الاسم",
   "Work email": "البريد الإلكتروني",
-  "WhatsApp number": "رقم الواتساب",
+  "WhatsApp number (optional)": "رقم الواتساب (اختياري)",
   "Industry": "القطاع",
-  "Team size": "حجم الفريق",
+  "Industry (optional)": "القطاع (اختياري)",
+  "Team size (optional)": "حجم الفريق (اختياري)",
   "What's the highest-friction workflow today?": "ما أعلى نقطة احتكاك في عملياتك اليوم؟",
-  "Tools in play (ERP, CRM, accounting)": "الأدوات المستخدمة (ERP، CRM، محاسبة)",
+  "Tools in play (ERP, CRM, accounting — optional)": "الأدوات المستخدمة (ERP، CRM، محاسبة — اختياري)",
   "Select…": "اختر…",
   "Under 25": "أقل من 25",
   "25 – 100": "25 – 100",
@@ -344,6 +361,8 @@ window.ADYAN_AR_DICT = {
     "الأنسب للموجزات التفصيلية واتفاقيات السرية وفرق المشتريات. ردّ خلال يوم عمل واحد.",
   "By appointment, when remote won't do. We come to your office, or you come to ours.":
     "بموعد مسبق، حين لا يكفي اللقاء عن بُعد. نأتيكم أو تأتوننا.",
+  "By appointment, Sun–Thu, 9:00–18:00 (AST). I come to your office, or you come to mine.":
+    "بموعد مسبق، الأحد–الخميس، 9:00–18:00 بتوقيت السعودية. آتي إلى مكتبك، أو تأتي إلى مكتبي.",
 
   /* ===== Generic / shared ===== */
   "Ready to turn scattered operations": "حوّل عملياتك المبعثرة",
@@ -509,7 +528,7 @@ window.ADYAN_AR_DICT = {
   "One mission-control view of operations": "رؤية موحّدة من مركز التحكم",
 
   /* ===== Landing, What We Build ===== */
-  "04 / What We Build": "04 / ما الذي نبنيه",
+  "What We Build": "ما الذي نبنيه",
   "Four building blocks.": "أربع لبنات.",
   "One operating system.": "نظام تشغيل واحد.",
   "Department-level agents for owners, sales, procurement, accounts, support, and operations.":
@@ -679,7 +698,7 @@ window.ADYAN_AR_DICT = {
     "قوائم مستهدفة وتسلسلات متعدّدة القنوات ومعالجة منظّمة للردود على نطاق واسع.",
 
   /* ===== Landing, KSA Integrations (new) ===== */
-  "05 / Integrations": "05 / التكاملات",
+  "Integrations": "التكاملات",
   "Built for the tools": "مبنية للأدوات",
   "Saudi teams already run on.": "التي تعمل عليها الفرق السعودية بالفعل.",
   "We meet your business where it works, WhatsApp first, then the chat and ERP systems your departments already live in. No rip-and-replace.":
@@ -881,6 +900,7 @@ window.ADYAN_AR_DICT = {
     "في الثانية صباحًا، تتأخر شحنة. يبالغ مورّد في التسعير. يرسل عميل رسالة واتساب. وبحلول الفجر، يكون نظامك قد تابع، ونبّه إلى الفارق، وسجّل التحديث، وأعدّ موجزك الصباحي.",
   "Your team lives on WhatsApp. So I built every ADYAN system to be reachable from the channel they already use, bilingual, voice-aware, and audit-logged end to end.":
     "فريقك يعيش على واتساب. لذلك بنيتُ كل نظام من أديان ليكون متاحًا من القناة التي يستخدمونها بالفعل, ثنائي اللغة، يفهم الصوت، ومُسجَّل للتدقيق من الطرف إلى الطرف.",
+  "Agents your customers can just talk to:": "وكلاء يمكن لعملائك التحدّث إليهم مباشرة:",
   "See delays, decisions, and actions": "شاهد التأخيرات والقرارات والإجراءات",
   "in one place.": "في مكان واحد.",
   "Prefer your existing tenancy? I deploy into your cloud account, under your billing, your access controls, your audit.":
@@ -928,8 +948,10 @@ window.ADYAN_AR_DICT = {
   "Start the day informed": "ابدأ يومك على اطّلاع",
   "Move the sliders to match your operation. I'll estimate the time and money an ADYAN buildout could reclaim, based on the ~40% average cycle-time reduction across my live systems.":
     "حرّك المنزلقات لتطابق عملياتك. سأقدّر الوقت والمال الذي يمكن أن يستعيده بناء أديان, استنادًا إلى متوسط خفض زمن الدورة بنحو 40% عبر أنظمتي الحيّة.",
-  "A focused 30-minute session. I map your highest-friction workflows, tell you honestly where AI fits, and where it doesn't, and leave you with a phased plan. No pitch deck, no commitment beyond the call.":
-    "جلسة مركّزة مدتها 30 دقيقة. أرسم مسارات العمل الأكثر احتكاكًا لديك، وأخبرك بصدق أين يناسب الذكاء الاصطناعي, وأين لا يناسب, وأترك لك خطة مرحلية. دون عرض تقديمي، ودون التزام يتجاوز المكالمة.",
+  "A focused 30-minute audit call. I map your highest-friction workflows, tell you honestly where AI fits, and where it doesn't, and leave you with a phased plan. No pitch deck, no commitment beyond the call.":
+    "مكالمة تشخيص مركّزة من 30 دقيقة. أرسم مسارات العمل الأكثر احتكاكًا لديك، وأخبرك بصدق أين يناسب الذكاء الاصطناعي, وأين لا يناسب, وأترك لك خطة مرحلية. دون عرض تقديمي، ودون التزام يتجاوز المكالمة.",
+  "Free 30-Minute Systems Audit": "تشخيص أنظمة مجاني · 30 دقيقة",
+  "Book your free Systems Audit": "احجز تشخيص أنظمتك المجاني",
   "Or message me on WhatsApp": "أو راسلني على واتساب",
   "What I'd ship first, in 4–6 weeks, and what compounds after it.": "ما الذي سأطلقه أولًا، خلال 4–6 أسابيع، وما الذي يتراكم بعده.",
 
@@ -937,8 +959,8 @@ window.ADYAN_AR_DICT = {
   "AI operations studio · Khobar": "استوديو عمليات بالذكاء الاصطناعي · الخبر",
   "AI agents that run your operations.": "وكلاء ذكاء اصطناعي يديرون عملياتك.",
   "Live in 4–6 weeks.": "جاهزون خلال 4–6 أسابيع.",
-  "ADYAN builds production AI systems for operations-heavy businesses — quoting, follow-ups, site reports, tender watch — WhatsApp-native, Arabic + English, wired into your ERP, with human approval on every action that matters.":
-    "تبني أديان أنظمة ذكاء اصطناعي إنتاجية للأعمال كثيفة العمليات, عروض الأسعار، والمتابعات، وتقارير المواقع، ومراقبة المنافسات, تعمل عبر واتساب، بالعربية والإنجليزية، مرتبطة بنظام ERP لديك، مع اعتماد بشري لكل إجراء مهم.",
+  "ADYAN builds production AI systems for operations-heavy businesses — quoting, follow-ups, site reports, tender watch — WhatsApp-native, Arabic + English, wired into your ERP. A human approves every action that matters.":
+    "تبني أديان أنظمة ذكاء اصطناعي إنتاجية للأعمال كثيفة العمليات, عروض الأسعار، والمتابعات، وتقارير المواقع، ومراقبة المنافسات, تعمل عبر واتساب، بالعربية والإنجليزية، مرتبطة بنظام ERP لديك. ويعتمد إنسانٌ كل إجراء مهم.",
   "Book a free Systems Audit": "احجز تشخيص أنظمة مجاني",
   "See systems in production": "شاهد الأنظمة في الإنتاج",
 
@@ -1013,13 +1035,15 @@ window.ADYAN_AR_DICT = {
   /* ===== Explore (rewritten) ===== */
   "How I keep data safe": "كيف أحمي البيانات",
   "How I work": "كيف أعمل",
+  "From a free 30-minute audit call to a phased buildout, working software early and often.":
+    "من مكالمة تشخيص مجانية من 30 دقيقة إلى بناء مرحلي, برمجيات تعمل مبكرًا وباستمرار.",
   "For IT & ERP firms": "لشركات تقنية المعلومات والـ ERP",
   "Add AI automation delivery to your client offering, scoped, built, and supported behind your brand.":
     "أضف تنفيذ أتمتة الذكاء الاصطناعي إلى خدماتك لعملائك, يُحدَّد نطاقه ويُبنى ويُدعم باسم علامتك.",
 
   /* ===== Contact (rewritten) ===== */
-  "Two weeks to a real plan.": "أسبوعان حتى خطة حقيقية.",
-  "Your first system live in 4–6.": "وأول نظام يعمل خلال 4–6 أسابيع.",
+  "A free 30-minute audit call.": "مكالمة تشخيص مجانية من 30 دقيقة.",
+  "Your first system live in 4–6 weeks.": "وأول نظام يعمل خلال 4–6 أسابيع.",
   "Tell me a little about your operation and send it over WhatsApp or email. I reply within one business day with call times, and on the call we walk your highest-friction workflow and map a phased buildout. No pitch decks, no commitment.":
     "أخبرني قليلًا عن عملياتك وأرسلها عبر واتساب أو البريد. أرد خلال يوم عمل واحد بمواعيد للمكالمة، وفيها نستعرض مسار العمل الأكثر احتكاكًا لديك ونرسم خطة تنفيذ مرحلية. دون عروض تقديمية ودون التزام.",
   "Channel": "القناة",
@@ -1049,6 +1073,8 @@ window.ADYAN_AR_DICT = {
 
   /* ===== Misc (rewritten sections) ===== */
   "Message me on WhatsApp": "راسلني على واتساب",
+  "Start with a free 30-minute": "ابدأ بـ 30 دقيقة مجانية,",
+  "Get a clear path to your first AI system.": "واحصل على مسار واضح لأول نظام ذكاء اصطناعي لديك.",
   "I don't sell chatbots.": "أنا لا أبيع روبوتات محادثة.",
   "I build systems that run departments.": "أبني أنظمة تدير أقسامًا كاملة.",
   "support agent · demo": "وكيل دعم · عرض توضيحي",

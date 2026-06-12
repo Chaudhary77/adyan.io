@@ -55,7 +55,7 @@ function WhatWeBuild() {
   return (
     <section className="wwb" id="what" data-screen-label="04 What We Build">
       <div className="section-head">
-        <div className="eyebrow"><span className="eyebrow-dot"/> 04 / What We Build</div>
+        <div className="eyebrow"><span className="eyebrow-dot"/> What We Build</div>
         <h2>Four building blocks. <span className="accent-word">One operating system.</span></h2>
         <div className="connector"/>
       </div>

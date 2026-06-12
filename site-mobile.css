@@ -326,6 +326,18 @@ img, svg { max-width: 100%; }
 .wac-cta .btn-wa { background: #25D366; color: #062c16; }
 .wac-cta .btn-wa:hover { background: #20bd5b; }
 
+/* Customer-facing agent types, absorbed from the retired AgentsShowcase */
+.wac-agents { margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--border-1); }
+.wac-agents-h { font-family: var(--font-body); font-size: 13px; font-weight: 600; letter-spacing: .02em; color: var(--fg-3); margin-bottom: 12px; }
+.wac-agents-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.wac-agent { display: flex; align-items: flex-start; gap: 10px; padding: 10px 12px; background: var(--bg-elev-1); border: 1px solid var(--border-1); border-radius: var(--r-md); }
+.wac-agent svg { width: 16px; height: 16px; color: var(--accent); flex: none; margin-top: 2px; }
+.wac-agent .n { font-family: var(--font-display); font-size: 13.5px; font-weight: 600; color: var(--fg-1); line-height: 1.3; }
+.wac-agent .ch { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .04em; color: var(--fg-3); margin-top: 3px; }
+@media (max-width: 480px) {
+  .wac-agents-grid { grid-template-columns: 1fr; }
+}
+
 /* ---------- Footer, alignment & polish ---------- */
 .footer {
   padding: 88px 40px 28px;
